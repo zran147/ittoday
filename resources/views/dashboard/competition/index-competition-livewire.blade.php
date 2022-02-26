@@ -1,6 +1,5 @@
 <div>
-    {{-- Success is as dangerous as failure. --}}
-
+    {{-- Stop trying to control. --}}
     @push('style')
         <link rel="stylesheet" href="/assets/vendors/jquery-datatables/jquery.dataTables.min.css">
         <link rel="stylesheet" href="/assets/vendors/jquery-datatables/jquery.dataTables.bootstrap5.min.css">
@@ -21,40 +20,48 @@
 
     <section class="section">
         <div class="card">
+            <div class="card-header">
+                <a href="/dashboard/Competition/add"><button class="btn btn-success">Add New Competition</button></a>
+            </div>
             <div class="card-body">
                 <table class="table table-striped table-hover" id="table1">
                     <thead>
                         <tr>
                             <th>NO</th>
-                            <th>Name User</th>
-                            <th>Email</th>
-                            <th>No Wa</th>
-                            <th>Event Name </th>
-                            <th>Feedback Event</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Status </th>
+                            <th>Registrant</th>
                             <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($registrants as $item)
+                        {{-- @foreach ($allevent as $item)
                             <tr>
-                                <td>{{ $loop->index+1 }}</td>
-                                @foreach ($item->user as $user)
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->wa_user }}</td>
-                                @endforeach
-                                @foreach ($item->event as $event)
-                                    <td>{{ $event->name_event }}</td>
-                                @endforeach
-                                
-                                <td>
-                                    @if (isset($item->feedback))
-                                        {{ $item->feedback }}
-                                    @else
-                                        {{ "belum" }}
-                                    @endif
-                                    {{-- {{ $item->feedback }} --}}
+                                <td>{{ $loop->index + 1 }}</td>
+                                <td>{{ $item->name_event }}</td>
+                                <td>{{ $item->start_event }} until {{ $item->finish_event }}</td>
+                                <td class="text-center">
+                                    <button class="btn btn-outline-primary"
+                                        wire:click="activeevent('{{ Crypt::encrypt($item->id) }}','{{ $item->active }}')"
+                                        onclick="confirm('Are you sure you want to change the event ?') || event.stopImmediatePropagation()">
+                                        @if ($item->active == 'draft')
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-toggle-off" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z" />
+                                            </svg>
+                                        @else
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-toggle-on" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M5 3a5 5 0 0 0 0 10h6a5 5 0 0 0 0-10H5zm6 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" />
+                                            </svg>
+                                        @endif
+                                        {{ $item->active }}
+                                    </button>
                                 </td>
+                                <td>{{ $item->registrant->count() }}</td>
                                 <td>
                                     <button class="btn btn-danger"
                                         wire:click="deleteevent('{{ Crypt::encrypt($item->id) }}')"
@@ -78,7 +85,7 @@
                                     </a>
                                 </td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
                     </tbody>
                 </table>
             </div>
@@ -116,5 +123,4 @@
             })
         </script>
     @endpush
-
 </div>

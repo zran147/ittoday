@@ -60,7 +60,13 @@
                                         {{ $item->active }}
                                     </button>
                                 </td>
-                                <td>{{ $item->registrant->count() }}</td>
+                                <td>
+                                    @if ($item->registrant != null)
+                                        {{ $item->registrant->count() }}
+                                    @else
+                                        {{ 'belum ada pendaftar' }}
+                                    @endif
+                                </td>
                                 <td>
                                     <button class="btn btn-danger"
                                         wire:click="deleteevent('{{ Crypt::encrypt($item->id) }}')"
@@ -74,7 +80,7 @@
                                         </svg>
                                     </button>
                                     <a href="/dashboard/event/{{ Crypt::encrypt($item->id) }}/edit">
-                                        <button class="btn btn-success" >
+                                        <button class="btn btn-success">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
                                                 <path

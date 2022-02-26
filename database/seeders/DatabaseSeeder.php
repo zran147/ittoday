@@ -88,6 +88,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'lintang lazuardi',
             'password' => bcrypt('linlaz11'),
             'email' => 'lintanglazuardi11@gmail.com',
+            'wa_user' => '0895708134567'
         ]);
         $user->assignRole('admin');
     }

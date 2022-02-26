@@ -9,7 +9,7 @@ class RegistrantEvent extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    // protected $with = ['event','user'];
+    protected $with = ['event','user'];
     public function event()
     {
         return $this->hasMany(Event::class,'id');

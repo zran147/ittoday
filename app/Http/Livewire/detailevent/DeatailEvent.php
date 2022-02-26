@@ -13,8 +13,7 @@ class DeatailEvent extends Component
     {
         if (isset($this->slug)) {
             $event = Event::where('slug_event', $this->slug)->firstorfail();
-            $this->registrant = RegistrantEvent::with(['event', 'user'])->where('event_id', $event->id)->get();
-            // dd($this->registrant);
+            $this->registrant = RegistrantEvent::where('event_id', $event->id)->get();
         }
     }
     public function render()

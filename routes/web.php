@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,15 +27,17 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verifie
     Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::controller(EventController::class)->prefix('event')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision')->group(function () {
+    Route::controller(EventController::class)->prefix('event')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-event')->group(function () {
         Route::get('/', 'indexdashboard')->name('indexdashboardcontroller');
         Route::get('/add', 'createdashboard')->name('createdashboardcontroller');
         Route::get('/{idevent}/edit', 'editdashboard')->name('editdashboardcontroller');
     });
-    Route::controller(EventController::class)->prefix('detailevent')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision')->group(function () {
+    Route::controller(EventController::class)->prefix('detailevent')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-event')->group(function () {
         Route::get('/{slug}', 'registranteventdashboard')->name('registranteventdashboardcontroller');
-        // Route::get('/add', 'createdashboard')->name('createdashboardcontroller');
-        // Route::get('/{idevent}/edit', 'editdashboard')->name('editdashboardcontroller');
+    });
+    Route::controller(CompetitionController::class)->prefix('competition')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision')->group(function () {
+        Route::get('/', 'indexdashboard')->name('indexdashboardcompetitioncontroller');
+        Route::get('/add', 'createdashboard')->name('createdashboardcompetitioncontroller');
     });
     // Route::group(['prefix' => 'event', 'middleware' => ['auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision']], function () {
     //     Route::get('/', [EventController::class, 'indexdashboard'])->name('indexdashboardcontroller');

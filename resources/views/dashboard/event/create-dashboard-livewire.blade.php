@@ -140,8 +140,8 @@
         <script>
             tinymce.init({
                 selector: '#default',
-                toolbar: 'undo redo fontselect fontsizeselect formatselect bold italic alignleft aligncenter alignright bullist numlist outdent indent  ',
-                plugins: 'fontselect fontsizeselect formatselect',
+                toolbar: 'undo redo fontselect fontsizeselect formatselect bold italic alignleft aligncenter alignright bullist numlist outdent indent link',
+                plugins: 'fontselect fontsizeselect formatselect link',
                 height: (window.innerHeight - 300),
                 forced_root_block: false,
                 setup: function(editor) {

@@ -68,12 +68,12 @@
                     {{-- @endcan --}}
 
                     {{-- KESTARY,KOMPETISI,ADMIN,LO --}}
-                    {{-- @can('action-competision') --}}
-                    <li class="sidebar-title">About Competision</li>
+                    {{-- @can('action-comptition') --}}
+                    <li class="sidebar-title">About Comptition</li>
                     <li class="sidebar-item ">
-                        <a href="/dashboard/event" class='sidebar-link'>
+                        <a href="/dashboard/competition" class='sidebar-link'>
                             <i class="bi bi-Code"></i>
-                            <span>Competision</span>
+                            <span>Kompetisi</span>
                         </a>
                     </li>
                     <li class="sidebar-item  has-sub">

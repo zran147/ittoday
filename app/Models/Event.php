@@ -9,9 +9,9 @@ class Event extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-
+    // protected $with = ['registrant'];
     public function registrant()
     {
-        return $this->belongsTo(RegistrantEvent::class,'id');
+        return $this->belongsTo(RegistrantEvent::class, 'id');
     }
 }
