@@ -24,6 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var string[]
      */
+    protected $with = ['registrant'];
     protected $fillable = [
         'name',
         'email',
@@ -56,7 +57,9 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $appends = [
-        'profile_photo_url',
-    ];
+
+    public function registrant()
+    {
+       return $this->belongsTo(RegistrantEvent::class,'user_id');
+    }
 }

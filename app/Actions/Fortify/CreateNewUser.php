@@ -24,17 +24,18 @@ class CreateNewUser implements CreatesNewUsers
             'name' => ['required', 'string', 'max:100', 'regex:/^[\pL\s\-]+$/u'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
-            'wa_user' => ['required', 'numeric', 'digits_between:10,15'],
+            'wa_user' => ['required', 'numeric', 'digits_between:10,15','unique:users,wa_user'],
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
-        // $user = User::create([
-        //     'name' => $input['name'],
-        //     'email' => $input['email'],
-        //     'password' => Hash::make($input['password']),
-        // ]);
-        // $user->assignRole('user');
+        $user = User::create([
+            'name' => $input['name'],
+            'email' => $input['email'],
+            'password' => Hash::make($input['password']),
+            'wa_user' => $input['wa_user'],
+        ]);
+        $user->assignRole('user');
 
-        // return $user;
+        return $user;
     }
 }

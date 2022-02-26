@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verified', 'role_or_permission:admin|dashboard-menu']], function () {
+    Route::get('/', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::controller(EventController::class)->prefix('event')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision')->group(function () {
+        Route::get('/', 'indexdashboard')->name('indexdashboardcontroller');
+        Route::get('/add', 'createdashboard')->name('createdashboardcontroller');
+        Route::get('/{idevent}/edit', 'editdashboard')->name('editdashboardcontroller');
+    });
+    Route::controller(EventController::class)->prefix('detailevent')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision')->group(function () {
+        Route::get('/{slug}', 'registranteventdashboard')->name('registranteventdashboardcontroller');
+        // Route::get('/add', 'createdashboard')->name('createdashboardcontroller');
+        // Route::get('/{idevent}/edit', 'editdashboard')->name('editdashboardcontroller');
+    });
+    // Route::group(['prefix' => 'event', 'middleware' => ['auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision']], function () {
+    //     Route::get('/', [EventController::class, 'indexdashboard'])->name('indexdashboardcontroller');
+    //     Route::get('/add', [EventController::class, 'createdashboard'])->name('createdashboardcontroller');
+    //     Route::get('/edit', [EventController::class, 'editdashboard'])->name('createdashboardcontroller');
+    // });
+});
