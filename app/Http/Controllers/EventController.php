@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\RegistrantEvent;
 use Illuminate\Support\Facades\Crypt;
 
 class EventController extends Controller
@@ -30,8 +28,12 @@ class EventController extends Controller
     }
     public function registranteventdashboard($slug)
     {
+        // $event = Event::where('slug_event',$slug)->firstorfail();
+        // $registrant = RegistrantEvent::where('event_id', $event->id)->get();
         return view('dashboard.detailevent.indexdetailbyslugcontroller',[
-            'slug' => $slug
+            'slug' => $slug,
+            // 'registrants' => $registrant
         ]);
     }
+   
 }

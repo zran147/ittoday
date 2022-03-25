@@ -12,6 +12,6 @@ class Event extends Model
     // protected $with = ['registrant'];
     public function registrant()
     {
-        return $this->belongsTo(RegistrantEvent::class, 'id');
+        return $this->hasMany(RegistrantEvent::class);
     }
 }

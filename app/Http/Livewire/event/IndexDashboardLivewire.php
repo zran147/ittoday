@@ -13,7 +13,7 @@ class IndexDashboardLivewire extends Component
     public function render()
     {
         return view('dashboard.event.index-dashboard-livewire', [
-            'allevent' => Event::withCount('registrant')->get(),
+            'allevent' => Event::with('registrant')->get(),
         ]);
     }
     public function activeevent($idevent, $active)

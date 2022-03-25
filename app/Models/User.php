@@ -29,6 +29,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'wa_user'
     ];
 
     /**
@@ -60,6 +61,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function registrant()
     {
-       return $this->belongsTo(RegistrantEvent::class,'user_id');
+       return $this->hasMany(RegistrantEvent::class);
     }
 }

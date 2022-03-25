@@ -50,12 +50,12 @@
                             <span>event</span>
                         </a>
                     </li>
-                    <li class="sidebar-item  has-sub @if (Request::is('dashboard/detailevent')) {{ 'active' }} @endif">
+                    <li class="sidebar-item  has-sub @if (Request::is('dashboard/detailevent/*')) {{ 'active' }} @endif">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-collection-fill"></i>
                             <span>Detail Event</span>
                         </a>
-                        <ul class="submenu ">
+                        <ul class="submenu @if (Request::is('dashboard/detailevent/*')) {{ 'active' }} @endif">
                             @foreach ($event as $item)
                                 <li class="submenu-item ">
                                     <a href="/dashboard/detailevent/{{ $item->slug_event }}">
@@ -70,23 +70,23 @@
                     {{-- KESTARY,KOMPETISI,ADMIN,LO --}}
                     {{-- @can('action-comptition') --}}
                     <li class="sidebar-title">About Comptition</li>
-                    <li class="sidebar-item ">
+                    <li class="sidebar-item  @if (Request::is('dashboard/competition*')) {{ 'active' }} @endif">
                         <a href="/dashboard/competition" class='sidebar-link'>
                             <i class="bi bi-Code"></i>
                             <span>Kompetisi</span>
                         </a>
                     </li>
-                    <li class="sidebar-item  has-sub">
+                    <li class="sidebar-item  has-sub @if (Request::is('dashboard/detailcompetition*')) {{ 'active' }} @endif">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-Collection-play-fill"></i>
                             <span>Detail Competision</span>
                         </a>
-                        <ul class="submenu ">
+                        <ul class="submenu  @if (Request::is('dashboard/detailcompetition*')) {{ 'active' }} @endif">
                             <li class="submenu-item ">
-                                <a href="extra-component-avatar.html">UX ITTODAY 2022</a>
+                                <a href="/dashboard/detailcompetition">UX ITTODAY 2022</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="extra-component-avatar.html">HACK TODAY 2022</a>
+                                <a href="/dashboard/detailcompetition">HACK TODAY 2022</a>
                             </li>
                         </ul>
                     </li>
@@ -94,14 +94,14 @@
 
                     {{-- @can('action-competision') --}}
                     <li class="sidebar-title">About User</li>
-                    <li class="sidebar-item ">
-                        <a href="/dashboard/event" class='sidebar-link'>
+                    <li class="sidebar-item @if (Request::is('dashboard/manageuser*')) {{ 'active' }} @endif">
+                        <a href="/dashboard/manageuser" class='sidebar-link'>
                             <i class="bi bi-person"></i>
                             <span>Manage User</span>
                         </a>
                     </li>
-                    <li class="sidebar-item ">
-                        <a href="/dashboard/event" class='sidebar-link'>
+                    <li class="sidebar-item @if (Request::is('dashboard/managerole*')) {{ 'active' }} @endif ">
+                        <a href="/dashboard/managerole" class='sidebar-link'>
                             <i class="bi bi-command"></i>
                             <span>Manage role and permissions</span>
                         </a>

@@ -12,10 +12,10 @@ class RegistrantEvent extends Model
     protected $with = ['event','user'];
     public function event()
     {
-        return $this->hasMany(Event::class,'id');
+        return $this->belongsTo(Event::class);
     }
     public function user()
     {
-        return $this->hasMany(User::class, 'id');
+        return $this->belongsTo(User::class);
     }
 }

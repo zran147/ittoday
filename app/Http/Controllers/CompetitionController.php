@@ -14,4 +14,8 @@ class CompetitionController extends Controller
     {
         return view('dashboard.competition.createdashboardcontroller');
     }
+    public function indexdetaildashboard()
+    {
+        return view('dashboard.competition.detailcompetition');
+    }
 }

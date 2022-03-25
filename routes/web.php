@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\CompetitionController;
-use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\CompetitionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verified', 'role_or_permission:admin|dashboard-menu']], function () {
     Route::get('/', function () {
@@ -39,9 +36,13 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verifie
         Route::get('/', 'indexdashboard')->name('indexdashboardcompetitioncontroller');
         Route::get('/add', 'createdashboard')->name('createdashboardcompetitioncontroller');
     });
-    // Route::group(['prefix' => 'event', 'middleware' => ['auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision']], function () {
-    //     Route::get('/', [EventController::class, 'indexdashboard'])->name('indexdashboardcontroller');
-    //     Route::get('/add', [EventController::class, 'createdashboard'])->name('createdashboardcontroller');
-    //     Route::get('/edit', [EventController::class, 'editdashboard'])->name('createdashboardcontroller');
-    // });
+    Route::controller(CompetitionController::class)->prefix('detailcompetition')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision')->group(function () {
+        Route::get('/', 'indexdetaildashboard')->name('indexdashboarddetailcompetitioncontroller');
+    });
+    Route::controller(UserController::class)->prefix('manageuser')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|action-manageuser')->group(function () {
+        Route::get('/', 'indexdashboard')->name('indexdashboardusercontroller');
+    });
+    Route::controller(UserController::class)->prefix('managerole')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|action-manageuser')->group(function () {
+        Route::get('/', 'indexdashboardrole')->name('indexdashboardrolecontroller');
+    });
 });
