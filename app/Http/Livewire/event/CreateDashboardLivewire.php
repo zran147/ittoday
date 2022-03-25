@@ -5,7 +5,7 @@ namespace App\Http\Livewire\event;
 use App\Models\Event;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
+use Illuminate\Support\Str;
 class CreateDashboardLivewire extends Component
 {
     use WithFileUploads;
@@ -46,8 +46,9 @@ class CreateDashboardLivewire extends Component
             'thumbnail_event' => 'required|image|mimes:jpg,png'
         ]);
         $thumbnail_event = $this->thumbnail_event->store('thumbnail_event');
+        $name_event = ucwords($this->name_event);
         Event::create([
-            'name_event' => $this->name_event,
+            'name_event' => $name_event,
             'slug_event' => str($this->name_event)->slug('-'),
             'start_event' => $this->start_event,
             'finish_event' => $this->finish_event,
@@ -77,9 +78,9 @@ class CreateDashboardLivewire extends Component
             'desc_event' => 'required|string',
             'registrant_event' => 'required|integer',
         ]);
-
+        $name_event = ucwords($this->name_event);
         Event::findorfail($this->id_event)->update([
-            'name_event' => $this->name_event,
+            'name_event' => $name_event,
             'slug_event' => str($this->name_event)->slug('-'),
             'start_event' => $this->start_event,
             'finish_event' => $this->finish_event,

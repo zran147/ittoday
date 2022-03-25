@@ -19,6 +19,7 @@ use App\Http\Controllers\CompetitionController;
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::get('/veri',[CompetitionController::class,'verif']);
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verified', 'role_or_permission:admin|dashboard-menu']], function () {
     Route::get('/', function () {
