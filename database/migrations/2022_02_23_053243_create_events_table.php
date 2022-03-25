@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('finish_event');
             $table->text('description_event');
             $table->string('status_event')->default('belum');
-            $table->enum('active', ['draft', 'published']);
+            $table->enum('active', ['draft', 'published'])->default('draft');
             $table->integer('registrant_event')->default(500);
             $table->string('thumbnail_event')->unique();
             $table->string('category_event')->nullable();

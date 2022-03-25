@@ -14,10 +14,13 @@ class CompetitionController extends Controller
     }
     public function createdashboard()
     {
-        return view('dashboard.competition.createdashboardcontroller');
+        return view('dashboard.competition.createdashboardcontroller',[
+            'action' => 'Store',
+            'id_competition' => Null,
+        ]);
     }
     public function indexdetaildashboard()
     {
-        return view('dashboard.competition.detailcompetition');
+        return view('dashboard.detailcompetition.detailcompetition');
     }
 }

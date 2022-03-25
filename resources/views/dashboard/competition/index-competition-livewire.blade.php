@@ -21,7 +21,7 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <a href="/dashboard/Competition/add"><button class="btn btn-success">Add New Competition</button></a>
+                <a href="/dashboard/competition/add"><button class="btn btn-success">Add New Competition</button></a>
             </div>
             <div class="card-body">
                 <table class="table table-striped table-hover" id="table1">
@@ -29,8 +29,8 @@
                         <tr>
                             <th>NO</th>
                             <th>Name</th>
-                            <th>Date</th>
-                            <th>Status </th>
+                            <th>Date Finish Registrant</th>
+                            <th>Status</th>
                             <th>Registrant</th>
                             <th>action</th>
                         </tr>

@@ -6,24 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('competitions', function (Blueprint $table) {
             $table->id();
+            $table->string('name_competition')->required()->unique();
+            $table->string('slug_competition')->unique();
+            $table->date('finish_registrasi_competition');
+            $table->string('status_competition')->default('pendaftaran di buka');
+            $table->enum('active', ['draft', 'published'])->default('draft');
+            $table->string('rule_book_competition')->unique();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('competitions');
