@@ -36,15 +36,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($allevent as $item)
+                        @foreach ($allcompetition as $item)
                             <tr>
                                 <td>{{ $loop->index + 1 }}</td>
-                                <td>{{ $item->name_event }}</td>
-                                <td>{{ $item->start_event }} until {{ $item->finish_event }}</td>
+                                <td>{{ $item->name_competition }}</td>
+                                <td>{{ $item->finish_registrasi_competition }}</td>
                                 <td class="text-center">
                                     <button class="btn btn-outline-primary"
-                                        wire:click="activeevent('{{ Crypt::encrypt($item->id) }}','{{ $item->active }}')"
-                                        onclick="confirm('Are you sure you want to change the event ?') || event.stopImmediatePropagation()">
+                                        wire:click="activecompetition('{{ Crypt::encrypt($item->id) }}','{{ $item->active }}')"
+                                        onclick="confirm('Are you sure you want to change the competition ?') || event.stopImmediatePropagation()">
                                         @if ($item->active == 'draft')
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-toggle-off" viewBox="0 0 16 16">
@@ -61,10 +61,10 @@
                                         {{ $item->active }}
                                     </button>
                                 </td>
-                                <td>{{ $item->registrant->count() }}</td>
+                                <td>500</td>
                                 <td>
                                     <button class="btn btn-danger"
-                                        wire:click="deleteevent('{{ Crypt::encrypt($item->id) }}')"
+                                        wire:click="deletecompetition('{{ Crypt::encrypt($item->id) }}')"
                                         onclick="confirm('Are you sure you want to delete the event ?') || event.stopImmediatePropagation()">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
@@ -74,7 +74,7 @@
                                                 d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                                         </svg>
                                     </button>
-                                    <a href="/dashboard/event/{{ Crypt::encrypt($item->id) }}/edit">
+                                    <a href="/dashboard/competition/{{ Crypt::encrypt($item->id) }}/edit">
                                         <button class="btn btn-success">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
@@ -85,7 +85,7 @@
                                     </a>
                                 </td>
                             </tr>
-                        @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>

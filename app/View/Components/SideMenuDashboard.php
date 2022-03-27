@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Competition;
 use App\Models\Event;
 use Illuminate\View\Component;
 
@@ -25,7 +26,8 @@ class SideMenuDashboard extends Component
     public function render()
     {
         return view('components.side-menu-dashboard', [
-            'event' => Event::where('active', 'published')->get()
+            'event' => Event::where('active', 'published')->get(),
+            'competition' => Competition::where('active', 'published')->get(),
         ]);
     }
 }

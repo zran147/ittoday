@@ -36,9 +36,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verifie
     Route::controller(CompetitionController::class)->prefix('competition')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision')->group(function () {
         Route::get('/', 'indexdashboard')->name('indexdashboardcompetitioncontroller');
         Route::get('/add', 'createdashboard')->name('createdashboardcompetitioncontroller');
+        Route::get('/{idcompetition}/edit', 'editdashboard')->name('editdashboardcompetitioncontroller');
     });
     Route::controller(CompetitionController::class)->prefix('detailcompetition')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision')->group(function () {
-        Route::get('/', 'indexdetaildashboard')->name('indexdashboarddetailcompetitioncontroller');
+        Route::get('/{slug}', 'indexdetaildashboard')->name('indexdashboarddetailcompetitioncontroller');
     });
     Route::controller(UserController::class)->prefix('manageuser')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|action-manageuser')->group(function () {
         Route::get('/', 'indexdashboard')->name('indexdashboardusercontroller');

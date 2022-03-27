@@ -82,12 +82,13 @@
                             <span>Detail Competision</span>
                         </a>
                         <ul class="submenu  @if (Request::is('dashboard/detailcompetition*')) {{ 'active' }} @endif">
-                            <li class="submenu-item ">
-                                <a href="/dashboard/detailcompetition">UX ITTODAY 2022</a>
-                            </li>
-                            <li class="submenu-item ">
-                                <a href="/dashboard/detailcompetition">HACK TODAY 2022</a>
-                            </li>
+                            @foreach ($competition as $item)
+                                <li class="submenu-item ">
+                                    <a href="/dashboard/detailcompetition/{{ $item->slug_competition }}">
+                                        {{ $item->name_competition }}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </li>
                     {{-- @endcan --}}

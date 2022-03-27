@@ -49,7 +49,7 @@ class CreateDashboardLivewire extends Component
         $name_event = ucwords($this->name_event);
         Event::create([
             'name_event' => $name_event,
-            'slug_event' => str($this->name_event)->slug('-'),
+            'slug_event' => str(strtolower($this->name_event))->slug('-'),
             'start_event' => $this->start_event,
             'finish_event' => $this->finish_event,
             'description_event' =>  $this->desc_event,
@@ -81,7 +81,7 @@ class CreateDashboardLivewire extends Component
         $name_event = ucwords($this->name_event);
         Event::findorfail($this->id_event)->update([
             'name_event' => $name_event,
-            'slug_event' => str($this->name_event)->slug('-'),
+            'slug_event' => str(strtolower($this->name_event))->slug('-'),
             'start_event' => $this->start_event,
             'finish_event' => $this->finish_event,
             'description_event' =>  $this->desc_event,
