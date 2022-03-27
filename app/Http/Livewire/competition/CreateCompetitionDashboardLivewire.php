@@ -37,7 +37,7 @@ class CreateCompetitionDashboardLivewire extends Component
         $this->validate([
             'name_competition' => 'required|unique:competitions,name_competition|max:255|string',
             'finish_registrasi_competition' => 'required|date',
-            'link_rule_book_competition' => 'required|url',
+            'link_rule_book_competition' => 'required|url|unique:competitions,rule_book_competition',
         ]);
         $name_competition = ucwords($this->name_competition);
         Competition::create([
@@ -53,7 +53,7 @@ class CreateCompetitionDashboardLivewire extends Component
         $this->validate([
             'name_competition' => 'required|max:255|string|unique:competitions,name_competition,' . $this->id_competition,
             'finish_registrasi_competition' => 'required|date',
-            'link_rule_book_competition' => 'required|url',
+            'link_rule_book_competition' => 'required|url|unique:competitions,rule_book_competition,' . $this->id_competition,
         ]);
         $name_competition = ucwords($this->name_competition);
         Competition::findorfail($this->id_competition)->update([

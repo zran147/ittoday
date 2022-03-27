@@ -34,13 +34,13 @@
                     <tbody>
                         
                          <tr>
-                            <td>Hack today</td>
+                            <td>azzza aAoday</td>
                             <td>Institut Pertanian Bogor</td>
                             <td>lazuardilintang@apps.ipb.ac.id</td>
                             <td>di verikasi oleh lintang pada 18/17/2022</td>
                             <td>
-                                <button class="btn btn-primary">Detail</button>
-                                <button class="btn btn-danger">Hapus</button>
+                                <a href="/dashboard/detailcompetition/hack-today/detailtim/azzza-aaoday" class="btn btn-primary">Detail</a>
+                                <a class="btn btn-danger">Hapus</a>
                             </td>
                         </tr>
                         {{-- @foreach ($allevent as $item)

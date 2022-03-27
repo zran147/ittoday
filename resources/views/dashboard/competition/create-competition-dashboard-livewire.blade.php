@@ -13,9 +13,12 @@
                                         <div class="name_competition">
                                             <div class="form-group">
                                                 <label for="name-competition-vertical">Name Competition</label>
-                                                <input type="text" id="name-competition-vertical" class="form-control"
-                                                    wire:model="name_competition"
-                                                    placeholder="Preparing Career in Data Science World">
+                                                <select class="form-select" aria-label="Default select example" wire:model="name_competition">
+                                                    <option value=""></option>
+                                                    <option value="Hack Today">Hack Today</option>
+                                                    <option value="UX Today">UX Today</option>
+                                                    <option value="Poster">Poster</option>
+                                                </select>
                                             </div>
                                             @error('name_competition')
                                                 <div class="alert alert-warning alert-dismissible fade show" role="alert">

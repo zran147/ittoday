@@ -35,7 +35,7 @@ class IndexCompetitionLivewire extends Component
         $idcompetition = Crypt::decrypt($idcompetition);
         $delete = Competition::findorfail($idcompetition)->delete();
         if ($delete) {
-            to_route('indexdashboardcontroller');
+            to_route('indexdashboardcompetitioncontroller');
         }
     }
 }
