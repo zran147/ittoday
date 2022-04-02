@@ -4,10 +4,15 @@ namespace Database\Seeders;
 
 
 use App\Models\User;
-use Spatie\Permission\Models\Permission;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Competition;
+use Illuminate\Support\Str;
+use App\Models\TimCompetition;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Faker\Factory as Faker;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -17,6 +22,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        $faker = Faker::create('id_ID');
         $admin = Role::create([
             'name' => 'admin'
         ]);
@@ -88,8 +95,39 @@ class DatabaseSeeder extends Seeder
             'name' => 'lintang lazuardi',
             'password' => bcrypt('linlaz11'),
             'email' => 'lintanglazuardi11@gmail.com',
-            'wa_user' => '0895708134567'
+            'wa_user' => '0895708134567',
+            'email_verified_at' => '2022-04-01 15:09:53'
         ]);
         $user->assignRole('admin');
+
+        $competition = Competition::create([
+            'name_competition' => 'Hack Today',
+            'slug_competition' => 'hack-today',
+            'finish_registrasi_competition' => '2022-04-01',
+            'rule_book_competition' => 'www.lintech.com',
+            'active' => 'published',
+        ]);
+        TimCompetition::create([
+            'code_uniq_tim' => Str::uuid(),
+            'name_tim' => 'lintech',
+            'level_tim' => 'kuliah',
+            'institusi_name_tim' => 'IPB',
+            'email_tim' => 'lintech@gmail.com',
+            'username_telegram_tim' => 'lintech',
+            'no_hp_tim' => $faker->randomDigit(),
+            'registrant_id' => '1',
+            'competition_id' => '1',
+        ]);
+        TimCompetition::create([
+            'code_uniq_tim' => Str::uuid(),
+            'name_tim' => 'linlaz11',
+            'level_tim' => 'sma',
+            'institusi_name_tim' => 'man1',
+            'email_tim' => 'linlaz11@gmail.com',
+            'username_telegram_tim' => 'linlaz',
+            'no_hp_tim' => $faker->randomDigit(),
+            'registrant_id' => '1',
+            'competition_id' => '1',
+        ]);
     }
 }

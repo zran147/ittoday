@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Crypt;
 
 class DeatailEvent extends Component
 {
-    public $slug, $registrant,$event;
+    public $slug, $registrant, $event;
     public function mount()
     {
         if (isset($this->slug)) {
@@ -27,8 +27,5 @@ class DeatailEvent extends Component
     {
         $idevent = Crypt::decrypt($idre);
         $registrant = RegistrantEvent::findorfail($idevent)->delete();
-        // if ($registrant) {
-            
-        // }
     }
 }

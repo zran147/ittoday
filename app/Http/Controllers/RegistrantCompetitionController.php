@@ -13,9 +13,9 @@ class RegistrantCompetitionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexdetailregistrantcompetitionbycompetitiondashboard($slug, $namereg)
     {
-        //
+        return view('dashboard.registrantcompetition.detailregistrantcompetition');
     }
 
     /**

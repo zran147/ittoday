@@ -31,6 +31,7 @@ class EventController extends Controller
         // $event = Event::where('slug_event',$slug)->firstorfail();
         // $registrant = RegistrantEvent::where('event_id', $event->id)->get();
         return view('dashboard.detailevent.indexdetailbyslugcontroller',[
+            'name_event' => str_replace("-", " ", $slug),
             'slug' => $slug,
             // 'registrants' => $registrant
         ]);

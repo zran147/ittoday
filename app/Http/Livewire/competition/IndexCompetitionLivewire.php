@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\competition;
 
 use App\Models\Competition;
+use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\Crypt;
 

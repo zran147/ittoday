@@ -13,9 +13,12 @@ class TimCompetitionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexdetailtimcompetitionbyslugdashboard($slug)
     {
-        //
+        $name_competition = str_replace("-", " ", $slug);
+        return view('dashboard.detailcompetition.detailcompetition', [
+            'name_competition' => $name_competition
+        ]);
     }
 
     /**

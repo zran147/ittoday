@@ -20,29 +20,38 @@
 
     <section class="section">
         <div class="card">
+            <div class="card-header text-center">
+                <h2>{{ $name_competition }}</h2>
+                <x-flash-message/>
+            </div>
             <div class="card-body">
                 <table class="table table-striped table-hover" id="table1">
                     <thead>
                         <tr>
                             <th>Name TIM</th>
-                            <th>Institusi  TIM</th>
+                            <th>Institusi TIM</th>
                             <th>Email Tim</th>
                             <th>Verification TIM</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
-                         <tr>
-                            <td>azzza aAoday</td>
-                            <td>Institut Pertanian Bogor</td>
-                            <td>lazuardilintang@apps.ipb.ac.id</td>
-                            <td>di verikasi oleh lintang pada 18/17/2022</td>
-                            <td>
-                                <a href="/dashboard/detailcompetition/hack-today/detailtim/azzza-aaoday" class="btn btn-primary">Detail</a>
-                                <a class="btn btn-danger">Hapus</a>
-                            </td>
-                        </tr>
+                        @foreach ($timcompetition as $item)
+                            <tr>
+                                <td>{{ $item->name_tim }}</td>
+                                <td>{{ $item->institusi_name_tim }}</td>
+                                <td>{{ $item->email_tim }}</td>
+                                <td>{{ $item->status_verification_tim }}</td>
+                                <td>
+                                    <a href="/dashboard/detailcompetition/hack-today/detailtim/azzza-aaoday"
+                                        class="btn btn-primary">Detail</a>
+                                    <button class="btn btn-danger"
+                                        wire:click="deletetim('{{ Crypt::encrypt($item->id) }}')"
+                                        onclick="confirm('Are you sure you want to delete the tim competition ?') || event.stopImmediatePropagation()">Hapus</button>
+                                </td>
+                            </tr>
+                        @endforeach
+
                         {{-- @foreach ($allevent as $item)
                             <tr>
                                 <td>{{ $loop->index + 1 }}</td>

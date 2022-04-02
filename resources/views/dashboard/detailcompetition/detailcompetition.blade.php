@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout  title="{{ $name_competition }}">
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
@@ -8,6 +8,6 @@
                 </div>
             </div>
         </div>
-        @livewire('competition.detail-tim-competition-livewire')
+        @livewire('competition.detail-tim-competition-livewire',['name_competition' => $name_competition])
     </div>
 </x-app-layout>

@@ -1,4 +1,4 @@
-<x-app-layout title="{{ $slug }}">
+<x-app-layout title="{{ $name_event }}">
     <div class="page-heading">
         <div class="page-title">
             <div class="row">

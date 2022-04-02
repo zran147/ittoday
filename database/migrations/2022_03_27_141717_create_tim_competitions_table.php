@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('tim_competitions', function (Blueprint $table) {
             $table->id();
+            // Infomasi Administrasi Tim
             $table->uuid('code_uniq_tim');
             $table->string('name_tim')->unique()->required();
             $table->enum('level_tim',['sma','kuliah'])->default('kuliah');
@@ -22,12 +23,30 @@ return new class extends Migration
             $table->string('email_tim')->unique()->required();
             $table->string('username_telegram_tim')->unique()->required();
             $table->integer('no_hp_tim')->unique()->required();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->enum('verivication_tim',['acc','revision', 'wait',])->default('wait');
-            $table->dateTime('email_verivication_tim')->nullable();
-            $table->enum('payment_tim',['acc', 'reject', 'wait'])->default('wait');
-            $table->string('proof_of_payment_tim')->nullable();
+            $table->foreignId('registrant_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('competition_id')->constrained('competitions')->onDelete('cascade');
+            // end Infomasi Administrasi Tim
+
+            $table->foreignId('admin_id')->nullable()->constrained('users')->onDelete('cascade');
+            $table->dateTime('email_verification_tim')->nullable();
+
+            // Infomasi Pembayaran Tim
+            $table->string('proof_of_payment_tim')->nullable();
+            $table->string('bank_account_name_payment_tim')->nullable();
+            $table->integer('payment_fee_payment_tim')->nullable();
+            // end Infomasi Pembayaran Tim
+
+            $table->string('status_verification_tim')->default('waiting verification administration');
+            /*
+            waiting verification administration , 
+            acc verification administration ,
+            rejected verification administration,
+            waiting verification payment, 
+            acc verification payment,
+            rejected verification payment,
+            tim successful varification,
+            */
+
             $table->string('link_competition_results')->nullable();
             $table->timestamps();
         });
