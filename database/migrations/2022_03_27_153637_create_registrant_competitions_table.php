@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('letter_active_member_card_registrant_competitions')->nullable();
             $table->enum('verivication_registrant_competitions', ['acc', 'improve', 'wait',])->default('wait');
             $table->string('message_registrant_competitions')->nullable();
+            $table->enum('team_leader_registrant_competitions',['1','0'])->default('0');
             $table->foreignId('tim_id')->constrained('tim_competitions')->onDelete('cascade');
             $table->timestamps();
         });

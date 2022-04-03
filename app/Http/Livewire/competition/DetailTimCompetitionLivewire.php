@@ -12,8 +12,7 @@ class DetailTimCompetitionLivewire extends Component
     public $name_competition, $timcompetition;
     public function mount()
     {
-        $findcompetition = Competition::where('name_competition', $this->name_competition)->first();
-        $this->timcompetition = TimCompetition::where('competition_id', $findcompetition->id)->get();
+        $this->timcompetition = Competition::where('name_competition', $this->name_competition)->with('timcompetition')->first();
     }
     public function render()
     {

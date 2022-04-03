@@ -22,4 +22,8 @@ class TimCompetition extends Model
     {
         return $this->belongsTo(User::class, 'admin_id');
     }
+    public function membertimcompetition()
+    {
+        return $this->hasMany(RegistrantCompetition::class, 'tim_id');
+    }
 }

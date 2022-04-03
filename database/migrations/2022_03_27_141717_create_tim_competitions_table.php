@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('tim_competitions', function (Blueprint $table) {
             $table->id();
             // Infomasi Administrasi Tim
-            $table->uuid('code_uniq_tim');
+            $table->uuid('code_uniq_tim')->unique()->required();
             $table->string('name_tim')->unique()->required();
             $table->enum('level_tim',['sma','kuliah'])->default('kuliah');
             $table->string('institusi_name_tim')->required();
@@ -48,6 +48,7 @@ return new class extends Migration
             */
 
             $table->string('link_competition_results')->nullable();
+            
             $table->timestamps();
         });
     }

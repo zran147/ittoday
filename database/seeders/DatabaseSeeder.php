@@ -5,6 +5,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Competition;
+use App\Models\RegistrantCompetition;
 use Illuminate\Support\Str;
 use App\Models\TimCompetition;
 use Illuminate\Database\Seeder;
@@ -128,6 +129,28 @@ class DatabaseSeeder extends Seeder
             'no_hp_tim' => $faker->randomDigit(),
             'registrant_id' => '1',
             'competition_id' => '1',
+        ]);
+        RegistrantCompetition::create([
+            'name_registrant_competitions' => 'linlaz',
+            'provinsi_registrant_competitions' => 'jawa timur',
+            'tim_id' => '2',
+            'team_leader_registrant_competitions' => '1',
+        ]);
+        RegistrantCompetition::create([
+            'name_registrant_competitions' => 'lintang',
+            'provinsi_registrant_competitions' => 'jawa timur',
+            'tim_id' => '2'
+        ]);
+        RegistrantCompetition::create([
+            'name_registrant_competitions' => 'linlaz',
+            'provinsi_registrant_competitions' => 'jawa timur',
+            'tim_id' => '1',
+            'team_leader_registrant_competitions' => '1',
+        ]);
+        RegistrantCompetition::create([
+            'name_registrant_competitions' => 'lintang',
+            'provinsi_registrant_competitions' => 'jawa timur',
+            'tim_id' => '1'
         ]);
     }
 }

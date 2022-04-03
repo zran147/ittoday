@@ -15,7 +15,10 @@ class RegistrantCompetitionController extends Controller
      */
     public function indexdetailregistrantcompetitionbycompetitiondashboard($slug, $namereg)
     {
-        return view('dashboard.registrantcompetition.detailregistrantcompetition');
+        return view('dashboard.registrantcompetition.detailregistrantcompetition',[
+            'name_competition' => $slug,
+            'name_tim' => $namereg,
+        ]);
     }
 
     /**
