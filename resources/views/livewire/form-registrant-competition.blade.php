@@ -1,14 +1,13 @@
 <div>
-<form>
-    <div class="row gy-4 bg-light">
+<form class="bg-light p-3">
+    <div class="row gy-4">
         <div class="col-md-6 form-group">
             <label for="nama_team" class="form-label">Nama Team</label>
             <input type="text" name="name_tim" wire:model="name_tim" class="form-control" placeholder="Team Name" required>
             @error('name_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                            aria-label="Close"></button>
+
                 </div>
             @enderror
         </div>
@@ -23,8 +22,7 @@
             @error('level_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                            aria-label="Close"></button>
+
                 </div>
             @enderror
         </div>
@@ -35,8 +33,7 @@
             @error('name_institusi_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                            aria-label="Close"></button>
+
                 </div>
             @enderror
         </div>
@@ -47,8 +44,7 @@
             @error('email_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                            aria-label="Close"></button>
+
                 </div>
             @enderror
         </div>
@@ -59,8 +55,7 @@
             @error('username_telegram_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                            aria-label="Close"></button>
+
                 </div>
             @enderror
         </div>
@@ -71,12 +66,11 @@
             @error('no_handphone_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                            aria-label="Close"></button>
+
                 </div>
             @enderror
         </div>
-
+        @if (empty($participantslist))
         <div class="col-md-12 form-group">
             <label for="level_team" class="form-label">Number of Team</label>
             <select id="reason-list" class="col-md-6 form-control control" wire:model="participants" required>
@@ -88,63 +82,28 @@
             @error('participants')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                            aria-label="Close"></button>
+
                 </div>
             @enderror
         </div>
-
+        @endif
         <div class="col-md-12 gy-4 text-center my-3">
             <button type="button" wire:click="storetim" class="btn btn-primary">Create Team</button>
         </div>
 
     </div>
 
-              {{-- <div class="row gy-4 ">
-                <div class="col-6 menengah turun">
-                      <div class="row gy-4 data">
+    @if (!empty($participantslist))
+        <div class="my-4">
 
-                        <h2>Information Member Team</h2>
+                <h2 class="text-center">Information Member Team</h2>
+                @foreach ($participantslist as $item)
+                    @livewire('registranttimcompetition.form-registrant-member-competition',['index' => $loop->index, 'timmember' => $item])
+                @endforeach
+        </div>
 
-                        <div class="col-md-6 form-group">
-                          <label for="username_telegram_team" class="form-label">Team Member Name</label>
-                          <input type="text" name="nama" class="form-control" placeholder="Full Name" >
-                        </div>
+    @endif
 
-                        <div class="col-md-6 form-group">
-                          <label for="username_telegram_team" class="form-label">Provinsi Member Team</label>
-                          <input type="text" class="form-control" name="Provinsi" placeholder="Provinsi" >
-                        </div>
-
-                        <div class="col-md-6 form-group">
-                          <label for="username_telegram_team" class="form-label">ID Card</label>
-                          <div class="col-md-6 form-group col-kiri form-control file-upload-wrapper" data-text="KTM / Kartu Pelajar">
-                            <input name="file-upload-field" type="file" class="form-control padding" value="" >
-                            <span class="btn-primary col-atas_bawah btn-sm" role="button" aria-pressed="true" >Browse</span>
-                          </div>
-                        </div>
-
-                        <div class="col-md-6 form-group ">
-                          <label for="username_telegram_team" class="form-label">Surat Aktif Member Team</label>
-                          <div class="col-md-6 form-group col-kiri col-bawah form-control file-upload-wrapper" data-text="SKMA">
-                            <input name="file-upload-field" type="file" class="form-control" value="" >
-                            <span class="btn-primary col-atas_bawah btn-sm" role="button" aria-pressed="true" >Browse</span>
-                          </div>
-                        </div>
-
-                        <div class="col-md-12 gy-4 text-center marginturun">
-                          <div class="loading">Loading</div>
-                          <div class="error-message">Please fill the form </div>
-                          <div class="sent-message">Your message has been sent. Thank you!</div>
-                          <a>
-                            <button type="submit">Submit</button>
-                          </a>
-                        </div>
-                      </div>
-
-                      </div>
-                </div>
-              </div> --}}
 
               {{-- <div class="row gy-4 ">
                 <div class="col-6 menengah turun">

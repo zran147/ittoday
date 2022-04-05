@@ -78,7 +78,7 @@
           <h2>Hack Today</h2>
           <p>Register Your Team</p>
         </header>
-          @livewire('form-registrant-competition')
+          @livewire('registranttimcompetition.form-registrant-competition',['action' => 'store', 'codeuniqteam' => null])
       </div>
 
     </section><!-- End Contact Section -->

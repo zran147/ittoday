@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\registranttimcompetition;
 
+use App\Models\TimCompetition;
 use Livewire\Component;
 
 class FormRegistrantCompetition extends Component
@@ -10,6 +11,21 @@ class FormRegistrantCompetition extends Component
         $name_institusi_tim, $no_handphone_tim;
     public $participants;
     public $participantslist = [];
+    public $action, $codeuniqteam;
+
+    public function mount()
+    {
+        if(!is_null($this->codeuniqteam)){
+            $tim  = TimCompetition::where('code_uniq_tim',$this->codeuniqteam)->first();
+            $this->name_tim = $tim->name_tim;
+            $this->email_tim = $tim->email_tim;
+            $this->level_tim = $tim->level_tim;
+            $this->username_telegram_tim = $tim->username_telegram_tim;
+            $this->name_institusi_tim = $tim->institusi_name_tim;
+            $this->no_handphone_tim = $tim->no_hp_tim;
+            $this->participantslist = $tim->membertimcompetition;
+        }
+    }
 
     public function render()
     {
@@ -26,5 +42,9 @@ class FormRegistrantCompetition extends Component
             'no_handphone_tim' => 'required|numeric',
             'participants' => 'required',
         ]);
+        for ($i=0; $i < $this->participants; $i++) {
+            array_push($this->participantslist,$i);
+        }
+
     }
 }
