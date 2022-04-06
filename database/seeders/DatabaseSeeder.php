@@ -85,7 +85,10 @@ class DatabaseSeeder extends Seeder
         $deleteevent = Permission::create([
             'name' => 'delete-event'
         ]);
-        $admin->givePermissionTo(['add-role', 'edit-role', 'delete-role', 'add-permission', 'edit-permission', 'delete-permission']);
+        $dashboardmenu = Permission::create([
+            'name' => 'dashboard-menu'
+        ]);
+        $admin->givePermissionTo(['add-role', 'edit-role', 'delete-role', 'add-permission', 'edit-permission', 'delete-permission', 'dashboard-menu']);
 
         // ModelsCategory::create([
         //     'name_category' => 'Webinar',

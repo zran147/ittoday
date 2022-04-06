@@ -17,12 +17,9 @@
     <link rel="stylesheet" href="/assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="/assets/css/app.css">
     <link rel="shortcut icon" href="/assets/images/logo/logo.png" type="image/x-icon">
-    {{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
 
     @livewireStyles
     @stack('style')
-    <!-- Scripts -->
-    {{-- <script src="{{ mix('js/app.js') }}" defer></script> --}}
 </head>
 
 <body>

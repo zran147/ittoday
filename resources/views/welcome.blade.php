@@ -1,173 +1,320 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-guest-layout>
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    @include('components/mainhero')
 
-  <title>COMPETITION/Form</title>
-  <meta content="" name="description">
+      <!-- ======= Event Section ======= -->
+  <section id="event" class="event">
+    <div class="blob">
+      <div class="container" data-aos="fade-up">
 
-  <meta content="" name="keywords">
+        <div class="section-title">
+          <h2>Events</h2>
+        </div>
 
-  <!-- Favicons -->
-
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <!-- Template Main CSS File -->
-  <link href="/coba/assets/css/styleform.css" rel="stylesheet">
-  @livewireStyles
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-      <a href="../ittude22pix/index.html" class="logo d-flex align-items-center">
-        <img src="/coba/assets\gambar\logoIT_2022putih.png" alt="">
-        <span></span>
-      </a>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto" href="../ittude22pix/index.html">Home</a></li>
-          <li class="dropdown"><a href="#"><span>Events</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">International Seminar</a></li>
-              <li><a href="#">Ilkommunity</a></li>
-              <li><a href="#">Workshop</a></li>
-
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#"><span>Competitions</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="indexhack.html">Hack Today</a></li>
-              <li><a href="#">UX Today</a></li>
-              <li><a href="#">Poster Competition</a></li>
-
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Sponsor</a></li>
-          <li><a class="nav-link scrollto" href="#contact">About</a></li>
-          <li><a class="getstarted scrollto" href="#contact">Sign Up</a></li>
-          <li><a class="getstarted scrollto" href="#about">Register</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
-
-  <main id="main">
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-
-      <div class="container my-4" data-aos="fade-up">
-
-        <header class="section-header">
-          <h2>Hack Today</h2>
-          <p>Register Your Team</p>
-        </header>
-          @livewire('registranttimcompetition.form-registrant-competition',['action' => 'store', 'codeuniqteam' => null])
-      </div>
-
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>IT TODAY 2022</h3>
-            <p>
-              Departemen <br>
-              Ilmu Komputer<br>
-              IPB University <br><br>
-              <strong>Phone:</strong> +123 4567 8910 111 (Anonim)<br>
-              <strong>Email:</strong> ittoday@apps.ipb.ac.id (?)<br>
-            </p>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Event</h4>
-            <ul>
-              <li><i class="bi bi-chevron-compact-right"></i> <a href="#">Event 1</a></li>
-              <li><i class="bi bi-chevron-compact-right"></i> <a href="#">Event 2</a></li>
-              <li><i class="bi bi-chevron-compact-right"></i> <a href="#">Event 3</a></li>
-              <li><i class="bi bi-chevron-compact-right"></i> <a href="#">Event 4</a></li>
-              <li><i class="bi bi-chevron-compact-right"></i> <a href="#">Event 5</a></li>
-              <li><i class="bi bi-chevron-compact-right"></i> <a href="#">Event 6</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Kompetisi</h4>
-            <ul>
-              <li><i class="bi bi-chevron-compact-right"></i> <a href="#">Kompetisi 1</a></li>
-              <li><i class="bi bi-chevron-compact-right"></i> <a href="#">Kompetisi 2</a></li>
-              <li><i class="bi bi-chevron-compact-right"></i> <a href="#">Kompetisi 3</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="line"><i class="bi bi-line"></i></a>
-              <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row justify-content-center">
+                  <div class="col-md-auto d-flex justify-content-center align-items-center">
+                      <img src="/img/carousel/Seminar Nasional.png" alt="" class="img-fluid" style="height: 100%;">
+                  </div>
+                  <div class="col col-sm-6">
+                    <div class="m-1">
+                      <h3>1. Seminar Nasional</h3>
+                      <p>Acara ini adalah seminar bertaraf nasional yang terdiri dari tiga sesi dengan tiga pembicara yang ahli dalam bidangnya. Dalam rangkaian ini, berbagai topik menarik terkait pentingnya meningkatkan kemampuan terkait IT akan dibahas untuk menghadapi era post-pandemic. Dalam rangkaian acara ini, interaksi antara pembicara dengan peserta seminar yang diestimasi sebanyak 400 peserta dari penjuru Indonesia dimungkinkan.</p>
+                      <a href="#" class="btn-learn-more">Learn More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="carousel-item">
+              <div class="row justify-content-center">
+                  <div class="col-md-auto d-flex justify-content-center align-items-center">
+                      <img src="/img/carousel/Workshop.png" alt="" class="img-fluid" style="height: 100%;">
+                  </div>
+                <div class="col col-sm-6">
+                  <div class="m-1">
+                    <h3>2. Workshop</h3>
+                    <p>Merupakan Workshop sebagai sarana pelatihan dalam bidang IT. Memungkinkan peserta berinteraksi kepada pemateri terkait topik Workshop selama kegiatan berlangsung. Kegiatan ini memberikan pelatihan singkat dengan estimasi 50 peserta.</p>
+                    <a href="#" class="btn-learn-more">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row justify-content-center">
+                  <div class="col-md-auto d-flex justify-content-center">
+                    <img src="/img/carousel/Seminar Komunitas.png" alt="" class="img-fluid" style="height: 100%;">
+                  </div>
+                <div class="col col-sm-6">
+                  <div class="m-1">
+                    <h3>3. Seminar Komunitas</h3>
+                    <p>Merupakan rangkaian seminar bertaraf nasional yang akan diisi oleh komunitas-komunitas dari Departemen Ilmu Komputer dengan mengundang pembicara yang ahli di bidangnya. Seminar ini memungkinkan peserta melakukan interaksi aktif bersama bicara terkait topik-topik menarik mengenai IT.</p>
+                    <a href="#" class="btn-learn-more">Learn More</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
         </div>
       </div>
     </div>
+  </section>
+  <!-- End Event Section -->
 
-    <div class="container footer-bottom clearfix">
-      <div class="copyright">
-        &copy; Copyright <strong><span>IT Today 2022</span></strong> Bogor, Indonesia
+  <!-- ======= Kompetisi Asked Questions Section ======= -->
+  <section id="kompetisi" class="kompet">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Competitions</h2>
       </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Nah, yg atas ni maksudnya link aja kan yak (yg designed by), yg di copyright atas bole diapus berarti?-->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+              <div class="row justify-content-center">
+                <div class="mobile-kompet col-md-auto d-flex justify-content-center">
+                  <img src="/img/carousel/Hack Today.png" alt="" class="img-fluid" style="height: 100%;">
+                </div>
+                <div class="col col-sm-6">
+                  <div class="m-3">
+                    <h3>1. Hack Today</h3>
+                    <p>Merupakan kompetisi keamanan siber dengan mekanisme Capture The Flag (Jeopardy style) yang setiap tim diminta untuk menyelesaikan beberapa kasus dari berbagai kategori dengan tujuan mendapatkan sebuah flag untuk tiap kasusnya. Hack Today dapat diikuti oleh siswa SLTA/sederajat atau mahasiswa perguruan tinggi di seluruh Indonesia. Setiap tim wajib terdiri dari 1-3 orang yang berasal dari lembaga/institusi yang sama.</p>
+                    <a href="#" class="btn-learn-more">Learn More</a>
+                  </div>
+                </div>
+                <div class="pc col-md-auto d-flex justify-content-center">
+                    <img src="/img/carousel/Hack Today.png" alt="" class="img-fluid" style="height: 100%;">
+                </div>
+              </div>
+            </div>
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+              <div class="mobile-kompet col-md-auto d-flex justify-content-center">
+                <img src="/img/carousel/UX Today.png" alt="" class="img-fluid" style="height: 100%;">
+              </div>
+              <div class="col col-sm-6">
+                <div class="m-3">
+                  <h3>2. UX Today</h3>
+                  <p>Merupakan kompetisi desain pengalaman pengguna yang mengutamakan kenyamanan, kepuasan, dan efisiensi. UX Today dapat diikuti oleh seluruh mahasiswa perguruan tinggi di Indonesia. Setiap tim wajib terdiri dari 1-3 orang yang berasal dari universitas/institut yang sama.</p>
+                  <a href="#" class="btn-learn-more">Learn More</a>
+                </div>
+              </div>
+              <div class="pc col-md-auto d-flex justify-content-center">
+                <img src="/img/carousel/UX Today.png" alt="" class="img-fluid" style="height: 100%;">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+              <div class="mobile-kompet col-md-auto d-flex justify-content-center">
+                <img src="/img/carousel/Poster Competition.png" alt="" class="img-fluid" style="height: 100%;">
+              </div>
+              <div class="col col-sm-6">
+                <div class="m-3">
+                  <h3>3. Poster Competition</h3>
+                  <p>Merupakan kompetisi desain poster yang mengutamakan isi, visual, dan orisinalitas karya. Poster Competition dapat diikuti oleh masyarakat umum di seluruh Indonesia. Poster Competition mewadahi masyarakat yang memiliki ide dan krativitas untuk menyampaikannya melalui media poster.</p>
+                  <a href="#" class="btn-learn-more">Learn More</a>
+                </div>
+              </div>
+              <div class="pc col-md-auto d-flex justify-content-center">
+                <img src="/img/carousel/Poster Competition.png" alt="" class="img-fluid" style="height: 100%;">
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+  <!-- End Kompetisi Section -->
+
+  <!--Sponsor Section-->
+  <!-- ======= Main Sponsor Section ======= -->
+  <section id="mainspo">
+    <div  class="clients">
+      <div class="container">
+
+          <div class="section-title">
+              <h2>Sponsor</h2>
+          </div>
+
+        <div class="row" data-aos="zoom-in">
+
+          <div class="align-items-center justify-content-center">
+            <img src="/img/Spons/main.png" class="img-fluid" alt="" style="max-width: 100%;">
+          </div>
+
+        </div>
+
       </div>
     </div>
-  </footer><!-- End Footer -->
+    <!-- End Main Sponsor Section -->
+    <!-- ======= Spons Section ======= -->
+    <div class="spons">
+      <div class="container justify-content-center">
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        <div class="row row-cols-2 justify-content-center">
 
-  <!-- Optional JavaScript; choose one of the two! -->
-  @livewireScripts
+          <div class="col col-sm-2 d-flex align-items-end flex-column" data-aos="zoom-in">
+            <img src="/img/Spons/spo1.png" class="img-fluid" alt="">
+          </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <!-- Option 2: Separate Popper and Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+          <div class="col col-sm-2 d-flex align-items-start flex-column" data-aos="zoom-in">
+            <img src="/img/Spons/spo2.png" class="img-fluid" alt="">
+          </div>
 
-</body>
+          <div class="col col-sm-2 d-flex align-items-end flex-column" data-aos="zoom-in">
+            <img src="/img/Spons/spo3.png" class="img-fluid" alt="">
+          </div>
 
-</html>
+          <div class="col col-sm-2 d-flex align-items-start flex-column" data-aos="zoom-in">
+            <img src="/img/Spons/spo4.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col col-sm-2 d-flex align-items-end flex-column" data-aos="zoom-in">
+            <img src="/img/Spons/spo5.jpg" class="img-fluid" alt="">
+          </div>
+
+          <div class="col col-sm-2 d-flex align-items-start flex-column" data-aos="zoom-in">
+            <img src="/img/Spons/spo6.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col col-sm-2 d-flex align-items-end flex-column" data-aos="zoom-in">
+            <img src="/img/Spons/spo3.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col col-sm-2 d-flex align-items-start flex-column" data-aos="zoom-in">
+            <img src="/img/Spons/spo4.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col col-sm-2 d-flex align-items-end flex-column" data-aos="zoom-in">
+            <img src="/img/Spons/spo5.jpg" class="img-fluid" alt="">
+          </div>
+
+          <div class="col col-sm-2 d-flex align-items-start flex-column" data-aos="zoom-in">
+            <img src="/img/Spons/spo7.png" class="img-fluid" alt="">
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <!--End Sponsor Section-->
+  </section>
+
+  <!-- ======= About us Section ======= -->
+  <section id="aboutus" class="aboutus">
+    <div class="container" data-aos="zoom-in">
+
+        <div class="section-title">
+            <h2>About Us</h2>
+        </div>
+
+        <div class="text-center text-lg-center">
+          <h3>IT TODAY 2022</h3>
+          <p> IT Today merupakan salah satu megaproker yang diadakan oleh Himpunan Mahasiswa Ilmu Komputer (Himalkom) IPB dan Departemen Ilmu Komputer IPB. Diselenggarakan pertama kali pada tahun 2003, IT Today menjadi acara tahunan yang sudah berlangsung sebanyak 19 kali. IT Today memiliki rangkaian acara berupa seminar komunitas, workshop, kompetisi, dan seminar nasional yang dikemas secara menarik. Tiap tahunnya, IT Today berusaha membawakan tema yang berbeda sesuai dengan kondisi dan kebutuhan pada dunia informasi dan teknologi terbaru.</p>
+        </div>
+
+    </div>
+  </section><!-- End About us Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Punya pertanyaan, permasalahan, atau saran? Kami akan sangat senang dapat mendengarnya dari anda.</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-5 d-flex align-items-stretch">
+          <div class="info">
+            <div class="address">
+              <i class="bi bi-geo-alt"></i>
+              <h4>Lokasi:</h4>
+              <p>Wing 20, Jl. Meranti Kampus IPB, Babakan, Kec. Dramaga, Kabupaten Bogor, Jawa Barat 16680</p>
+            </div>
+
+            <div class="email">
+              <i class="bi bi-envelope"></i>
+              <h4>Email:</h4>
+              <p>business@ittoday.id</p>
+            </div>
+
+            <div class="phone">
+              <i class="bi bi-phone"></i>
+              <h4>Narahubung:</h4>
+              <p>082127794660 (Salma)</p>
+            </div>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15854.84718494163!2d106.731317!3d-6.5580193!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x89b0802179c78bdf!2sDepartemen%20Ilmu%20Komputer%20FMIPA%20IPB!5e0!3m2!1sen!2sid!4v1646064154864!5m2!1sen!2sid" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+          </div>
+
+        </div>
+
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="name">Nama</label>
+                <input type="text" name="name" class="form-control" id="name" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="name">Email Anda</label>
+                <input type="email" class="form-control" name="email" id="email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name">Subjek</label>
+              <input type="text" class="form-control" name="subject" id="subject" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Pesan</label>
+              <textarea class="form-control" name="message" rows="10" required></textarea>
+            </div>
+            <div class="my-3">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Pesanmu telah terkirim. Terima Kasih!</div>
+            </div>
+            <div class="text-center"><button type="submit">Kirim</button></div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- End Contact Section -->
+</x-guest-layout>
