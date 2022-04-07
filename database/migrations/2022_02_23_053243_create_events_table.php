@@ -24,7 +24,7 @@ return new class extends Migration
             $table->enum('active', ['draft', 'published'])->default('draft');
             $table->integer('registrant_event')->default(500);
             $table->string('thumbnail_event')->unique();
-            $table->string('category_event')->nullable();
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

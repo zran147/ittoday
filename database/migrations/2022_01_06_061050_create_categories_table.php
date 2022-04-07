@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->text('name_seeder')->required();
-            $table->text('email_seeder')->required();
-            $table->text('subject_seeder')->required();
-            $table->text('body_seeder')->required();
+            $table->text('name_category')->unique()->required();
+            $table->text('slug_category')->unique()->required();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('categories');
     }
 };

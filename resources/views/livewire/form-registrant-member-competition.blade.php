@@ -1,8 +1,8 @@
 <div>
     {{-- Care about people's approval and you will be their prisoner. --}}
     <div class="row gy-4 my-2">
-        <h5>Member {{ $index + 1 }} / @if ($index == 0)
-            {{ "Ketua Team" }}
+        <h5>Member {{ $index + 1 }} @if ($index == 0)
+            {{ "/ Ketua Team" }}
         @endif</h5>
         <div class="col-md-6 form-group">
             <label for="username_telegram_team" class="form-label">Team Member Name</label>

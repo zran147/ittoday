@@ -4,14 +4,16 @@ namespace App\Http\Livewire\event;
 
 use App\Models\Event;
 use Livewire\Component;
-use Livewire\WithFileUploads;
+use App\Models\Category;
 use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
+
 class CreateDashboardLivewire extends Component
 {
     use WithFileUploads;
     public $id_event;
     public $action;
-    public $name_event, $start_event, $finish_event, $desc_event, $registrant_event, $thumbnail_event;
+    public $name_event, $start_event, $finish_event, $desc_event, $registrant_event, $thumbnail_event, $category;
     public function mount()
     {
         if (!is_null($this->id_event)) {
@@ -28,7 +30,9 @@ class CreateDashboardLivewire extends Component
     }
     public function render()
     {
-        return view('dashboard.event.create-dashboard-livewire');
+        return view('dashboard.event.create-dashboard-livewire',[
+            'categories' => Category::all(),
+        ]);
     }
     // public function changethumbnail()
     // {
@@ -43,7 +47,8 @@ class CreateDashboardLivewire extends Component
             'finish_event' => 'required|date',
             'desc_event' => 'required|string',
             'registrant_event' => 'required|integer',
-            'thumbnail_event' => 'required|image|mimes:jpg,png'
+            'thumbnail_event' => 'required|image|mimes:jpg,png',
+            'category' => 'required|integer',
         ]);
         $thumbnail_event = $this->thumbnail_event->store('thumbnail_event');
         $name_event = ucwords($this->name_event);
@@ -54,7 +59,8 @@ class CreateDashboardLivewire extends Component
             'finish_event' => $this->finish_event,
             'description_event' =>  $this->desc_event,
             'registrant_event' => $this->registrant_event,
-            'thumbnail_event' => $thumbnail_event
+            'thumbnail_event' => $thumbnail_event,
+            'category_id' => $this->category
         ]);
 
         to_route('indexdashboardcontroller');

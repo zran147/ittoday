@@ -25,6 +25,24 @@
                                                 </div>
                                             @enderror
                                         </div>
+                                        <div class="name_event">
+                                            <div class="form-group">
+                                                <label for="name-event-vertical">Category Event</label>
+                                                <select class="form-select" wire:model="category">
+                                                    <option selected>Open this select menu</option>
+                                                    @foreach ($categories as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->name_category }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            @error('name_event')
+                                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                    {{ $message }}
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                            @enderror
+                                        </div>
                                         <div class="start_event">
                                             <div class="form-group">
                                                 <label for="start-event-vertical">Start Event</label>

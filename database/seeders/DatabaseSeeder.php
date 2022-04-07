@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-
+use App\Models\Category;
 use App\Models\User;
 use App\Models\Competition;
 use App\Models\RegistrantCompetition;
@@ -88,13 +88,27 @@ class DatabaseSeeder extends Seeder
         $dashboardmenu = Permission::create([
             'name' => 'dashboard-menu'
         ]);
-        $admin->givePermissionTo(['add-role', 'edit-role', 'delete-role', 'add-permission', 'edit-permission', 'delete-permission', 'dashboard-menu']);
+        $actionevent = Permission::create([
+            'name' => 'action-event'
+        ]);
+        $actioncompetition = Permission::create([
+            'name' => 'action-competition'
+        ]);
+        $admin->givePermissionTo(['action-event', 'action-competition', 'add-role', 'edit-role', 'delete-role', 'add-permission', 'edit-permission', 'delete-permission', 'dashboard-menu']);
 
-        // ModelsCategory::create([
-        //     'name_category' => 'Webinar',
-        //     'slug_category' => 'Webinar',
-        //     'active' => "1"
-        // ]);
+        Category::create([
+            'name_category' => 'Seminar Nasional',
+            'slug_category' => 'seminar-nasional',
+        ]);
+        Category::create([
+            'name_category' => 'Workshop',
+            'slug_category' => 'workshop',
+        ]);
+        Category::create([
+            'name_category' => 'Seminar Komunitas',
+            'slug_category' => 'seminar-komunitas',
+        ]);
+
         $user = User::create([
             'name' => 'lintang lazuardi',
             'password' => bcrypt('linlaz11'),
