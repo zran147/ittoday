@@ -17,7 +17,12 @@ class CommentController extends Controller
     public function detaildashboardcomment($idcomment)
     {
         $idcomment = Crypt::decrypt($idcomment);
-        $comemnt = Comment::findorfail($idcomment);
-        
+        $comemnt = Comment::findorfail($idcomment)->first();
+        $comemnt->update([
+            'reply' => 'sudah dilihat'
+        ]);
+        return view('dashboard.contact.detaildashboardcomment',[
+            'comment' => $comemnt
+        ]);
     }
 }

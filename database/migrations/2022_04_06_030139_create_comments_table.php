@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('email_seeder')->required();
             $table->text('subject_seeder')->required();
             $table->text('body_seeder')->required();
-            $table->enum('reply',['acc','wait'])->default('wait');
+            $table->enum('reply',['sudah dilihat','belum dilihat', 'sudah dibalas'])->default('belum dilihat');
             $table->timestamps();
         });
     }
