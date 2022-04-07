@@ -67,19 +67,18 @@
                             </ul>
                         </li>
                     @endcan
-
                     {{-- KESTARY,KOMPETISI,ADMIN,LO --}}
                     @can('action-competition')
                         <li class="sidebar-title">About competition</li>
                         <li class="sidebar-item  @if (Request::is('dashboard/competition*')) {{ 'active' }} @endif">
                             <a href="/dashboard/competition" class='sidebar-link'>
-                                <i class="bi bi-Code"></i>
+                                <i class="bi bi-code"></i>
                                 <span>competition</span>
                             </a>
                         </li>
                         <li class="sidebar-item  has-sub @if (Request::is('dashboard/detailcompetition*')) {{ 'active' }} @endif">
                             <a href="#" class='sidebar-link'>
-                                <i class="bi bi-Collection-play-fill"></i>
+                                <i class="bi bi-collection-play-fill"></i>
                                 <span>Detail competition</span>
                             </a>
                             <ul class="submenu  @if (Request::is('dashboard/detailcompetition*')) {{ 'active' }} @endif">
@@ -93,7 +92,14 @@
                             </ul>
                         </li>
                     @endcan
-
+                    <li class="sidebar-title">About Contact</li>
+                    <li class="sidebar-item @if (Request::is('dashboard/contact*')) {{ 'active' }} @endif">
+                        <a href="/dashboard/contact" class='sidebar-link'>
+                            <i class="bi bi-contact"></i>
+                            <span>contact</span>
+                        </a>
+                    </li>
+                    {{-- ONLY ADMIN OR HAS PERMISSIONS --}}
                     @can('edit-permission')
                         <li class="sidebar-title">About User</li>
                         <li class="sidebar-item @if (Request::is('dashboard/manageuser*')) {{ 'active' }} @endif">
@@ -108,11 +114,11 @@
                                 <span>Manage role and permissions</span>
                             </a>
                         </li>
-                        @endcan
+                    @endcan
 
-                    </ul>
-                </div>
-                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+                </ul>
             </div>
+            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
         </div>
     </div>
+</div>

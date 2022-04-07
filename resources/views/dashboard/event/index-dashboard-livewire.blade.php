@@ -101,7 +101,6 @@
     @push('modals')
         <script src="/assets/vendors/jquery/jquery.min.js"></script>
         <script src="/assets/vendors/jquery-datatables/jquery.dataTables.min.js"></script>
-        {{-- <script src="/assets/vendors/jquery-datatables/custom.jquery.dataTables.bootstrap5.min.js"></script> --}}
         <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
