@@ -1,19 +1,22 @@
 /* font input*/
 @font-face{
     font-family: "Retro Gaming";
-    src: url('/font/Retro-Gaming.ttf') format('truetype');
+    src: url('font/Retro-Gaming.ttf') format('truetype');
   }
   @font-face{
     font-family: "Alagard";
-    src: url('/font/alagard.ttf') format('truetype');
+    src: url('font/alagard.ttf') format('truetype');
   }
   @font-face{
     font-family: "Quicksand";
-    src: url('/font/Quicksand.ttf') format('truetype');
+    src: url('font/Quicksand.ttf') format('truetype');
   }
   /*--------------------------------------------------------------
   # General
   --------------------------------------------------------------*/
+  body::-webkit-scrollbar{
+    display: none;
+  }
   body {
     font-family: 'Quicksand';
     color: #000000;
@@ -32,6 +35,22 @@
   }
   .kompet p, .event p {
     margin-bottom: 2px;
+  }
+  .blob{
+    background: url("img/Blob/blob.svg") 0% 0% no-repeat, url("img/Blob/pattern.svg") 0% 5% no-repeat, url("img/Blob/blob2.svg") 100% 36% no-repeat, url("img/Blob/pattern2.svg") 100% 38% no-repeat, url("img/Blob/blob3.svg") 0% 83% no-repeat, url("img/Blob/pattern3.svg") 0% 85% no-repeat;
+    background-size: 40% 30%;
+  }
+  @media (max-width: 769px) {
+    .blob{
+      background: url("img/Blob/blob.svg") 0% 0% no-repeat, url("img/Blob/pattern.svg") 0% 3% no-repeat, url("img/Blob/blob2.svg") 100% 36% no-repeat, url("img/Blob/pattern2.svg") 100% 38% no-repeat, url("img/Blob/blob3.svg") 0% 83% no-repeat, url("img/Blob/pattern3.svg") 0% 85% no-repeat;
+      background-size: 68% 18%;
+    }
+  }
+  @media (max-width: 576px) {
+    .blob{
+      background: url("img/Blob/blob.svg") 0% 0% no-repeat, url("img/Blob/pattern.svg") 0% 3% no-repeat, url("img/Blob/blob2.svg") 100% 36% no-repeat, url("img/Blob/pattern2.svg") 100% 38% no-repeat, url("img/Blob/blob3.svg") 0% 86% no-repeat, url("img/Blob/pattern3.svg") 0% 88% no-repeat;
+      background-size: 68% 18%;
+    }
   }
   /*--------------------------------------------------------------
   # Button
@@ -102,8 +121,38 @@
   }
 
   /*--------------------------------------------------------------
-  # Carousel Button
+  # Carousel
   --------------------------------------------------------------*/
+  /*****ScrollBar*****/
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+    right: calc(50% - 30px);
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #63a3ce;
+    border-radius: 10px;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4885d4c4;
+  }
+  /*****end scrollbar******/
+
+  .event .carousel-item p, .kompet .carousel-item p{
+    width: auto;
+    height: 100px;
+    overflow-y: auto;
+  }
+  .event .carousel-item h3, .kompet .carousel-item h3{
+    font-size: max(min(2.5vw,28px),18px);
+  }
   .carousel-control-prev, .carousel-control-next{
     background-color: #8bbfe6;
     width: 50px;
@@ -111,36 +160,47 @@
     border-radius: 50%;
     top: calc(50% - 25px);
   }
-
   .carousel-control-next{
     right: 5%;
   }
-
   .carousel-control-prev{
     left: 5%;
   }
-
   .carousel-indicators [data-bs-target]{
     border-radius: 50%;
     width: 10px;
     height: 10px;
     background-color: #4884D4;
   }
-
   .carousel-indicators {
     position: static;
     margin-top: 10px;
   }
 
   @media screen and (max-width: 767px){
+    .event img, .kompet img {
+      width: auto !important;
+    }
+    .event .carousel-item p, .kompet .carousel-item p{
+      width: auto;
+      height: 150px;
+      overflow-y: auto;
+    }
+  }
+
+  @media screen and (max-width: 575px){
     .carousel-control-next{
       display: none;
     }
     .carousel-control-prev{
       display: none;
     }
+    .event .carousel-item p, .kompet .carousel-item p{
+      width: auto;
+      height: 100px;
+      overflow-y: auto;
+    }
   }
-
   /*--------------------------------------------------------------
   # Preloader
   --------------------------------------------------------------*/
@@ -195,7 +255,7 @@
     transition: all 0.5s;
     z-index: 997;
     padding: 8px 0;
-    background: linear-gradient(180deg, rgba(55, 81, 126), transparent);
+    background: linear-gradient(180deg, rgb(55, 81, 126), transparent);
   }
   #header.header-scrolled, #header.header-inner-pages {
     background:rgba(55, 81, 126, 0.902);
@@ -216,7 +276,7 @@
     max-height: 40px;
   }
   .header-scrolled .navbar .getstarted{
-    background: rgba(32, 39, 73, 0.5);
+    background: rgba(32, 39, 73, 0.502);
   }
 
   /*--------------------------------------------------------------
@@ -389,9 +449,9 @@
   }
   .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
     margin: 15px;
-    color: #37517e;
+    color: #fff;
     border: 2px solid #47b2e4;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(71, 178, 228, 0.85) !important;
     justify-content: center;
   }
   .navbar-mobile .dropdown ul {
@@ -427,7 +487,7 @@
   #hero {
     width: 100%;
     height: 80vh;
-    background-image: url("/img/Homepage.png");
+    background-image: url("img/Homepage.png");
     background-position: right bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -513,7 +573,7 @@
   # Sections General
   --------------------------------------------------------------*/
   section {
-    padding: 60px 0;
+    padding: 40px 0;
     overflow: hidden;
   }
 
@@ -557,25 +617,32 @@
   .section-title p {
     margin-bottom: 0;
   }
-
   /*--------------------------------------------------------------
   # Kompetisi
   --------------------------------------------------------------*/
-  .mobile-kompet {
-    display: none !important;
+  .kompet .carousel-item{
+    direction: rtl;
   }
-  @media screen and (max-width: 768px){
-    .mobile-kompet{
-      display: flex !important;
-    }
-    .pc {
-      display: none !important;
-    }
+  .kompet .carousel-item span {
+    unicode-bidi:embed; direction:ltr;
   }
   /*--------------------------------------------------------------
   # Main sponsor
   --------------------------------------------------------------*/
-
+  #mainspo{
+    padding: 15px 0px;
+  }
+  #mainspo .clients .container .comingsoon{
+    color: #445d89d6;
+    text-shadow: 1px 1px #202749;
+    margin-bottom: 50px;
+    font-size: 24px;
+    padding-top: 36px;
+  }
+  #mainspo .clients .container .comingsoon span{
+    animation: up-down 2s ease-in-out infinite alternate-reverse both;
+    animation-delay: 1s;
+  }
   .clients .section-title{
     padding-bottom: 10px;
   }
@@ -650,7 +717,7 @@
     color: white;
   }
   .aboutus {
-    background: linear-gradient(rgba(22, 20, 37, 0.9), rgba(32, 39, 73, 0.9)), url("/img/Latar About Us.png") fixed center center;
+    background: linear-gradient(rgba(22, 20, 37, 0.9), rgba(32, 39, 73, 0.9)), url("img/Latar_AboutUs.png") fixed center center;
     /* background: linear-gradient(rgba(22, 20, 37, 0.9), rgba(32, 39, 73, 0.9)), url("img/Header.png") fixed center center; */
     background-repeat: no-repeat;
     background-size: auto;
