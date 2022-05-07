@@ -14,6 +14,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::controller(UserController::class)->prefix('profile')->middleware('auth:sanctum', 'verified')->group(function () {
+    Route::get('/', 'indexUser')->name('indexusercontroller');
+    Route::get('/editprofile','editProfileUser')->name('editprofileusercontroller');
+    Route::post('/updateprofile','updateProfileUser')->name('updateprofileusercontroller');
+});
+
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verified', 'role_or_permission:admin|dashboard-menu']], function () {
     Route::get('/', function () {
         return view('dashboard');

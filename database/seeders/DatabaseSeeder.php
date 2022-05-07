@@ -109,14 +109,23 @@ class DatabaseSeeder extends Seeder
             'slug_category' => 'seminar-komunitas',
         ]);
 
-        $user = User::create([
+        $user1 = User::create([
             'name' => 'lintang lazuardi',
             'password' => bcrypt('linlaz11'),
             'email' => 'lintanglazuardi11@gmail.com',
             'wa_user' => '0895708134567',
             'email_verified_at' => '2022-04-01 15:09:53'
         ]);
-        $user->assignRole('admin');
+        $user1->assignRole('admin');
+
+        $user2 = User::create([
+            'name' => 'lintang lazuardi',
+            'password' => bcrypt('linlaz11'),
+            'email' => 'lazuardilintang@apps.ipb.ac.id',
+            'wa_user' => '089570813456',
+            'email_verified_at' => '2022-04-01 15:09:53'
+        ]);
+        $user2->assignRole('user');
 
         $competition = Competition::create([
             'name_competition' => 'Hack Today',

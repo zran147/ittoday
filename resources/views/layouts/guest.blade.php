@@ -49,12 +49,12 @@
       <!--Navbar-->
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a href="#event" class=" nav-link scrollto">Events</a></li>
-          <li><a href="#kompetisi" class=" nav-link scrollto">Competitions</a></li>
-          <li><a class="nav-link scrollto" href="#mainspo">Sponsor</a></li>
-          <li><a class="nav-link scrollto" href="#aboutus">About</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Reach Us</a></li>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li><a href="/#event" class=" nav-link scrollto">Events</a></li>
+          <li><a href="/#kompetisi" class=" nav-link scrollto">Competitions</a></li>
+          <li><a class="nav-link scrollto" href="/#mainspo">Sponsor</a></li>
+          <li><a class="nav-link scrollto" href="/#aboutus">About</a></li>
+          <li><a class="nav-link scrollto" href="/#contact">Reach Us</a></li>
           @guest
                         <li><a class="getstarted scrollto" href="/register">Sign up</a></li>
                         @php
@@ -82,7 +82,7 @@
                             </form>
                         </li>
                     @endauth
-          
+
         </ul>
         <i class="fa-solid fa-bars mobile-nav-toggle"></i>
       </nav>
