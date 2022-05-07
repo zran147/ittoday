@@ -20,6 +20,10 @@ Route::controller(UserController::class)->prefix('profile')->middleware('auth:sa
     Route::post('/updateprofile','updateProfileUser')->name('updateprofileusercontroller');
 });
 
+Route::controller(CompetitionController::class)->prefix('competition')->group(function () {
+    Route::get('/hacktoday','hacktoday')->name('hacktoday');
+});
+
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verified', 'role_or_permission:admin|dashboard-menu']], function () {
     Route::get('/', function () {
         return view('dashboard');

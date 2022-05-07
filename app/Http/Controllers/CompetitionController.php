@@ -32,4 +32,8 @@ class CompetitionController extends Controller
             'id_competition' => $idevent,
         ]);
     }
+    public function hacktoday()
+    {
+        return view('competition.hacktoday');
+    }
 }
