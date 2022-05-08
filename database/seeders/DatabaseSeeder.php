@@ -144,6 +144,7 @@ class DatabaseSeeder extends Seeder
             'no_hp_tim' => $faker->randomDigit(),
             'registrant_id' => '1',
             'competition_id' => '1',
+            'participant' => 3,
         ]);
         TimCompetition::create([
             'code_uniq_tim' => Str::uuid(),
@@ -155,6 +156,7 @@ class DatabaseSeeder extends Seeder
             'no_hp_tim' => $faker->randomDigit(),
             'registrant_id' => '1',
             'competition_id' => '1',
+            'participant' => 3,
         ]);
         RegistrantCompetition::create([
             'name_registrant_competitions' => 'linlaz',

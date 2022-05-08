@@ -36,9 +36,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <script src="https://kit.fontawesome.com/b6396059b6.js" crossorigin="anonymous"></script>
-
-    @stack('style')
-    @livewireStyles
+  @livewireStyles
+  @stack('style')
 </head>
 
 <body>
@@ -53,7 +52,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="/">Home</a></li>
           <li><a href="/#event" class=" nav-link scrollto">Events</a></li>
-          <li><a href="/#kompetisi" class=" nav-link scrollto">Competitions</a></li>
+          <li><a href="/competition/hacktoday" class=" nav-link scrollto">Competitions</a></li>
           <li><a class="nav-link scrollto" href="/#mainspo">Sponsor</a></li>
           <li><a class="nav-link scrollto" href="/#aboutus">About</a></li>
           <li><a class="nav-link scrollto" href="/#contact">Reach Us</a></li>

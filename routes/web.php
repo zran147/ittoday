@@ -20,9 +20,18 @@ Route::controller(UserController::class)->prefix('profile')->middleware('auth:sa
     Route::post('/updateprofile','updateProfileUser')->name('updateprofileusercontroller');
 });
 
-Route::controller(CompetitionController::class)->prefix('competition')->group(function () {
-    Route::get('/hacktoday','hacktoday')->name('hacktoday');
+Route::group(['prefix'=>'competition'], function (){
+    Route::get('/hacktoday',[CompetitionController::class,'hacktoday'])->name('hacktoday');
+    Route::controller(TimCompetitionController::class)->middleware('auth:sanctum','verified')->group(function(){
+        Route::get('hacktoday/regis/{code}','edit')->name('updatetim');
+        Route::get('/hacktoday/regis','create')->name('registim');
+    });
 });
+
+// Route::controller(CompetitionController::class)->prefix('competition')->group(function () {
+//     Route::get('/hacktoday','hacktoday')->name('hacktoday');
+//     Route::get('/hacktoday/regis','RegistrantCompetitionController@create')
+// });
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verified', 'role_or_permission:admin|dashboard-menu']], function () {
     Route::get('/', function () {

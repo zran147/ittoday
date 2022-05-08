@@ -1,5 +1,5 @@
 <div>
-<form class="bg-light p-3">
+<form class="bg-light p-3 my-5">
     <div class="row gy-4">
         <div class="col-md-6 form-group">
             <label for="nama_team" class="form-label">Nama Team</label>
@@ -7,7 +7,6 @@
             @error('name_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
-
                 </div>
             @enderror
         </div>
@@ -22,7 +21,6 @@
             @error('level_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
-
                 </div>
             @enderror
         </div>
@@ -33,7 +31,6 @@
             @error('name_institusi_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
-
                 </div>
             @enderror
         </div>
@@ -44,7 +41,6 @@
             @error('email_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
-
                 </div>
             @enderror
         </div>
@@ -55,7 +51,6 @@
             @error('username_telegram_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
-
                 </div>
             @enderror
         </div>
@@ -66,11 +61,10 @@
             @error('no_handphone_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
-
                 </div>
             @enderror
         </div>
-        @if (empty($participantslist))
+        @if ($action == 'storetim')
         <div class="col-md-12 form-group">
             <label for="level_team" class="form-label">Number of Team</label>
             <select id="reason-list" class="col-md-6 form-control control" wire:model="participants" required>
@@ -82,89 +76,24 @@
             @error('participants')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
-
                 </div>
             @enderror
         </div>
         @endif
         <div class="col-md-12 gy-4 text-center my-3">
-            <button type="button" wire:click="storetim" class="btn btn-primary">Create Team</button>
+            <button type="button" wire:click="{{ $action }}" class="btn btn-primary">{{ $action }}</button>
         </div>
-
     </div>
 
-    @if (!empty($participantslist))
         <div class="my-4">
-
                 <h2 class="text-center">Information Member Team</h2>
-                @foreach ($participantslist as $item)
-                    @livewire('registranttimcompetition.form-registrant-member-competition',['index' => $loop->index, 'timmember' => $item])
-                @endforeach
+                @for ($i = 0; $i < $participants; $i++)
+                    @if ($i < $membertim->count())
+                        @livewire('registranttimcompetition.form-registrant-member-competition',['index' => $i, 'membertim'=>$membertim[$i], 'tim_id'=> $id_tim, 'action'=>'update'])
+                    @else
+                        @livewire('registranttimcompetition.form-registrant-member-competition',['index' => $i, 'tim_id'=> $id_tim, 'action'=>'create'])
+                    @endif
+                @endfor
         </div>
-
-    @endif
-
-
-              {{-- <div class="row gy-4 ">
-                <div class="col-6 menengah turun">
-                    <!--<form class="form">-->
-                      <div class="row gy-4 data">
-
-                        <h2>Information Payment Team</h2>
-
-                        <div class="col-md-6 form-group">
-                          <label for="username_telegram_team" class="form-label">Team's Account Name </label>
-                          <input type="text" name="nama" class="form-control" placeholder="Full Name" >
-                        </div>
-
-                        <div class="col-md-6 form-group">
-                          <label for="username_telegram_team" class="form-label">Account Number</label>
-                          <input type="text" class="form-control" name="Provinsi" placeholder="Provinsi" >
-                        </div>
-
-                        <div class="col-md-12 form-group">
-                          <label for="username_telegram_team" class="form-label">Bukti Transfer Member Team</label>
-                          <div class="col form-group col-kiri form-control file-upload-wrapper" data-text="KTM / Kartu Pelajar">
-                            <input name="file-upload-field" type="file" class="form-control padding" value="" >
-                            <span class="btn-primary col-atas_bawah btn-sm" role="button" aria-pressed="true" >Browse</span>
-                          </div>
-                        </div>
-
-                        <div class="col-md-12 gy-4 text-center marginturun">
-                          <div class="loading">Loading</div>
-                          <div class="error-message">Please fill the form </div>
-                          <div class="sent-message">Your message has been sent. Thank you!</div>
-                          <a>
-                            <button type="submit">Submit</button>
-                          </a>
-                        </div>
-                      </div>
-                    <!--</form>-->
-                </div>
-              </div> --}}
-
-              {{-- <div class="row gy-4 ">
-                <div class="col-6 menengah turun">
-                    <!--<form class="form">-->
-                      <div class="row gy-4 data">
-
-                        <h2>Result Competition Team</h2>
-
-                        <div class="col-md-12 form-group">
-                          <label for="username_telegram_team" class="form-label">Username Telegram Team</label>
-                          <input type="link" name="nama" class="form-control" placeholder="Full Name" >
-                        </div>
-
-                        <div class="col-md-12 gy-4 text-center marginturun">
-                          <div class="loading">Loading</div>
-                          <div class="error-message">Please fill the form </div>
-                          <div class="sent-message">Your message has been sent. Thank you!</div>
-                          <a href="formty.html">
-                            <button type="submit">Submit</button>
-                          </a>
-                        </div>
-                      </div>
-                </div>
-              </div> --}}
 </form>
 </div>

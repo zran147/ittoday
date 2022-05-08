@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TimCompetition;
 use App\Http\Requests\StoreTimCompetitionRequest;
 use App\Http\Requests\UpdateTimCompetitionRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TimCompetitionController extends Controller
 {
@@ -28,7 +29,10 @@ class TimCompetitionController extends Controller
      */
     public function create()
     {
-        //
+        return view('competition/regis/formregis',[
+            'code' => null,
+            'action' => 'storetim'
+        ]);
     }
 
     /**
@@ -59,9 +63,17 @@ class TimCompetitionController extends Controller
      * @param  \App\Models\TimCompetition  $timCompetition
      * @return \Illuminate\Http\Response
      */
-    public function edit(TimCompetition $timCompetition)
+    public function edit($code)
     {
-        //
+        $tim = TimCompetition::where('code_uniq_tim',$code)->first();
+        if ($tim->registrant_id != Auth::user()->id) {
+            return redirect('/');
+        }else{
+            return view('competition/regis/formregis',[
+                'code' => $code,
+                'action' => 'updatetim'
+            ]);
+        }
     }
 
     /**
