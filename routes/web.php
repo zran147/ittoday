@@ -7,6 +7,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\RegistrantCompetitionController;
 use App\Http\Controllers\TimCompetitionController;
+use Barryvdh\Debugbar\DataCollector\EventCollector;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -25,6 +26,13 @@ Route::group(['prefix'=>'competition'], function (){
     Route::controller(TimCompetitionController::class)->middleware('auth:sanctum','verified')->group(function(){
         Route::get('hacktoday/regis/{code}','edit')->name('updatetim');
         Route::get('/hacktoday/regis','create')->name('registim');
+    });
+});
+
+Route::group(['prefix'=>'event'], function(){
+    Route::controller(EventController::class)->group(function (){
+        Route::get('/','index')->name('event');
+        Route::get('/detail/{slug}','show')->name('showevent');
     });
 });
 

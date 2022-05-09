@@ -20,10 +20,10 @@ return new class extends Migration
             $table->date('start_event')->required();
             $table->date('finish_event')->required();
             $table->text('description_event')->required();
-            $table->string('status_event')->default('belum');
             $table->enum('active', ['draft', 'published'])->default('draft');
             $table->integer('registrant_event')->default(500);
             $table->string('thumbnail_event')->unique();
+            $table->enum('keterangan',['Free', 'Berbayar'])->default('Free');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
         });

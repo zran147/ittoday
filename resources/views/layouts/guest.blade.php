@@ -51,8 +51,8 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="/">Home</a></li>
-          <li><a href="/#event" class=" nav-link scrollto">Events</a></li>
-          <li><a href="/competition/hacktoday" class=" nav-link scrollto">Competitions</a></li>
+          <li><a href="/event" class=" nav-link scrollto">Events</a></li>
+          <li><a href="/competition" class=" nav-link scrollto">Competitions</a></li>
           <li><a class="nav-link scrollto" href="/#mainspo">Sponsor</a></li>
           <li><a class="nav-link scrollto" href="/#aboutus">About</a></li>
           <li><a class="nav-link scrollto" href="/#contact">Reach Us</a></li>
@@ -169,6 +169,7 @@
 
     <!-- /Vendor JS Files -->
     @livewireScripts
+    @stack('script')
     <script src="/vendor/aos.js"></script>
     <!--script src="/vendor/bootstrap.bundle.min.js"></script-->
     <script src="/vendor/glightbox.min.js"></script>

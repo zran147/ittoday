@@ -85,6 +85,7 @@
         </div>
     </div>
 
+    @if ($action == 'updatetim')
         <div class="my-4">
                 <h2 class="text-center">Information Member Team</h2>
                 @for ($i = 0; $i < $participants; $i++)
@@ -95,5 +96,7 @@
                     @endif
                 @endfor
         </div>
+
+        @endif
 </form>
 </div>

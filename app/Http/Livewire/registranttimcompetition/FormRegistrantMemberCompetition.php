@@ -9,6 +9,7 @@ use Livewire\WithFileUploads;
 class FormRegistrantMemberCompetition extends Component
 {
     use WithFileUploads;
+    protected $listeners = ['refresh' => '$refresh'];
     public $index, $action, $name_member, $provinsi_member,$id_card_member,$sk_member, $membertim, $tim_id;
     public $verifmember, $messageformember, $leadertimember;
     public function mount()
@@ -55,6 +56,7 @@ class FormRegistrantMemberCompetition extends Component
 
         if($registrant){
             session()->flash('success','member succes regis in tim');
+            $this->emit('refresh');
         }else{
             session()->flash('error','member unsucces regis in tim');
         }

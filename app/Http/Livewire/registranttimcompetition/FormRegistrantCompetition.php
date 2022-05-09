@@ -15,6 +15,7 @@ class FormRegistrantCompetition extends Component
     public $participants;
     public $participantslist = [];
     public $action, $codeuniqteam;
+    protected $listeners = ['refresh' => '$refresh'];
 
     public function mount()
     {
