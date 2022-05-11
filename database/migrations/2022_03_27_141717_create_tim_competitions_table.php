@@ -34,7 +34,7 @@ return new class extends Migration
             // Infomasi Pembayaran Tim
             $table->string('proof_of_payment_tim')->nullable();
             $table->string('bank_account_name_payment_tim')->nullable();
-            $table->integer('payment_fee_payment_tim')->nullable();
+            $table->string('payment_fee_payment_tim')->nullable();
             // end Infomasi Pembayaran Tim
 
             $table->string('status_verification_tim')->default('waiting verification administration');
@@ -45,7 +45,7 @@ return new class extends Migration
             waiting verification payment,
             acc verification payment,
             rejected verification payment,
-            tim successful varification,
+            tim successful verification,
             */
 
             $table->string('link_competition_results')->nullable();

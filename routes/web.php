@@ -15,17 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::controller(UserController::class)->prefix('profile')->middleware('auth:sanctum', 'verified')->group(function () {
+
+Route::controller(UserController::class)->prefix('account')->middleware('auth:sanctum', 'verified')->group(function () {
     Route::get('/', 'indexUser')->name('indexusercontroller');
     Route::get('/editprofile','editProfileUser')->name('editprofileusercontroller');
     Route::post('/updateprofile','updateProfileUser')->name('updateprofileusercontroller');
 });
 
-Route::group(['prefix'=>'competition'], function (){
-    Route::get('/hacktoday',[CompetitionController::class,'hacktoday'])->name('hacktoday');
+Route::group(['prefix'=>'competitions'], function (){
+    Route::controller(CompetitionController::class)->group( function() {
+        Route::get('/','index')->name('competition');
+        Route::get('/detail/{slug}', 'show')->name('showcompetition');
+    });
+    // Route::get('/hacktoday',[CompetitionController::class,'hacktoday'])->name('hacktoday');
     Route::controller(TimCompetitionController::class)->middleware('auth:sanctum','verified')->group(function(){
-        Route::get('hacktoday/regis/{code}','edit')->name('updatetim');
-        Route::get('/hacktoday/regis','create')->name('registim');
+        Route::get('/{slug}/regis/{code}','edit')->name('updatetim');
+        Route::get('/detail/{slug}/regis','create')->name('registim');
     });
 });
 

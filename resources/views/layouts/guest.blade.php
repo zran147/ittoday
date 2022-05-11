@@ -28,7 +28,7 @@
 
     <!-- Template Main CSS File -->
 
-    @if (!Request::is('competition/*'))
+    @if (!Request::is('competitions/*'))
         <link href="/style.css" rel="stylesheet">
     @endif
 
@@ -52,7 +52,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="/">Home</a></li>
           <li><a href="/event" class=" nav-link scrollto">Events</a></li>
-          <li><a href="/competition" class=" nav-link scrollto">Competitions</a></li>
+          <li><a href="/competitions" class=" nav-link scrollto">Competitions</a></li>
           <li><a class="nav-link scrollto" href="/#mainspo">Sponsor</a></li>
           <li><a class="nav-link scrollto" href="/#aboutus">About</a></li>
           <li><a class="nav-link scrollto" href="/#contact">Reach Us</a></li>
@@ -68,7 +68,7 @@
                             if (Auth::user()->hasPermissionTo('dashboard-menu')) {
                                 $text = 'dashboard';
                             } else {
-                                $text = 'profile';
+                                $text = 'account';
                             }
 
                         @endphp

@@ -1,11 +1,12 @@
 <x-guest-layout>
+    @push('style')
+        <link href="/profile/profile.css" rel="stylesheet">
+    @endpush
     <section id="profile" class="contact">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title mt-5">
                 <x-flash-message></x-flash-message>
-                <!-- <h2>Profile</h2> -->
-                <!-- <p>Punya pertanyaan, permasalahan, atau saran? Kami akan sangat senang dapat mendengarnya dari anda.</p> -->
             </div>
 
             <div class="row">
@@ -118,4 +119,7 @@
 
         </div>
       </section>
+      @push('style')
+        <script src="/profile/profile.js"></script>
+      @endpush
 </x-guest-layout>

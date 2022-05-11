@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mail\VerificationCompetition;
+use App\Models\Competition;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Crypt;
 
@@ -32,8 +33,16 @@ class CompetitionController extends Controller
             'id_competition' => $idevent,
         ]);
     }
-    public function hacktoday()
+    public function index()
     {
-        return view('competition.hacktoday');
+        return view('competition.indexcontroller',[
+            'event' => Competition::where('active','published')->with('timcompetition')->get()
+        ]);
+    }
+    public function show($slug)
+    {
+        return view('competition.show.'.$slug,[
+            'compe' => Competition::where('slug_competition',$slug)->first()
+        ]);
     }
 }

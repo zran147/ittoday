@@ -12,7 +12,7 @@ class IndexCompetitionLivewire extends Component
     public function render()
     {
         return view('dashboard.competition.index-competition-livewire',[
-            'allcompetition' => Competition::all()
+            'allcompetition' => Competition::with('timcompetition')->get()
         ]);
     }
     public function activecompetition($idcompetition, $active)

@@ -45,7 +45,7 @@
                             <div class="row">
                                 <div class="col-md-4"></div>
                                 <div class="col-md-2">
-                                    <a type="submit" href="profile.html" class="btn_kembali mr-5" style="float: right;">Kembali</a>
+                                    <a type="submit" href="/account" class="btn_kembali mr-5" style="float: right;">Kembali</a>
                                 </div>
                                 <div class="col-md-2">
                                     <button type="submit" class="btn_submit" style="float: left;">Submit</button>

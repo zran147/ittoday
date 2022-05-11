@@ -13,11 +13,21 @@
               <h2 data-aos="fade-up" data-aos-delay="400">Hack Today adalah kompetisi keamanan siber dengan mekanisme Capture The Flag (Jeopardy style) yang setiap tim diminta untuk menyelesaikan beberapa kasus dari berbagai kategori dengan tujuan mendapatkan sebuah flag untuk tiap kasusnya. Hack Today dapat diikuti oleh siswa SLTA/sederajat atau mahasiswa perguruan tinggi di seluruh Indonesia. Setiap tim wajib terdiri dari 1-3 orang yang berasal dari lembaga/institusi yang sama.</h2>
               <div data-aos="fade-up" data-aos-delay="600">
                 <div class="text-center text-lg-start">
-                  <a href="/competition/hacktoday/regis" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                    @php
+                    if($compe->start_registrasi_competition > date("Y-m-d")){
+                        $index = "#";
+                    }
+                    elseif ($compe->start_registrasi_competition < date("Y-m-d") && $compe->finish_registrasi_competition > date("Y-m-d")){
+                        $index = "/competitions/detail/".$compe->slug_competition."/regis";
+                    }elseif ($compe->finish_registrasi_competition < date("Y-m-d")) {
+                        $index = "#";
+                    }
+                @endphp
+                  <a href="{{ $index }}" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                     <span>Register Your Team</span>
                     <i class="bi bi-arrow-right"></i>
                   </a>
-                  <a href="#about" class="btn-rule-book scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                  <a href="{{ $compe->rule_book_competition }}" target="_blank" class="btn-rule-book scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                     <span>Rule Book</span>
                     <i class="bi bi-arrow-right"></i>
                   </a>

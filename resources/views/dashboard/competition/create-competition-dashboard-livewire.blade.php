@@ -28,6 +28,21 @@
                                                 </div>
                                             @enderror
                                         </div>
+                                        <div class="start_registrasi_competition">
+                                            <div class="form-group">
+                                                <label for="start-event-vertical">Start Registrasi Competition</label>
+                                                <input type="date" id="start-event-vertical" class="form-control"
+                                                    wire:model="start_registrasi_competition"
+                                                    placeholder="Preparing Career in Data Science World">
+                                            </div>
+                                            @error('start_registrasi_competition')
+                                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                    {{ $message }}
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                            @enderror
+                                        </div>
                                         <div class="finish_registrasi_competition">
                                             <div class="form-group">
                                                 <label for="start-event-vertical">Finish Registrasi Competition</label>

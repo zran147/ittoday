@@ -23,7 +23,7 @@
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="/user/profile">Setting</a>
+                                <a href="/account">Setting</a>
                             </li>
                             <li class="submenu-item ">
                                 <form action="{{ route('logout') }}" method="POST">

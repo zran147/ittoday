@@ -26,8 +26,10 @@ class MemberTimCompetition extends Component
         $this->emitSelf('check');
         if ($accmember) {
             session()->flash('success', 'member successfully acc verification.');
+            return redirect(request()->header('Referer'));
         } else {
             session()->flash('error', 'member failed acc verification. contact kestary member');
+            return redirect(request()->header('Referer'));
         }
         $this->cancelrefuse();
         $this->emitUp('refreshpage');
@@ -49,8 +51,10 @@ class MemberTimCompetition extends Component
         $this->emitSelf('check');
         if ($accmember) {
             session()->flash('success', 'member successfully refuse verification.');
+            return redirect(request()->header('Referer'));
         } else {
             session()->flash('error', 'member failed refuse verification. contact kestary member');
+            return redirect(request()->header('Referer'));
         }
         $this->cancelrefuse();
         $this->emitUp('refreshpage');

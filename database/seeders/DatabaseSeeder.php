@@ -130,7 +130,8 @@ class DatabaseSeeder extends Seeder
         $competition = Competition::create([
             'name_competition' => 'Hack Today',
             'slug_competition' => 'hack-today',
-            'finish_registrasi_competition' => '2022-04-01',
+            'finish_registrasi_competition' => '2022-05-01',
+            'start_registrasi_competition' => '2022-06-01',
             'rule_book_competition' => 'www.lintech.com',
             'active' => 'published',
         ]);
