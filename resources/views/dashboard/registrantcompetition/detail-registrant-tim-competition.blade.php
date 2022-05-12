@@ -20,7 +20,7 @@
                                 <p>Tingkat Institusi Tim : {{ $tim_competition->level_tim }}</p>
                             </div>
                             <div class="my-2">
-                                <p>Nama Institusi Tim : {{ $tim_competition->level_tim }}</p>
+                                <p>Nama Institusi Tim : {{ $tim_competition->institusi_name_tim }}</p>
                             </div>
                         </div>
                         <div class="col border mx-2">
