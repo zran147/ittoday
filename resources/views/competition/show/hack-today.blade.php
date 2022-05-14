@@ -19,7 +19,10 @@
                     }
                     elseif ($compe->start_registrasi_competition < date("Y-m-d") && $compe->finish_registrasi_competition > date("Y-m-d")){
                         $index = "/competitions/detail/".$compe->slug_competition."/regis";
-                    }elseif ($compe->finish_registrasi_competition < date("Y-m-d")) {
+                    }elseif ($compe->finish_registrasi_competition == date("Y-m-d")) {
+                        $index = "/competitions/detail/".$compe->slug_competition."/regis";
+                    }
+                    elseif ($compe->finish_registrasi_competition < date("Y-m-d")) {
                         $index = "#";
                     }
                 @endphp

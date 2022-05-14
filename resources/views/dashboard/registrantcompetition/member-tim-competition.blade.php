@@ -28,9 +28,9 @@
                 <div class="my-2">
                     <p>Name Registrant : {{ $member->name_registrant_competitions }}</p>
                 </div>
-                @if ($member->verivication_registrant_competitions == 'improve')
+                @if ($member->message_registrant_competitions != 'acc')
                     <div class="my-2">
-                        <p>Message for member Registrant : {{ $member->message_registrant_competitions }}</p>
+                        <p>Message for member Registrant (revisi): {{ $member->message_registrant_competitions }}</p>
                     </div>
                 @endif
             </div>

@@ -11,7 +11,6 @@
           <div class="section-title">
             <h2>Events</h2>
           </div>
-
           <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -24,7 +23,7 @@
                       <h3>1. Seminar Nasional</h3>
                       <p>Acara ini adalah seminar bertaraf nasional yang terdiri dari tiga sesi dengan tiga pembicara yang ahli dalam bidangnya. Dalam rangkaian ini, berbagai topik menarik terkait pentingnya meningkatkan kemampuan terkait IT akan dibahas untuk menghadapi era post-pandemic. Dalam rangkaian acara ini, interaksi antara pembicara dengan peserta seminar yang diestimasi sebanyak 400 peserta dari penjuru Indonesia dimungkinkan.</p>
                       <!-- <a href="#" class="btn-learn-more">Learn More</a> -->
-                      <a href="#" class="btn-learn-more">Coming Soon</a>
+                      <a href="/event" class="btn-learn-more">Learn More</a>
                     </div>
                   </div>
                 </div>
@@ -38,7 +37,7 @@
                     <div class="m-1">
                       <h3>2. Workshop</h3>
                       <p>Merupakan Workshop sebagai sarana pelatihan dalam bidang IT. Memungkinkan peserta berinteraksi kepada pemateri terkait topik Workshop selama kegiatan berlangsung. Kegiatan ini memberikan pelatihan singkat dengan estimasi 50 peserta.</p>
-                      <a href="#" class="btn-learn-more">Coming Soon</a>
+                      <a href="/event" class="btn-learn-more">Learn More</a>
                     </div>
                   </div>
                 </div>
@@ -52,7 +51,7 @@
                     <div class="m-1">
                       <h3>3. Seminar Komunitas</h3>
                       <p>Merupakan rangkaian seminar bertaraf nasional yang akan diisi oleh komunitas-komunitas dari Departemen Ilmu Komputer dengan mengundang pembicara yang ahli di bidangnya. Seminar ini memungkinkan peserta melakukan interaksi aktif bersama bicara terkait topik-topik menarik mengenai IT.</p>
-                      <a href="#" class="btn-learn-more">Coming Soon</a>
+                      <a href="/event" class="btn-learn-more">Learn More</a>
                     </div>
                   </div>
                 </div>
@@ -95,7 +94,7 @@
                       <div class="m-3">
                         <h3><span>1. Hack Today</span></h3>
                         <p>Merupakan kompetisi keamanan siber dengan mekanisme Capture The Flag (Jeopardy style) yang setiap tim diminta untuk menyelesaikan beberapa kasus dari berbagai kategori dengan tujuan mendapatkan sebuah flag untuk tiap kasusnya. Hack Today dapat diikuti oleh siswa SLTA/sederajat atau mahasiswa perguruan tinggi di seluruh Indonesia. Setiap tim wajib terdiri dari 1-3 orang yang berasal dari lembaga/institusi yang sama.</p>
-                        <a href="#" class="btn-learn-more">Learn More</a>
+                        <a href="/competitions" class="btn-learn-more">Learn More</a>
                       </div>
                     </div>
                   </div>
@@ -109,7 +108,7 @@
                     <div class="m-3">
                       <h3><span>2. UX Today</span></h3>
                       <p>Merupakan kompetisi desain pengalaman pengguna yang mengutamakan kenyamanan, kepuasan, dan efisiensi. UX Today dapat diikuti oleh seluruh mahasiswa perguruan tinggi di Indonesia. Setiap tim wajib terdiri dari 1-3 orang yang berasal dari universitas/institut yang sama.</p>
-                      <a href="#" class="btn-learn-more">Learn More</a>
+                      <a href="/competitions" class="btn-learn-more">Learn More</a>
                     </div>
                   </div>
                 </div>
@@ -123,7 +122,7 @@
                     <div class="m-3">
                       <h3><span>3. Poster Competition</span></h3>
                       <p>Merupakan kompetisi desain poster yang mengutamakan isi, visual, dan orisinalitas karya. Poster Competition dapat diikuti oleh masyarakat umum di seluruh Indonesia. Poster Competition mewadahi masyarakat yang memiliki ide dan krativitas untuk menyampaikannya melalui media poster.</p>
-                      <a href="#" class="btn-learn-more">Learn More</a>
+                      <a href="/competitions" class="btn-learn-more">Learn More</a>
                     </div>
                   </div>
                 </div>

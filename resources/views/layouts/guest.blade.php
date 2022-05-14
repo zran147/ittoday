@@ -56,41 +56,41 @@
           <li><a class="nav-link scrollto" href="/#mainspo">Sponsor</a></li>
           <li><a class="nav-link scrollto" href="/#aboutus">About</a></li>
           <li><a class="nav-link scrollto" href="/#contact">Reach Us</a></li>
-          @guest
-                        <li><a class="getstarted scrollto" href="/register">Sign up</a></li>
-                        @php
-                            $text = 'login';
-                        @endphp
-                    @endguest
-                    @auth
-                        @php
-                            $text = 'login';
-                            if (Auth::user()->hasPermissionTo('dashboard-menu')) {
-                                $text = 'dashboard';
-                            } else {
-                                $text = 'account';
-                            }
+            @guest
+                <li><a class="getstarted scrollto" href="/register">Sign up</a></li>
+                @php
+                    $text = 'login';
+                @endphp
+            @endguest
+            @auth
+                 @php
+                    $text = 'login';
+                    if (Auth::user()->hasPermissionTo('dashboard-menu')) {
+                        $text = 'dashboard';
+                    } else {
+                        $text = 'account';
+                    }
 
-                        @endphp
-                    @endauth
+                @endphp
+            @endauth
+            <li>
+                <a class="getstarted scrollto" href="/{{ $text }}">{{ ucfirst($text) }}</a>
+            </li>
+                @auth
                     <li>
-                        <a class="getstarted scrollto" href="/{{ $text }}">{{ $text }}</a>
-                        @auth
-                        <li>
-                            <form action="{{ route('logout') }}" method="POST">
-                                @csrf
-                                <button type="submit" class="mx-4 getstarted scrollto">Logout</button>
-                            </form>
-                        </li>
-                    @endauth
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="mx-4 getstarted scrollto">Logout</button>
+                        </form>
+                    </li>
+                @endauth
+
 
         </ul>
         <i class="fa-solid fa-bars mobile-nav-toggle"></i>
       </nav>
-      <!-- .navbar -->
-
     </div>
-  </header><!-- End Header -->
+  </header>
 
     <!-- ======= Hero Section ======= -->
 
@@ -121,18 +121,18 @@
               <div class="col-lg-3 col-md-6 footer-links">
                 <h4>Events</h4>
                 <ul>
-                  <li><i class="bi bi-chevron-compact-right"></i> <a href="#">Seminar Nasional</a></li>
-                  <li><i class="bi bi-chevron-compact-right"></i> <a href="#">Workshop</a></li>
-                  <li><i class="bi bi-chevron-compact-right"></i> <a href="#">Seminar Komunitas</a></li>
+                  <li><i class="bi bi-chevron-compact-right"></i> <a href="/event">Seminar Nasional</a></li>
+                  <li><i class="bi bi-chevron-compact-right"></i> <a href="/event">Workshop</a></li>
+                  <li><i class="bi bi-chevron-compact-right"></i> <a href="/event">Seminar Komunitas</a></li>
                 </ul>
               </div>
 
               <div class="col-lg-3 col-md-6 footer-links">
                 <h4>Competition</h4>
                 <ul>
-                  <li><i class="bi bi-chevron-compact-right"></i> <a href="#">Hack Today</a></li>
-                  <li><i class="bi bi-chevron-compact-right"></i> <a href="#">UX Today</a></li>
-                  <li><i class="bi bi-chevron-compact-right"></i> <a href="#">Poster Competition</a></li>
+                  <li><i class="bi bi-chevron-compact-right"></i> <a href="/competitions">Hack Today</a></li>
+                  <li><i class="bi bi-chevron-compact-right"></i> <a href="/competitions">UX Today</a></li>
+                  <li><i class="bi bi-chevron-compact-right"></i> <a href="/competitions">Poster Competition</a></li>
                 </ul>
               </div>
 

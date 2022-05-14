@@ -95,10 +95,10 @@ class FormRegistrantCompetition extends Component
             'participant'=>$this->participants,
         ]);
         if(!is_null($tim)){
-            session()->flash('success','berhasil update data tim');
+            session()->flash('success','Success Update Data Tim');
             $this->emitUp('refresh');
         }else{
-            session()->flash('error','gagal update data tim');
+            session()->flash('error','Failed Update Data Tim');
         }
         // return redirect('/competitions/'.$this->slug.'/regis/'.$this->codeuniqteam);
     }
@@ -123,11 +123,11 @@ class FormRegistrantCompetition extends Component
             'proof_of_payment_tim' => $payment_proof
         ]);
         if(!is_null($tim)){
-            session()->flash('success','berhasil update data tim');
+            session()->flash('success','Success Upload Payment');
             $this->emitUp('refresh');
             return redirect(request()->header('Referer'));
         }else{
-            session()->flash('error','gagal update data tim');
+            session()->flash('error','Failed Upload Payment');
             return redirect(request()->header('Referer'));
         }
 
@@ -151,11 +151,11 @@ class FormRegistrantCompetition extends Component
         ]);
         if(!is_null($tim)){
             $this->emit('refresh');
-            session()->flash('success','berhasil update data tim');
+            session()->flash('success','Success Update Payment');
             $this->proof_of_payment_tim2 = $this->proof_of_payment_tim;
             return redirect(request()->header('Referer'));
         }else{
-            session()->flash('error','gagal update data tim');
+            session()->flash('error','Failed Update Payment');
             return redirect(request()->header('Referer'));
         }
     }
@@ -168,8 +168,10 @@ class FormRegistrantCompetition extends Component
             'link_competition_results' => $this->link_competition_results
         ]);
         if(!is_null($tim)){
+            session()->flash('success','Success Upload Result Your Tim');
             return redirect(request()->header('Referer'));
         }else{
+            session()->flash('error','Failed Upload Result Your Tim');
             return redirect(request()->header('Referer'));
         }
     }
