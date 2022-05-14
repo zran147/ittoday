@@ -41,6 +41,12 @@
                 <div class="col-md-6 form-group col-kiri form-control file-upload-wrapper" data-text="KTM / Kartu Pelajar">
                 <input name="file-upload-field" wire:model="id_card_member" type="file" class="form-control padding">
                 <div id="idcard" class="form-text text text-dark">Image Only PNG, JPEG, JPG and Maximal Size 2 MB</div>
+
+                <div wire:loading wire:target="id_card_member">
+                    Processing Upload...
+                </div>
+
+
                 @if (!is_null($id_card_member2))
                     <a href="/storage/{{ $id_card_member2 }}" target="_blank">
                         <div class="form-text mt-3 text-success">Click In Here For Review ID Card</div>
@@ -60,6 +66,9 @@
                 <div class="col-md-6 form-group col-kiri col-bawah form-control file-upload-wrapper" data-text="SKMA">
                 <input name="file-upload-field" wire:model="member_tim_certificate" type="file" class="form-control">
                 <div id="idcard" class="form-text text text-dark">Image Only PNG, JPEG, JPG and Maximal Size 2 MB</div>
+                <div wire:loading wire:target="member_tim_certificate">
+                    Processing Upload...
+                </div>
                 @if (!is_null($member_tim_certificate2))
                     <a href="/storage/{{ $member_tim_certificate2 }}" target="_blank">
                         <div class="form-text mt-3 text-success">Click In Here For Review Member Team Certificate</div>

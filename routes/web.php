@@ -7,8 +7,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\RegistrantCompetitionController;
 use App\Http\Controllers\TimCompetitionController;
-use Barryvdh\Debugbar\DataCollector\EventCollector;
-use Illuminate\Support\Facades\Auth;
+
 
 
 Route::get('/', function () {
