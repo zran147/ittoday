@@ -2,9 +2,11 @@
 <form class="bg-light p-3 my-5">
     <x-flash-message></x-flash-message>
 
-    <div class="alert alert-info">
-        <h5>Status Your Tim : {{ $status_verification_tim }}</h5>
-    </div>
+    @if ($status_verification_tim)
+        <div class="alert alert-info">
+            <h5>Status Your Tim : {{ $status_verification_tim }}</h5>
+        </div>
+    @endif
 
     <div class="row gy-4">
         <div class="col-md-6 form-group">
