@@ -109,19 +109,29 @@ class DatabaseSeeder extends Seeder
             'slug_category' => 'seminar-komunitas',
         ]);
 
-        $user = User::create([
+        $user1 = User::create([
             'name' => 'lintang lazuardi',
             'password' => bcrypt('linlaz11'),
             'email' => 'lintanglazuardi11@gmail.com',
             'wa_user' => '0895708134567',
             'email_verified_at' => '2022-04-01 15:09:53'
         ]);
-        $user->assignRole('admin');
+        $user1->assignRole('admin');
+
+        $user2 = User::create([
+            'name' => 'lintang lazuardi',
+            'password' => bcrypt('linlaz11'),
+            'email' => 'lazuardilintang@apps.ipb.ac.id',
+            'wa_user' => '089570813456',
+            'email_verified_at' => '2022-04-01 15:09:53'
+        ]);
+        $user2->assignRole('user');
 
         $competition = Competition::create([
             'name_competition' => 'Hack Today',
             'slug_competition' => 'hack-today',
-            'finish_registrasi_competition' => '2022-04-01',
+            'finish_registrasi_competition' => '2022-05-01',
+            'start_registrasi_competition' => '2022-06-01',
             'rule_book_competition' => 'www.lintech.com',
             'active' => 'published',
         ]);
@@ -135,6 +145,7 @@ class DatabaseSeeder extends Seeder
             'no_hp_tim' => $faker->randomDigit(),
             'registrant_id' => '1',
             'competition_id' => '1',
+            'participant' => 3,
         ]);
         TimCompetition::create([
             'code_uniq_tim' => Str::uuid(),
@@ -146,6 +157,7 @@ class DatabaseSeeder extends Seeder
             'no_hp_tim' => $faker->randomDigit(),
             'registrant_id' => '1',
             'competition_id' => '1',
+            'participant' => 3,
         ]);
         RegistrantCompetition::create([
             'name_registrant_competitions' => 'linlaz',

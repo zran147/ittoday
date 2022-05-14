@@ -29,7 +29,7 @@
                         <tr>
                             <th>NO</th>
                             <th>Name</th>
-                            <th>Date Finish Registrant</th>
+                            <th>Date Registrant</th>
                             <th>Status</th>
                             <th>Registrant</th>
                             <th>action</th>
@@ -40,7 +40,7 @@
                             <tr>
                                 <td>{{ $loop->index + 1 }}</td>
                                 <td>{{ $item->name_competition }}</td>
-                                <td>{{ $item->finish_registrasi_competition }}</td>
+                                <td>{{ $item->start_registrasi_competition }} until {{ $item->finish_registrasi_competition }}</td>
                                 <td class="text-center">
                                     <button class="btn btn-outline-primary"
                                         wire:click="activecompetition('{{ Crypt::encrypt($item->id) }}','{{ $item->active }}')"
@@ -61,7 +61,7 @@
                                         {{ $item->active }}
                                     </button>
                                 </td>
-                                <td>500</td>
+                                <td>{{ $item->timcompetition->count() }}</td>
                                 <td>
                                     <button class="btn btn-danger"
                                         wire:click="deletecompetition('{{ Crypt::encrypt($item->id) }}')"

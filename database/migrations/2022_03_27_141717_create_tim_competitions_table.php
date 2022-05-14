@@ -22,9 +22,10 @@ return new class extends Migration
             $table->string('institusi_name_tim')->required();
             $table->string('email_tim')->unique()->required();
             $table->string('username_telegram_tim')->unique()->required();
-            $table->integer('no_hp_tim')->unique()->required();
+            $table->string('no_hp_tim',100)->unique()->required();
             $table->foreignId('registrant_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('competition_id')->constrained('competitions')->onDelete('cascade');
+            $table->integer('participant')->required();
             // end Infomasi Administrasi Tim
 
             $table->foreignId('admin_id')->nullable()->constrained('users')->onDelete('cascade');
@@ -33,22 +34,22 @@ return new class extends Migration
             // Infomasi Pembayaran Tim
             $table->string('proof_of_payment_tim')->nullable();
             $table->string('bank_account_name_payment_tim')->nullable();
-            $table->integer('payment_fee_payment_tim')->nullable();
+            $table->string('payment_fee_payment_tim')->nullable();
             // end Infomasi Pembayaran Tim
 
             $table->string('status_verification_tim')->default('waiting verification administration');
             /*
-            waiting verification administration , 
+            waiting verification administration ,
             acc verification administration ,
             rejected verification administration,
-            waiting verification payment, 
+            waiting verification payment,
             acc verification payment,
             rejected verification payment,
-            tim successful varification,
+            tim successful verification,
             */
 
             $table->string('link_competition_results')->nullable();
-            
+
             $table->timestamps();
         });
     }

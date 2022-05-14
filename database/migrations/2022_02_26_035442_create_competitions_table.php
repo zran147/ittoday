@@ -12,8 +12,8 @@ return new class extends Migration
             $table->id();
             $table->string('name_competition')->required()->unique();
             $table->string('slug_competition')->required()->unique();
+            $table->date('start_registrasi_competition')->required();
             $table->date('finish_registrasi_competition')->required();
-            $table->string('status_competition')->default('pendaftaran di buka');
             $table->enum('active', ['draft', 'published'])->default('draft');
             $table->string('rule_book_competition')->unique();
             $table->timestamps();
