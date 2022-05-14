@@ -10,11 +10,11 @@ use App\Http\Controllers\TimCompetitionController;
 use Illuminate\Support\Facades\Auth;
 
 
-if (Auth::check()) {
-    if(is_null(Auth::user()->email_verified_at)){
-        return redirect('email/verify');
-    }
-}
+// if (Auth::check()) {
+//     if(is_null(Auth::user()->email_verified_at)){
+//         return redirect('email/verify');
+//     }
+// }
 
 Route::get('/', function () {
     return view('welcome');
