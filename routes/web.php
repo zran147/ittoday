@@ -7,19 +7,44 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\RegistrantCompetitionController;
 use App\Http\Controllers\TimCompetitionController;
+use Barryvdh\Debugbar\DataCollector\EventCollector;
 use Illuminate\Support\Facades\Auth;
 
-
-// if (Auth::check()) {
-//     if(is_null(Auth::user()->email_verified_at)){
-//         return redirect('email/verify');
-//     }
-// }
 
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/veri',[CompetitionController::class,'verif']);
+
+
+Route::controller(UserController::class)->prefix('account')->middleware('auth:sanctum', 'verified')->group(function () {
+    Route::get('/', 'indexUser')->name('indexusercontroller');
+    Route::get('/editprofile','editProfileUser')->name('editprofileusercontroller');
+    Route::post('/updateprofile','updateProfileUser')->name('updateprofileusercontroller');
+});
+
+Route::group(['prefix'=>'competitions'], function (){
+    Route::controller(CompetitionController::class)->group( function() {
+        Route::get('/','index')->name('competition');
+        Route::get('/detail/{slug}', 'show')->name('showcompetition');
+    });
+    // Route::get('/hacktoday',[CompetitionController::class,'hacktoday'])->name('hacktoday');
+    Route::controller(TimCompetitionController::class)->middleware('auth:sanctum','verified')->group(function(){
+        Route::get('/{slug}/regis/{code}','edit')->name('updatetim');
+        Route::get('/detail/{slug}/regis','create')->name('registim');
+    });
+});
+
+Route::group(['prefix'=>'event'], function(){
+    Route::controller(EventController::class)->group(function (){
+        Route::get('/','index')->name('event');
+        Route::get('/detail/{slug}','show')->name('showevent');
+    });
+});
+
+// Route::controller(CompetitionController::class)->prefix('competition')->group(function () {
+//     Route::get('/hacktoday','hacktoday')->name('hacktoday');
+//     Route::get('/hacktoday/regis','RegistrantCompetitionController@create')
+// });
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verified', 'role_or_permission:admin|dashboard-menu']], function () {
     Route::get('/', function () {

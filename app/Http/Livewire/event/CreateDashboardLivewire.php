@@ -13,7 +13,7 @@ class CreateDashboardLivewire extends Component
     use WithFileUploads;
     public $id_event;
     public $action;
-    public $name_event, $start_event, $finish_event, $desc_event, $registrant_event, $thumbnail_event, $category;
+    public $name_event, $start_event, $finish_event, $desc_event, $registrant_event, $thumbnail_event, $category, $keterangan_event;
     public function mount()
     {
         if (!is_null($this->id_event)) {
@@ -24,6 +24,7 @@ class CreateDashboardLivewire extends Component
             $this->desc_event = $event->description_event;
             $this->registrant_event = $event->registrant_event;
             $this->thumbnail_event = $event->thumbnail_event;
+            $this->keterangan_event = $event->keterangan;
         } else {
             $this->resetall();
         }
@@ -34,11 +35,6 @@ class CreateDashboardLivewire extends Component
             'categories' => Category::all(),
         ]);
     }
-    // public function changethumbnail()
-    // {
-    //     $this->temp_thumbnail_event = $this->fix_thumbnail_event;
-    //     $this->fix_thumbnail_event = NULL;
-    // }
     public function Store()
     {
         $this->validate([
@@ -49,6 +45,7 @@ class CreateDashboardLivewire extends Component
             'registrant_event' => 'required|integer',
             'thumbnail_event' => 'required|image|mimes:jpg,png',
             'category' => 'required|integer',
+            'keterangan_event' => 'required',
         ]);
         $thumbnail_event = $this->thumbnail_event->store('thumbnail_event');
         $name_event = ucwords($this->name_event);
@@ -60,7 +57,8 @@ class CreateDashboardLivewire extends Component
             'description_event' =>  $this->desc_event,
             'registrant_event' => $this->registrant_event,
             'thumbnail_event' => $thumbnail_event,
-            'category_id' => $this->category
+            'category_id' => $this->category,
+            'keterangan' => $this->keterangan_event
         ]);
 
         to_route('indexdashboardcontroller');
@@ -92,7 +90,8 @@ class CreateDashboardLivewire extends Component
             'finish_event' => $this->finish_event,
             'description_event' =>  $this->desc_event,
             'registrant_event' => $this->registrant_event,
-            'thumbnail_event' => $this->thumbnail_event
+            'thumbnail_event' => $this->thumbnail_event,
+            'keterangan' => $this->keterangan_event
         ]);
         to_route('indexdashboardcontroller');
     }

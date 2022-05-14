@@ -7,7 +7,8 @@ use Livewire\Component;
 
 class CreateCompetitionDashboardLivewire extends Component
 {
-    public $action, $id_competition, $slug_competition, $name_competition, $finish_registrasi_competition, $link_rule_book_competition, $status;
+    public $action, $id_competition, $slug_competition, $name_competition, $finish_registrasi_competition;
+    public $start_registrasi_competition,$link_rule_book_competition;
     public function mount()
     {
         if (!is_null($this->id_competition)) {
@@ -15,6 +16,7 @@ class CreateCompetitionDashboardLivewire extends Component
             $this->name_competition = $event->name_competition;
             $this->finish_registrasi_competition = $event->finish_registrasi_competition;
             $this->link_rule_book_competition = $event->rule_book_competition;
+            $this->start_registrasi_competition = $event->start_registrasi_competition;
         } else {
             $this->resetall();
         }
@@ -26,7 +28,7 @@ class CreateCompetitionDashboardLivewire extends Component
         $this->link_rule_book_competition = null;
         $this->slug_competition = null;
         $this->id_competition = null;
-        $this->status = null;
+        $this->start_registrasi_competition = null;
     }
     public function render()
     {
@@ -37,6 +39,7 @@ class CreateCompetitionDashboardLivewire extends Component
         $this->validate([
             'name_competition' => 'required|unique:competitions,name_competition|max:255|string',
             'finish_registrasi_competition' => 'required|date',
+            'start_registrasi_competition' => 'required|date',
             'link_rule_book_competition' => 'required|url|unique:competitions,rule_book_competition',
         ]);
         $name_competition = ucwords($this->name_competition);
@@ -44,6 +47,7 @@ class CreateCompetitionDashboardLivewire extends Component
             'name_competition' => $name_competition,
             'slug_competition' => str(strtolower($this->name_competition))->slug('-'),
             'finish_registrasi_competition' => $this->finish_registrasi_competition,
+            'start_registrasi_competition'=>$this->start_registrasi_competition,
             'rule_book_competition' => $this->link_rule_book_competition,
         ]);
         to_route('indexdashboardcompetitioncontroller');
@@ -53,6 +57,7 @@ class CreateCompetitionDashboardLivewire extends Component
         $this->validate([
             'name_competition' => 'required|max:255|string|unique:competitions,name_competition,' . $this->id_competition,
             'finish_registrasi_competition' => 'required|date',
+            'start_registrasi_competition' => 'required|date',
             'link_rule_book_competition' => 'required|url|unique:competitions,rule_book_competition,' . $this->id_competition,
         ]);
         $name_competition = ucwords($this->name_competition);
@@ -60,6 +65,7 @@ class CreateCompetitionDashboardLivewire extends Component
             'name_competition' => $name_competition,
             'slug_competition' => str(strtolower($this->name_competition))->slug('-'),
             'finish_registrasi_competition' => $this->finish_registrasi_competition,
+            'start_registrasi_competition'=>$this->start_registrasi_competition,
             'rule_book_competition' => $this->link_rule_book_competition,
         ]);
         to_route('indexdashboardcompetitioncontroller');

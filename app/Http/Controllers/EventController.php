@@ -2,13 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Carbon;
 
 class EventController extends Controller
 {
+    public function index()
+    {
+        return view('event.indexcontroller',[
+            'event' => Event::where('active','published')->with('registrant','category')->get()
+        ]);
+    }
+    public function show($slug)
+    {
+        return view('event.showcontroller',[
+            'event' => Event::where('slug_event', $slug)->with('registrant','category')->first()
+        ]);
+    }
     public function indexdashboard()
     {
-        
+
         return view('dashboard.event.indexdashboardcontroller');
     }
     public function createdashboard()
@@ -28,13 +42,10 @@ class EventController extends Controller
     }
     public function registranteventdashboard($slug)
     {
-        // $event = Event::where('slug_event',$slug)->firstorfail();
-        // $registrant = RegistrantEvent::where('event_id', $event->id)->get();
         return view('dashboard.detailevent.indexdetailbyslugcontroller',[
             'name_event' => str_replace("-", " ", $slug),
             'slug' => $slug,
-            // 'registrants' => $registrant
         ]);
     }
-   
+
 }

@@ -29,7 +29,7 @@
                             <th>Name TIM</th>
                             <th>Institusi TIM</th>
                             <th>Email Tim</th>
-                            <th>Verification TIM</th>
+                            <th>Telegram Tim</th>
                             <th>Status TIM</th>
                             <th>Action</th>
                         </tr>
@@ -40,7 +40,7 @@
                                 <td>{{ $item->name_tim }}</td>
                                 <td>{{ $item->institusi_name_tim }}</td>
                                 <td>{{ $item->email_tim }}</td>
-                                <td>{{ $item->status_verification_tim }}</td>
+                                <td>{{ $item->username_telegram_tim  }}</td>
                                 <td>{{ $item->status_verification_tim }}</td>
                                 <td>
                                     <a href="/dashboard/detailcompetition/{{ str(strtolower($name_competition))->slug('-')}}/detailtim/{{ $item->code_uniq_tim }}"

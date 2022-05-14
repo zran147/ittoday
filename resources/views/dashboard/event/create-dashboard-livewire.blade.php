@@ -25,7 +25,7 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                        <div class="name_event">
+                                        <div class="category_name">
                                             <div class="form-group">
                                                 <label for="name-event-vertical">Category Event</label>
                                                 <select class="form-select" wire:model="category">
@@ -35,7 +35,24 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            @error('name_event')
+                                            @error('category')
+                                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                    {{ $message }}
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="keterangan_event">
+                                            <div class="form-group">
+                                                <label for="name-event-vertical">Keterangan Event</label>
+                                                <select class="form-select" wire:model="keterangan_event">
+                                                    <option selected>Open this select menu</option>
+                                                    <option value="Free">Free</option>
+                                                    <option value="Berbayar">Berbayar</option>
+                                                </select>
+                                            </div>
+                                            @error('keterangan_event')
                                                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                                     {{ $message }}
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
@@ -107,7 +124,7 @@
                                         </div>
 
                                         @if ($action == 'Update')
-                                            <img src="{{ asset($thumbnail_event) }}" height="300"
+                                            <img src="{{ asset('storage/'.$thumbnail_event) }}" height="300"
                                                 alt="{{ $name_event }}">
                                             {{-- <button class="btn btn-primary" wire:click="changethumbnail"
                                                 onclick="confirm('Are you sure you want to change the thumbnail ?') || event.stopImmediatePropagation()">Change

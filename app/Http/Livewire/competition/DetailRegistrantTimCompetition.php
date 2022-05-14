@@ -21,5 +21,19 @@ class DetailRegistrantTimCompetition extends Component
     {
         return view('dashboard.registrantcompetition.detail-registrant-tim-competition');
     }
-    
+    public function accpayment()
+    {
+        $this->tim_competition->update([
+            'status_verification_tim' => 'acc verification payment'
+        ]);
+        session()->flash('success','Payment Success');
+    }
+    public function refusepayment()
+    {
+        $this->tim_competition->update([
+            'status_verification_tim' => 'rejected verification payment'
+        ]);
+        session()->flash('success','Payment Refuse');
+    }
+
 }
