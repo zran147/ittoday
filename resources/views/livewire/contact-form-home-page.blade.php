@@ -38,20 +38,20 @@
                 <form role="form" class="php-email-form">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="name">Nama</label>
-                            <input type="text" name="name" wire:model="name_seeder" class="form-control" id="name"
+                            <label for="name">Name</label>
+                            <input type="text" name="name" wire:model="name" class="form-control" id="name"
                                 required placeholder="IT Today 2022">
-                            @error('name_seeder')
+                            @error('name')
                                 <div class="alert alert-warning my-2" role="alert">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="name">Email Anda</label>
-                            <input type="email" class="form-control" wire:model="email_seeder" name="email" id="email"
+                            <label for="name">Email</label>
+                            <input type="email" class="form-control" wire:model="email" name="email" id="email"
                                 required placeholder="admin@ittoday.id">
-                            @error('email_seeder')
+                            @error('email')
                                 <div class="alert alert-warning my-2" role="alert">
                                     {{ $message }}
                                 </div>
@@ -69,9 +69,9 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="name">Pesan</label>
-                        <textarea class="form-control" name="message" wire:model="body" rows="10" required></textarea>
-                        @error('body')
+                        <label for="name">Message</label>
+                        <textarea class="form-control" name="message" wire:model="message" rows="10" required></textarea>
+                        @error('message')
                             <div class="alert alert-warning my-2" role="alert">
                                 {{ $message }}
                             </div>

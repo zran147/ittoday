@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class ContactFormHomePage extends Component
 {
-    public $name_seeder, $email_seeder, $subject, $body;
+    public $name, $email, $subject, $message;
     public function render()
     {
         return view('livewire.contact-form-home-page');
@@ -15,29 +15,29 @@ class ContactFormHomePage extends Component
     public function submitcontactform()
     {
         $this->validate([
-            'name_seeder' => 'required',
-            'email_seeder' => 'required|email',
+            'name' => 'required',
+            'email' => 'required|email',
             'subject' => 'required|min:3',
-            'body' => 'required|min:5'
+            'message' => 'required|min:5'
         ]);
         $Comment = Comment::create([
-            'name_seeder' => $this->name_seeder,
-            'email_seeder' => $this->email_seeder,
+            'name_seeder' => $this->name,
+            'email_seeder' => $this->email,
             'subject_seeder' => $this->subject,
-            'body_seeder' => $this->body,
+            'body_seeder' => $this->message,
         ]);
         if ($Comment) {
-            session()->flash('success', 'Contact form successfully sent.');
+            session()->flash('success', 'Message Successfully Sent.');
         } else {
-            session()->flash('error', 'Contact form unsuccessfully sent.');
+            session()->flash('error', 'Message Unsuccessfully Sent.');
         }
         $this->resetall();
     }
     public function resetall()
     {
-       $this->name_seeder = null;
-       $this->email_seeder = null;
+       $this->name = null;
+       $this->email = null;
        $this->subject = null;
-       $this->body = null;
+       $this->message = null;
     }
 }

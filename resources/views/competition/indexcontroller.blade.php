@@ -18,6 +18,8 @@
                                         <span class="btn-belum">Belum Mulai</span>
                                         @elseif ($item->start_registrasi_competition < date("Y-m-d") && $item->finish_registrasi_competition > date("Y-m-d"))
                                         <span class="btn-registered">Sedang Berlangsung</span>
+                                        @elseif ($item->finish_registrasi_competition = date("Y-m-d"))
+                                        <span class="btn-registered">Sedang Berlangsung</span>
                                         @elseif ($item->finish_registrasi_competition < date("Y-m-d"))
                                         <span class="btn-selesai">Sudah Terlaksana</span>
                                         @endif
@@ -25,7 +27,10 @@
                                     <h3>{{ $item->name_competition }} </h3>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <a href="/competitions/detail/{{ $item->slug_competition }}" class="stretched-link" type="detail">Detail</a>
-                                        <small class="text-muted"><div><i class="bi bi-calendar"></i> {{ $item->start_registrasi_competition }}</div><div><i class="bi bi-people-fill"></i> {{ $item->timcompetition->count() }} partisipan</div></small>
+                                        <small class="text-muted">
+                                            <div><i class="bi bi-calendar"></i> {{ $item->start_registrasi_competition }}</div>
+                                            <div><i class="bi bi-people-fill"></i> {{ $item->timcompetition->count() }} partisipan</div>
+                                        </small>
                                     </div>
                                 </div>
                             </div>

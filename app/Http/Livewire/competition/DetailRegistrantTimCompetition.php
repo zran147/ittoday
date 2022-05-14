@@ -26,12 +26,14 @@ class DetailRegistrantTimCompetition extends Component
         $this->tim_competition->update([
             'status_verification_tim' => 'acc verification payment'
         ]);
+        session()->flash('success','Payment Success');
     }
     public function refusepayment()
     {
         $this->tim_competition->update([
             'status_verification_tim' => 'rejected verification payment'
         ]);
+        session()->flash('success','Payment Refuse');
     }
 
 }

@@ -20,7 +20,7 @@
                                 <p>Tingkat Institusi Tim : {{ $tim_competition->level_tim }}</p>
                             </div>
                             <div class="my-2">
-                                <p>Nama Institusi Tim : {{ $tim_competition->level_tim }}</p>
+                                <p>Nama Institusi Tim : {{ $tim_competition->institusi_name_tim }}</p>
                             </div>
                         </div>
                         <div class="col border mx-2">
@@ -89,7 +89,7 @@
                                 @endif
                             </div>
                         </div>
-
+                        <x-flash-message></x-flash-message>
                         <div class="d-flex justify-content-end">
                             <button type="button" wire:click="accpayment" class="btn btn-primary mx-2">ACC PAYMENT</button>
                             <button type="button" wire:click="refusepayment" class="btn btn-danger">REFUSE PAYMENT</button>
@@ -124,15 +124,6 @@
                 </div>
 
                 {{-- end registrant tim --}}
-
-                {{-- <div class="my-2 border p-2 border border-2 rounded border-secondary" style="width:100%;">
-                    <h2>Email Tim</h2> --}}
-                    {{-- @foreach ($tim_competition->membertimcompetition as $item)
-                        <livewire:competition.member-tim-competition :member="$item"
-                            :wire:key="'member-profile-'.$item->id">
-                            @livewire('competition.member-tim-competition', ['member' => $item], key($item->id))
-                    @endforeach --}}
-                {{-- </div> --}}
 
                 {{-- email tim for status --}}
             </div>
