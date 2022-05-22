@@ -16,9 +16,10 @@ class VerificationCompetition extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $details;
+    public function __construct($details)
     {
-        //
+        $this->details = $details;
     }
 
     /**
@@ -28,11 +29,7 @@ class VerificationCompetition extends Mailable
      */
     public function build()
     {
-        return $this->view('verification.competition')
-        ->with(
-         [
-             'nama' => 'Diki Alfarabi Hadi',
-             'website' => 'www.malasngoding.com',
-         ]);
+        return $this->subject('Mail from ittoday.id')
+        ->view('verification.competition');
     }
 }

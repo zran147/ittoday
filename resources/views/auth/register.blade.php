@@ -26,7 +26,7 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="wa_user" value="{{ __('WA User') }}" />
+                <x-jet-label for="wa_user" value="{{ __('Nomer WhatsApp') }}" />
                 <x-jet-input id="wa_user" class="block mt-1 w-full" type="number" name="wa_user" :value="old('wa_user')" required />
             </div>
 

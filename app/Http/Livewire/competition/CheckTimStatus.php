@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\competition;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
+
 
 class CheckTimStatus extends Component
 {
@@ -22,11 +24,17 @@ class CheckTimStatus extends Component
                     'status_verification_tim' => 'acc verification administration'
                 ]);
             }
-            // $tim->status_verification_tim
-
         } else {
             $tim->update([
                 'status_verification_tim' => 'rejected verification administration'
+            ]);
+        }
+    }
+    static function checkadmin($tim)
+    {
+        if(is_null($tim->admin_id)) {
+            $tim->update([
+                'admin_id' => Auth::user()->id,
             ]);
         }
     }

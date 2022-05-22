@@ -12,9 +12,9 @@ use Livewire\WithFileUploads;
 class FormRegistrantCompetition extends Component
 {
     use WithFileUploads;
-    public $name_tim, $email_tim, $level_tim, $username_telegram_tim,
-        $name_institusi_tim, $no_handphone_tim, $membertim;
-    public $participants,$slug,$status_verification_tim,$link_competition_results;
+    public $name_tim, $email_tim, $tingkat_institusi, $username_telegram_tim,
+        $nama_institusi, $nomor_whatsApp, $membertim;
+    public $participants,$slug,$status_verification_tim,$link_competition_results,$link_twibbon_competition;
     public $participantslist = [];
     public $action, $codeuniqteam, $proof_of_payment_tim,$proof_of_payment_tim2, $bank_account_name, $payment_fee_payment_tim;
     protected $listeners = ['refreshcompe' => 'render'];
@@ -22,14 +22,16 @@ class FormRegistrantCompetition extends Component
     public function mount()
     {
         if(!is_null($this->codeuniqteam)){
-            $tim  = TimCompetition::where('code_uniq_tim',$this->codeuniqteam)->with('membertimcompetition')->first();
+            $tim  = TimCompetition::where('code_uniq_tim',$this->codeuniqteam)->with('membertimcompetition','competition')->first();
+            $this->link_twibbon_competition = $tim->competition->link_twibon_competition;
+            $this->slug = $tim->competition->slug_competition;
             $this->id_tim = $tim->id;
             $this->name_tim = $tim->name_tim;
             $this->email_tim = $tim->email_tim;
-            $this->level_tim = $tim->level_tim;
+            $this->tingkat_institusi = $tim->level_tim;
             $this->username_telegram_tim = $tim->username_telegram_tim;
-            $this->name_institusi_tim = $tim->institusi_name_tim;
-            $this->no_handphone_tim = $tim->no_hp_tim;
+            $this->nama_institusi = $tim->institusi_name_tim;
+            $this->nomor_whatsApp = $tim->no_hp_tim;
             $this->membertim = $tim->membertimcompetition;
             $this->participants = $tim->participant;
             $this->status_verification_tim = $tim->status_verification_tim;
@@ -47,22 +49,22 @@ class FormRegistrantCompetition extends Component
     public function create()
     {
         $this->validate([
-            'name_tim' => 'required|unique:tim_competitions,name_tim|alpha|max:100|min:5',
+            'name_tim' => 'required|unique:tim_competitions,name_tim|regex:/[a-zA-Z0-9\s]+/|max:100|min:5',
             'email_tim' => 'required|unique:tim_competitions,email_tim|email',
-            'level_tim' => 'required|string',
-            'username_telegram_tim' => 'required|string|max:100|min:2',
-            'name_institusi_tim' => 'required|string|max:100|min:5',
-            'no_handphone_tim' => 'required|numeric',
+            'tingkat_institusi' => 'required|string',
+            'username_telegram_tim' => 'required|string|max:100|min:2,unique:tim_competition,username_telegram_tim',
+            'nama_institusi' => 'required|string|max:100|min:5',
+            'nomor_whatsApp' => 'required|numeric',
             'participants' => 'required',
         ]);
         $tim = TimCompetition::create([
             'code_uniq_tim' => Str::uuid(),
             'name_tim' => $this->name_tim,
             'email_tim' => $this->email_tim,
-            'level_tim' => $this->level_tim,
-            'institusi_name_tim' => $this->name_institusi_tim,
+            'level_tim' => $this->tingkat_institusi,
+            'institusi_name_tim' => $this->nama_institusi,
             'username_telegram_tim' => $this->username_telegram_tim,
-            'no_hp_tim' => $this->no_handphone_tim,
+            'no_hp_tim' => $this->nomor_whatsApp,
             'registrant_id' => Auth::user()->id,
             'competition_id' => Competition::where('slug_competition',$this->slug)->first()->id,
             'participant'=>$this->participants,
@@ -74,22 +76,22 @@ class FormRegistrantCompetition extends Component
     public function update()
     {
         $this->validate([
-            'name_tim' => 'required|alpha|max:100|min:5|unique:tim_competitions,name_tim,'.$this->id_tim,
+            'name_tim' => 'required|regex:/[a-zA-Z0-9\s]+/|max:100|min:5|unique:tim_competitions,name_tim,'.$this->id_tim,
             'email_tim' => 'required|email||unique:tim_competitions,email_tim,'.$this->id_tim,
-            'level_tim' => 'required|string',
-            'username_telegram_tim' => 'required|string|max:100|min:2',
-            'name_institusi_tim' => 'required|string|max:100|min:5',
-            'no_handphone_tim' => 'required|numeric',
+            'tingkat_institusi' => 'required|string',
+            'username_telegram_tim' => 'required|string|max:100|min:2|unique:tim_competition,username_telegram_tim,'.$this->id_tim,
+            'nama_institusi' => 'required|string|max:100|min:5',
+            'nomor_whatsApp' => 'required|numeric',
             'participants' => 'required',
         ]);
 
         $tim = TimCompetition::findorfail($this->id_tim)->update([
             'name_tim' => $this->name_tim,
             'email_tim' => $this->email_tim,
-            'level_tim' => $this->level_tim,
-            'institusi_name_tim' => $this->name_institusi_tim,
+            'level_tim' => $this->tingkat_institusi,
+            'institusi_name_tim' => $this->nama_institusi,
             'username_telegram_tim' => $this->username_telegram_tim,
-            'no_hp_tim' => $this->no_handphone_tim,
+            'no_hp_tim' => $this->nomor_whatsApp,
             'registrant_id' => Auth::user()->id,
             'competition_id' => Competition::where('slug_competition',$this->slug)->first()->id,
             'participant'=>$this->participants,
@@ -164,15 +166,16 @@ class FormRegistrantCompetition extends Component
         $this->validate([
             'link_competition_results' => 'required|string|active_url|url'
         ]);
+
         $tim = TimCompetition::findorfail($this->id_tim)->update([
             'link_competition_results' => $this->link_competition_results
         ]);
-        if(!is_null($tim)){
+
+        if($tim){
             session()->flash('success','Success Upload Result Your Tim');
-            return redirect(request()->header('Referer'));
-        }else{
-            session()->flash('error','Failed Upload Result Your Tim');
             return redirect(request()->header('Referer'));
         }
     }
+
+
 }

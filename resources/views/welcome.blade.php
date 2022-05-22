@@ -93,7 +93,7 @@
                     <div class="col col-sm-6">
                       <div class="m-3">
                         <h3><span>1. Hack Today</span></h3>
-                        <p>Merupakan kompetisi keamanan siber dengan mekanisme Capture The Flag (Jeopardy style) yang setiap tim diminta untuk menyelesaikan beberapa kasus dari berbagai kategori dengan tujuan mendapatkan sebuah flag untuk tiap kasusnya. Hack Today dapat diikuti oleh siswa SLTA/sederajat atau mahasiswa perguruan tinggi di seluruh Indonesia. Setiap tim wajib terdiri dari 1-3 orang yang berasal dari lembaga/institusi yang sama.</p>
+                        <p><span>Merupakan kompetisi keamanan siber dengan mekanisme Capture The Flag (Jeopardy style) yang setiap tim diminta untuk menyelesaikan beberapa kasus dari berbagai kategori dengan tujuan mendapatkan sebuah flag untuk tiap kasusnya. Hack Today dapat diikuti oleh siswa SLTA/sederajat atau mahasiswa perguruan tinggi di seluruh Indonesia. Setiap tim wajib terdiri dari 1-3 orang yang berasal dari lembaga/institusi yang sama.</span></p>
                         <a href="/competitions" class="btn-learn-more">Learn More</a>
                       </div>
                     </div>
@@ -107,7 +107,7 @@
                   <div class="col col-sm-6">
                     <div class="m-3">
                       <h3><span>2. UX Today</span></h3>
-                      <p>Merupakan kompetisi desain pengalaman pengguna yang mengutamakan kenyamanan, kepuasan, dan efisiensi. UX Today dapat diikuti oleh seluruh mahasiswa perguruan tinggi di Indonesia. Setiap tim wajib terdiri dari 1-3 orang yang berasal dari universitas/institut yang sama.</p>
+                      <p><span>Merupakan kompetisi desain pengalaman pengguna yang mengutamakan kenyamanan, kepuasan, dan efisiensi. UX Today dapat diikuti oleh seluruh mahasiswa perguruan tinggi di Indonesia. Setiap tim wajib terdiri dari 1-3 orang yang berasal dari universitas/institut yang sama.</span></p>
                       <a href="/competitions" class="btn-learn-more">Learn More</a>
                     </div>
                   </div>
@@ -121,7 +121,7 @@
                   <div class="col col-sm-6">
                     <div class="m-3">
                       <h3><span>3. Poster Competition</span></h3>
-                      <p>Merupakan kompetisi desain poster yang mengutamakan isi, visual, dan orisinalitas karya. Poster Competition dapat diikuti oleh masyarakat umum di seluruh Indonesia. Poster Competition mewadahi masyarakat yang memiliki ide dan krativitas untuk menyampaikannya melalui media poster.</p>
+                      <p><span>Kompetisi desain poster yang mengutamakan isi, visual, dan orisinalitas karya. Poster Competition dapat diikuti oleh masyarakat umum di seluruh Indonesia. Poster Competition mewadahi masyarakat yang memiliki ide dan krativitas untuk menyampaikannya melalui media poster.</span></p>
                       <a href="/competitions" class="btn-learn-more">Learn More</a>
                     </div>
                   </div>
@@ -146,10 +146,6 @@
 
         </div>
       </section>
-    <!-- End Kompetisi Section -->
-
-    <!--Sponsor Section-->
-    <!-- ======= Main Sponsor Section ======= -->
     <section id="mainspo">
         <div  class="clients">
             <div class="container">

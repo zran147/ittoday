@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('name_tim')->unique()->required();
             $table->enum('level_tim',['sma','kuliah'])->default('kuliah');
             $table->string('institusi_name_tim')->required();
-            $table->string('email_tim')->unique()->required();
-            $table->string('username_telegram_tim')->unique()->required();
-            $table->string('no_hp_tim',100)->unique()->required();
+            $table->string('email_tim')->required();
+            $table->string('username_telegram_tim')->required();
+            $table->string('no_hp_tim')->required();
             $table->foreignId('registrant_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('competition_id')->constrained('competitions')->onDelete('cascade');
             $table->integer('participant')->required();

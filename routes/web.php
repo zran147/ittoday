@@ -40,10 +40,20 @@ Route::group(['prefix'=>'event'], function(){
     });
 });
 
+// Route::get('/sendmessage', function () {
+
+//     $details = [
+//         'message' => session()->get('message'),
+//     ];
+//     \Mail::to('your_receiver_email@gmail.com')->send(new \App\Mail\VerificationCompetition($details));
+//    return view('verification.competition');
+// });
 // Route::controller(CompetitionController::class)->prefix('competition')->group(function () {
 //     Route::get('/hacktoday','hacktoday')->name('hacktoday');
 //     Route::get('/hacktoday/regis','RegistrantCompetitionController@create')
 // });
+
+Route::get('/sendmessage',[TimCompetitionController::class,'verif'])->name('veriftim');
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verified', 'role_or_permission:admin|dashboard-menu']], function () {
     Route::get('/', function () {
@@ -67,6 +77,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verifie
     });
     Route::controller(RegistrantCompetitionController::class)->prefix('detailcompetition')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision')->group(function () {
         Route::get('/{slug}/detailtim/{namereg}', 'indexdetailregistrantcompetitionbycompetitiondashboard')->name('indexdetailregistrantcompetitionbycompetitiondashboard');
+        Route::get('/{slug}/detailtim/{namereg}/pdf', 'indexdetailregistrantcompetitionbycompetitiondashboardpdf')->name('indexdetailregistrantcompetitionbycompetitiondashboardpdf');
     });
 
     Route::controller(CommentController::class)->prefix('contact')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|action-comment')->group(function () {

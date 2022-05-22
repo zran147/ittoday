@@ -133,6 +133,7 @@ class DatabaseSeeder extends Seeder
             'finish_registrasi_competition' => '2022-05-01',
             'start_registrasi_competition' => '2022-06-01',
             'rule_book_competition' => 'www.lintech.com',
+            'link_twibon_competition' => 'www.lintech.com',
             'active' => 'published',
         ]);
         TimCompetition::create([

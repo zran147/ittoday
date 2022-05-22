@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\RegistrantCompetition;
 use App\Http\Requests\StoreRegistrantCompetitionRequest;
 use App\Http\Requests\UpdateRegistrantCompetitionRequest;
+use \PDF;
 
 class RegistrantCompetitionController extends Controller
 {
@@ -26,9 +27,19 @@ class RegistrantCompetitionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function indexdetailregistrantcompetitionbycompetitiondashboardpdf($slug, $namereg)
     {
-        //
+        // $pdf = PDF::loadView('dashboard.registrantcompetition.detailregistrantcompetition',[
+        //     'name_competition' => $slug,
+        //     'name_tim' => $namereg,
+        // ])->setOptions(['defaultFont' => 'sans-serif']);
+
+        // return $pdf->download('user.pdf');
+        // return view('dashboard.registrantcompetition.detailregistrantcompetition',[
+        //     'name_competition' => $slug,
+        //     'name_tim' => $namereg,
+        // ]);
+        return redirect('/');
     }
 
     /**

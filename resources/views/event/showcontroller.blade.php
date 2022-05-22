@@ -1,34 +1,38 @@
 <x-guest-layout>
     @php
-        $index = 0;
-        if($event->start_event > date("Y-m-d")){
-            $index = 1;
-        }
-        elseif ($event->start_event < date("Y-m-d") && $event->finish_event > date("Y-m-d")){
-            $index = 2;
-        }
-        elseif ($event->finish_event < date("Y-m-d")){
-            $index = 3;
-        }
+    $index = 0;
+    if($event->start_event > Carbon::now()->format('Y-m-d')){
+        $index = 1;
+    }
+    elseif ($event->start_event == Carbon::now()->format('Y-m-d') || $event->finish_event == Carbon::now()->format('Y-m-d') || $event->start_event < Carbon::now()->format('Y-m-d') && $event->finish_event > Carbon::now()->format('Y-m-d')){
+        $index = 2;
+    }
+    elseif ($event->finish_event < Carbon::now()->format('Y-m-d')){
+        $index = 3;
+    }
     @endphp
     <div id="detail" class="album py-5 bg-light">
         <div class="container">
           <div class="row">
             <div class="col-lg-9 mb-2">
               <div class="card">
-                <img class="mx-auto" src="/img/cthposter.png" style="width: 50%; position: relative;"></img>
-                <img class="mx animated" src="{{ asset('storage/'.$event->thumbnail_event) }}" style="width: 35%; position: relative;"></img>
+              <img class="mx-auto" src="/img/let'stry.png" style="width: 60%; position: relative;"/>
+              <img id="myImg" class="mx-auto animated" src="{{ asset('storage/'.$event->thumbnail_event) }}" style="width: 32.2%; position: relative; cursor: pointer;"/>
+              <div id="myModal" class="modal">
+                <span class="close"><i class="bi bi-x"></i></span>
+                <img class="modal-content" id="img01">
+              </div>
                 <div class="card-body parent">
                   <div class="box" style="background-image: url(/img/dirt.png);">
                     <div class="isi" style="padding: 10px;">
                       <h4>{{ $event->name_event }}</h4>
                       <h6>
                         @if ($index = 1)
-                        <span class="btn-belum">Belum Mulai</span>
+                        <span class="btn-belum">Event Belum Dimulai</span>
                         @elseif ($index = 2)
-                        <span class="btn-berlangsung">Berlangsung</span>
+                        <span class="btn-registered">Event Sedang Berlangsung</span>
                         @elseif ($index = 3)
-                        <span class="btn-selesai">Sudah Terlaksana</span>
+                        <span class="btn-selesai">Event Sudah Terlaksanakan</span>
                         @endif
                       </h6>
                       {!! $event->description_event !!}
@@ -40,10 +44,6 @@
             <div class="col-lg-3">
               <div class="card">
                 @livewire('event.regis-event',['status' => $index, 'event' => $event->id, 'slug' => $event->slug_event])
-                <!-- <div class="card-body text-center">
-                  <h5>Pendaftaran</h5>
-                  <span>ayayayyaya</span>
-                </div> -->
               </div>
               <div class="card mt-2">
                 <div class="card-body text-center anak2">

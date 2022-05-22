@@ -4,14 +4,16 @@
           <div class="isi" style="padding: 10px;">
             <h5>Pendaftaran</h5>
             @guest
-                <a href="/login"><span class="btn-selesai">daftar</span></a>
+                <a href="/login"><span class="btn-selesai p-2">Silakan Daftar</span></a>
             @endguest
             @auth
                 @if ($regis)
-                    <button class="btn-selesai">Sudah terdaftar</button>
+                    <button class="btn-selesai">Sudah Terdaftar</button>
                 @else
                     @if ($status != 3)
-                    <button class="btn-selesai" wire:click="regisevent">silakan daftar</button>
+                        <button class="btn-selesai" wire:click="regisevent">Silakan Daftar</button>
+                    @else
+                        <span class="btn-selesai">Sudah Terlaksana</span>
                     @endif
                 @endif
             @endauth
