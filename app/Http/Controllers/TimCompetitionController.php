@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\TimCompetition;
-use App\Http\Requests\StoreTimCompetitionRequest;
-use App\Http\Requests\UpdateTimCompetitionRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\competition\CheckTimStatus;
-
+use App\Models\Competition;
+use App\Mail\VerificationCompetition;
+use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 class TimCompetitionController extends Controller
 {
@@ -20,6 +20,20 @@ class TimCompetitionController extends Controller
     }
     public function create($slug)
     {
+        $com = Competition::where('slug_competition',$slug)->with('timcompetition')->where('active','published')->first();
+        if (!is_null($com->timcompetition->where('registrant_id',Auth::user()->id)->first())) {
+           $code = TimCompetition::where('competition_id',$com->id)->where('registrant_id',Auth::user()->id)->first();
+           return redirect('/competitions/'.$slug.'/regis/'.$code->code_uniq_tim);
+        }
+
+        if($com){
+            if($com->start_registrasi_competition > Carbon::now()->format('Y-m-d') || $com->finish_registrasi_competition < Carbon::now()->format('Y-m-d')){
+                return redirect()->back();
+            }
+        }else{
+            return redirect('competitions');
+        }
+
         return view('competition.regis.formregis',[
             'code' => null,
             'action' => 'create',
@@ -38,8 +52,15 @@ class TimCompetitionController extends Controller
             return view('competition.regis.formregis',[
                 'code' => $code,
                 'action' => 'update',
-                'slug' => $slug
+                'slug' => null,
             ]);
         }
+    }
+    public function verif()
+    {
+        $message = session()->get('message');
+        $email = session()->get('email');
+        $send = Mail::to($email)->send(new \App\Mail\VerificationCompetition($message));
+        return redirect()->back()->with('success','email berhasil dikirim');
     }
 }

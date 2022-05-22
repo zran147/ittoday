@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Crypt;
 
 class MemberTimCompetition extends Component
 {
-    public $member, $messageformember, $message = "off";
+    public $member, $messageformember, $message = "off" ,$status;
     protected $listeners = [
         'check' => '$refresh'
     ];

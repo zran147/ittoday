@@ -65,7 +65,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function regsitranttimcompetition()
     {
-        return $this->hasMany(TimCompetition::class);
+        return $this->hasMany(TimCompetition::class,'registrant_id');
     }
     public function adminveriftimcompetition()
     {

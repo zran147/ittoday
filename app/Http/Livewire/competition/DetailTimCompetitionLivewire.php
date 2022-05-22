@@ -23,9 +23,9 @@ class DetailTimCompetitionLivewire extends Component
         $idcompetition = Crypt::decrypt($idcompetition);
         $timcompetition = TimCompetition::findorfail($idcompetition)->delete();
         if ($timcompetition) {
-            return redirect()->route('indexdetailtimcompetitionbyslugdashboard', [str(strtolower($this->name_competition))->slug('-')])->with('success', 'Tim Competition deleted.');
+            return redirect(request()->header('Referer'))->with('success', 'Tim Competition deleted.');
         } else {
-            return redirect()->route('indexdetailtimcompetitionbyslugdashboard', [str(strtolower($this->name_competition))->slug('-')])->with('error', 'Tim Competition Failed delete.');
+            return redirect(request()->header('Referer'))->with('error', 'Tim Competition Failed delete.');
         }
     }
 }

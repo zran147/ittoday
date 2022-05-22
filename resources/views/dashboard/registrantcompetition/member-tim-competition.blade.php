@@ -70,6 +70,7 @@
             @endif
 
         </div>
+        @if ($status != 'tim successful verification')
         <x-flash-message />
         <div class="d-flex justify-content-end my-2">
             <button type="button" wire:click="accmemberrergistrant('{{ Crypt::encrypt($member->id) }}')"
@@ -77,6 +78,7 @@
             <button type="button" wire:click="refusememberregistrant" class="btn btn-danger">Refuse
                 verification</button>
         </div>
+        @endif
         @if ($message == 'on')
             <form wire:submit.prevent="messagememberregistrant('{{ Crypt::encrypt($member->id) }}')">
                 <div class="my-3">

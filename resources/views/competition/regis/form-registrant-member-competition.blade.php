@@ -17,7 +17,7 @@
         @endif
         <div class="row gy-3 mb-3">
             <div class="col-md-6 form-group">
-                <label for="username_telegram_team" class="form-label">Team Member Name</label>
+                <label for="username_telegram_team" class="form-label">Nama</label>
                 <input type="text" name="nama" wire:model="name_member" class="form-control" placeholder="Full Name" >
                 @error('name_member')
                     <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
@@ -27,7 +27,7 @@
             </div>
 
             <div class="col-md-6 form-group">
-                <label for="username_telegram_team" class="form-label">Provinsi Member Team</label>
+                <label for="username_telegram_team" class="form-label">Domisili</label>
                 <input type="text" class="form-control" name="Provinsi" wire:model="provinsi_member"  placeholder="Provinsi" >
                 @error('provinsi_member')
                     <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
@@ -37,13 +37,19 @@
             </div>
 
             <div class="col-md-6 form-group">
-                <label for="username_telegram_team" class="form-label">ID Card Member Tim</label>
+                <label for="username_telegram_team" class="form-label">KTM</label>
                 <div class="col-md-6 form-group col-kiri form-control file-upload-wrapper" data-text="KTM / Kartu Pelajar">
                 <input name="file-upload-field" wire:model="id_card_member" type="file" class="form-control padding">
                 <div id="idcard" class="form-text text text-dark">Image Only PNG, JPEG, JPG and Maximal Size 2 MB</div>
+
+                <div wire:loading wire:target="id_card_member">
+                    Processing Upload...
+                </div>
+
+
                 @if (!is_null($id_card_member2))
                     <a href="/storage/{{ $id_card_member2 }}" target="_blank">
-                        <div class="form-text mt-3 text-success">Click In Here For Review ID Card</div>
+                        <div class="form-text mt-3 text-success">Klik Disini Untuk Melihat KTM</div>
                     </a>
                 @endif
                 @error('id_card_member')
@@ -56,10 +62,13 @@
 
             @if ($level_tim != 'sma')
             <div class="col-md-6 form-group ">
-                <label for="username_telegram_team" class="form-label">Member Team Certificate of Enrollment</label>
+                <label for="username_telegram_team" class="form-label">Bukti pendukung</label>
                 <div class="col-md-6 form-group col-kiri col-bawah form-control file-upload-wrapper" data-text="SKMA">
                 <input name="file-upload-field" wire:model="member_tim_certificate" type="file" class="form-control">
-                <div id="idcard" class="form-text text text-dark">Image Only PNG, JPEG, JPG and Maximal Size 2 MB</div>
+                <div id="idcard" class="form-text text text-dark">Misal : Surat Keterangan Mahasiswa Aktif atau lainnya. <br> Image Only PNG, JPEG, JPG and Maximal Size 2 MB</div>
+                <div wire:loading wire:target="member_tim_certificate">
+                    Processing Upload...
+                </div>
                 @if (!is_null($member_tim_certificate2))
                     <a href="/storage/{{ $member_tim_certificate2 }}" target="_blank">
                         <div class="form-text mt-3 text-success">Click In Here For Review Member Team Certificate</div>

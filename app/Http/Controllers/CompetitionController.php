@@ -1,11 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\Mail\VerificationCompetition;
 use App\Models\Competition;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Crypt;
 
 class CompetitionController extends Controller
@@ -41,8 +37,9 @@ class CompetitionController extends Controller
     }
     public function show($slug)
     {
+        $competition = Competition::where('slug_competition',$slug)->first();
         return view('competition.show.'.$slug,[
-            'compe' => Competition::where('slug_competition',$slug)->first()
+            'compe' => $competition
         ]);
     }
 }

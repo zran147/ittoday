@@ -62,17 +62,18 @@
                     $text = 'login';
                 @endphp
             @endguest
+
             @auth
-                 @php
-                    $text = 'login';
+                @php
+                $text = 'login';
                     if (Auth::user()->hasPermissionTo('dashboard-menu')) {
-                        $text = 'dashboard';
+                    $text = 'dashboard';
                     } else {
                         $text = 'account';
                     }
-
                 @endphp
             @endauth
+
             <li>
                 <a class="getstarted scrollto" href="/{{ $text }}">{{ ucfirst($text) }}</a>
             </li>

@@ -26,6 +26,7 @@
                 <table class="table table-striped table-hover" id="table1">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Name TIM</th>
                             <th>Institusi TIM</th>
                             <th>Email Tim</th>
@@ -37,6 +38,7 @@
                     <tbody>
                         @foreach ($timcompetition->timcompetition as $item)
                             <tr>
+                                <td>{{ $loop->index + 1 }}</td>
                                 <td>{{ $item->name_tim }}</td>
                                 <td>{{ $item->institusi_name_tim }}</td>
                                 <td>{{ $item->email_tim }}</td>

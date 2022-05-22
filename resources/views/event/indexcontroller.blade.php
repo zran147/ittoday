@@ -8,18 +8,18 @@
                 <div class="col" data-aos="zoom-in" data-aos-delay="100">
                     <div class="card">
                         <div class="image-text">
-                            <img src="{{ asset('storage/'.$item->thumbnail_event) }}" alt=""></img>
+                            <img src="{{ asset('storage/'.$item->thumbnail_event) }}" alt=""/>
                         </div>
                         <div class="card-body">
                             <div class="box" style="background-image: url(img/boxx.png);">
                                 <div class="isi" style="padding: 10px;">
                                     <h6>
-                                        @if ($item->start_event > date("Y-m-d"))
-                                        <span class="btn-belum">Belum Mulai</span>
-                                        @elseif ($item->start_event < date("Y-m-d") && $item->finish_event > date("Y-m-d"))
-                                        <span class="btn-registered">Sedang Berlangsung</span>
-                                        @elseif ($item->finish_event < date("Y-m-d"))
-                                        <span class="btn-selesai">Sudah Terlaksana</span>
+                                        @if ($item->start_event > Carbon::now()->format('Y-m-d'))
+                                            <span class="btn-belum">Event Belum Dimulai</span>
+                                        @elseif ($item->start_event == Carbon::now()->format('Y-m-d') || $item->finish_event == Carbon::now()->format('Y-m-d') || $item->start_event < Carbon::now()->format('Y-m-d') && $item->finish_event > Carbon::now()->format('Y-m-d'))
+                                            <span class="btn-registered">Event Sedang Berlangsung</span>
+                                        @elseif ($item->finish_event < Carbon::now()->format('Y-m-d'))
+                                            <span class="btn-selesai">Event Sudah Terlaksanakan</span>
                                         @endif
                                     </h6>
                                     <h3>{{ $item->name_event }} </h3>

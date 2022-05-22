@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('slug_competition')->required()->unique();
             $table->date('start_registrasi_competition')->required();
             $table->date('finish_registrasi_competition')->required();
+            $table->string('link_twibon_competition')->required();
             $table->enum('active', ['draft', 'published'])->default('draft');
             $table->string('rule_book_competition')->unique();
             $table->timestamps();

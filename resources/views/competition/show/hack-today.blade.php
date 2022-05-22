@@ -14,15 +14,15 @@
               <div data-aos="fade-up" data-aos-delay="600">
                 <div class="text-center text-lg-start">
                     @php
-                    if($compe->start_registrasi_competition > date("Y-m-d")){
+                    if($compe->start_registrasi_competition > Carbon::now()->format('Y-m-d')){
                         $index = "#";
                     }
-                    elseif ($compe->start_registrasi_competition < date("Y-m-d") && $compe->finish_registrasi_competition > date("Y-m-d")){
+                    elseif ($compe->start_registrasi_competition < Carbon::now()->format('Y-m-d') && $compe->finish_registrasi_competition > Carbon::now()->format('Y-m-d')){
                         $index = "/competitions/detail/".$compe->slug_competition."/regis";
-                    }elseif ($compe->finish_registrasi_competition == date("Y-m-d")) {
+                    }elseif ($compe->finish_registrasi_competition == Carbon::now()->format('Y-m-d')) {
                         $index = "/competitions/detail/".$compe->slug_competition."/regis";
                     }
-                    elseif ($compe->finish_registrasi_competition < date("Y-m-d")) {
+                    elseif ($compe->finish_registrasi_competition < Carbon::now()->format('Y-m-d')) {
                         $index = "#";
                     }
                 @endphp

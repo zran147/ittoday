@@ -1,10 +1,11 @@
 <div>
 <form class="bg-light p-3 my-5">
     <x-flash-message></x-flash-message>
-
     @if ($status_verification_tim)
         <div class="alert alert-info">
-            <h5>Status Your Tim : {{ $status_verification_tim }}</h5>
+            <h5>Status Tim : {{ ucwords($status_verification_tim) }}</h5>
+            <p>Ramaikan kompetisi IT Today dengan ikutan mengunggah twibbon
+                <a href="{{ $link_twibbon_competition }}">ini.</a> @if ($slug == 'poster')(wajib)@endif </p>
         </div>
     @endif
 
@@ -20,16 +21,15 @@
         </div>
 
         <div class="col-md-6 form-group">
-            <label for="level_Tim" class="form-label">level Tim</label>
-            <select class="form-select col-md-6 form-control control" wire:model="level_tim" aria-label="Default select example" required>
-              <option value="{{ Null }}" selected>Select level your Tim</option>
+            <label for="tingkat_institusi" class="form-label">Tingkat Institusi</label>
+            <select class="form-select col-md-6 form-control control" wire:model="tingkat_institusi" aria-label="Default select example" required>
+              <option value="{{ Null }}" selected>Pilih Tingkat Institusi Tim</option>
               <option value="kuliah">Kuliah</option>
               @if ($slug != 'ux-today')
                 <option value="sma">Sekolah Menengah Atas</option>
               @endif
-
             </select>
-            @error('level_tim')
+            @error('tingkat_institusi')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
                 </div>
@@ -37,9 +37,9 @@
         </div>
 
         <div class="col-md-6 form-group">
-            <label for="email_Tim" class="form-label">Institution Name</label>
-            <input type="text" name="institusi" wire:model="name_institusi_tim" class="form-control" placeholder="Nama Institusi" required>
-            @error('name_institusi_tim')
+            <label for="nama_institusi" class="form-label">Nama Institusi</label>
+            <input type="text" name="institusi" wire:model="nama_institusi" class="form-control" placeholder="Nama Institusi" required>
+            @error('nama_institusi')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
                 </div>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="col-md-6 form-group">
-            <label for="email_Tim" class="form-label">Email Tim</label>
+            <label for="Email" class="form-label">Email Tim</label>
             <input type="email" class="form-control" wire:model="email_tim" name="email" placeholder="Email" required>
             @error('email_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
@@ -67,9 +67,9 @@
         </div>
 
         <div class="col-md-6 form-group">
-            <label for="no_handphone_Tim" class="form-label">No Handphone Tim</label>
-            <input type="number" class="form-control"  wire:model="no_handphone_tim" name="nomerhp" placeholder="Nomor Hp" required>
-            @error('no_handphone_tim')
+            <label for="nomor_whatsApp" class="form-label">Nomor WhatsApp</label>
+            <input type="number" class="form-control"  wire:model="nomor_whatsApp" name="nomerhp" placeholder="Nomor WhatsApp" required>
+            @error('nomor_whatsApp')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
                 </div>
@@ -77,10 +77,10 @@
         </div>
         @if ($action == 'create')
         <div class="col-md-12 form-group">
-            <label for="level_Tim" class="form-label">Number of Tim</label>
+            <label for="Jumlah_anggota_tim" class="form-label">Jumlah Anggota Tim</label>
             <select id="reason-list" class="col-md-6 form-control control" wire:model="participants" required>
-              <option value="{{ Null }}">Choose number of Tims</option>
-              <option value="1">1</option>
+              <option value="{{ Null }}">Pilih Anggota Tim</option>
+              <option value="1">1 (Solo)</option>
               <option value="2">2</option>
               <option value="3">3</option>
             </select>
@@ -103,9 +103,9 @@
                 <h2 class="text-center">Information Member Tim</h2>
                 @for ($i = 0; $i < $participants; $i++)
                     @if ($i < $membertim->count())
-                        @livewire('registranttimcompetition.form-registrant-member-competition',['index' => $i, 'membertim'=>$membertim[$i], 'tim_id'=> $id_tim, 'action'=>'update','level_tim' => $level_tim])
+                        @livewire('registranttimcompetition.form-registrant-member-competition',['index' => $i, 'membertim'=>$membertim[$i], 'tim_id'=> $id_tim, 'action'=>'update','level_tim' => $tingkat_institusi])
                     @else
-                        @livewire('registranttimcompetition.form-registrant-member-competition',['index' => $i, 'tim_id'=> $id_tim, 'action'=>'create','level_tim' => $level_tim])
+                        @livewire('registranttimcompetition.form-registrant-member-competition',['index' => $i, 'tim_id'=> $id_tim, 'action'=>'create','level_tim' => $tingkat_institusi])
                     @endif
                 @endfor
         </div>
@@ -116,7 +116,7 @@
             }else{
                 $actionpayment = 'edit';
             }
-            $statuspayment = array('acc verification payment', 'tim successful varification');
+            $statuspayment = array('acc verification payment', 'tim successful verification',);
             $status = array('waiting verification administration','rejected verification administration', null)
         @endphp
     @if (!in_array($status_verification_tim,$status))
@@ -125,7 +125,7 @@
             <h2 class="text-center">Information Payment Tim</h2>
 
             <div class="col-md-6 form-group">
-                <label for="username_telegram_Tim" class="form-label">Tim's Bank Account Name </label>
+                <label for="username_telegram_Tim" class="form-label"> Nama Akun Bank</label>
                 <input type="text" name="nama" wire:model="bank_account_name" class="form-control" placeholder="Nama Tim" >
                 @error('bank_account_name')
                     <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
@@ -135,7 +135,7 @@
             </div>
 
             <div class="col-md-6 form-group">
-                <label for="username_telegram_Tim" class="form-label">fee payment Number</label>
+                <label for="payment_fee_payment_tim" class="form-label">Jumlah Pembayaran</label>
                 <input type="number" class="form-control" wire:model="payment_fee_payment_tim" name="Provinsi" placeholder="Rekening" >
                 @error('payment_fee_payment_tim')
                     <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
@@ -145,7 +145,7 @@
             </div>
 
             <div class="col-md-12 form-group">
-                <label for="username_telegram_Tim" class="form-label">Payment Receipt</label>
+                <label for="proof_of_payment_tim" class="form-label">Bukti Pembayaran</label>
                 <div class="col form-group col-kiri form-control file-upload-wrapper" data-text="Bukti Transfer">
                   <input name="file-upload-field" wire:model="proof_of_payment_tim" type="file" class="form-control padding" >
                   @error('payment_fee_payment_tim')
@@ -154,7 +154,7 @@
                     </div>
                 @enderror
                     @if ($proof_of_payment_tim2)
-                        <a href="/storage/{{ $proof_of_payment_tim2 }}" target="_blank"><div class="form-text mt-3">Klik Disini Untuk Revire ID Card Anda</div></a>
+                        <a href="/storage/{{ $proof_of_payment_tim2 }}" target="_blank"><div class="form-text mt-3">Klik Disini Untuk Review Bukti Pembayaran</div></a>
                     @endif
                 </div>
             </div>
@@ -162,22 +162,16 @@
         <div class="col-md-12 gy-4 text-center my-3">
             <button type="button" wire:click="{{ $actionpayment }}" class="btn btn-primary">{{ ucfirst($actionpayment) }} Payment Tim</button>
         </div>
-        @else
-        <div class="col-md-12 gy-4 text-center my-3">
-            <button class="btn btn-info">Payment Berhasil Di Verifikasi</button>
-        </div>
         @endif
     </div>
     @endif
-
-    @if ($status_verification_tim == 'acc verification payment')
+    @if ($slug != 'hack-today')
+    @if (in_array($status_verification_tim,$statuspayment))
     <div class="mt-5" wire:ignore>
         <div class="row gy-4 ">
-            <h2 class="text-center">Result Tim</h2>
-
-
+            <h2 class="text-center">submission proposal </h2>
             <div class="col form-group">
-                <label for="link_competition_results" class="form-label">Link Result Your Task</label>
+                <label for="link_competition_results" class="form-label">Link submission proposal</label>
                 <input type="text" class="form-control" wire:model="link_competition_results" name="link_competition_results" placeholder="https://drive.google.com/" >
                 @error('link_competition_results')
                     <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
@@ -186,16 +180,17 @@
                 @enderror
             </div>
 
-        @if (is_null($link_competition_results))
-        <div class="col-md-12 gy-4 text-center my-3">
-            <button type="button" wire:click="createresult" class="btn btn-primary">Create Result Tim</button>
-        </div>
-        @else
-        <div class="col-md-12 gy-4 text-center my-3">
-            <button class="btn btn-info">Link Sudah Terkirim</button>
-        </div>
-        @endif
+            @if (is_null($link_competition_results))
+            <div class="col-md-12 gy-4 text-center my-3">
+                <button type="button" wire:click="createresult" class="btn btn-primary">Create Result Tim</button>
+            </div>
+            @else
+            <div class="col-md-12 gy-4 text-center my-3">
+                <span class="btn btn-info">Link Sudah Terkirim</span>
+            </div>
+            @endif
     </div>
+    @endif
     @endif
 </form>
 </div>

@@ -18,7 +18,10 @@ class UserController extends Controller
     }
     public function indexUser()
     {
-        return view('profile.indexuser');
+        $user = User::where('id',Auth::user()->id)->with('registrant','regsitranttimcompetition')->first();
+        return view('profile.indexuser',[
+            'user' => $user
+        ]);
     }
     public function editProfileUser()
     {

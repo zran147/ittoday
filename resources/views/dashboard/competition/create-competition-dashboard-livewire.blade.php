@@ -73,6 +73,21 @@
                                                 </div>
                                             @enderror
                                         </div>
+                                        <div class="link_twibon_competition">
+                                            <div class="form-group">
+                                                <label for="link_twibon_competition">Link Twibon Competition</label>
+                                                <input type="text" id="link_twibon_competition"
+                                                    class="form-control" wire:model="link_twibon_competition"
+                                                    placeholder="https://web.whatsapp.com/">
+                                            </div>
+                                            @error('link_twibon_competition')
+                                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                    {{ $message }}
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                            @enderror
+                                        </div>
                                         <div class=" d-flex justify-content-start mt-3">
                                             <button type="submit"
                                                 class="btn btn-primary me-1 mb-1">{{ $action }}</button>
