@@ -52,6 +52,11 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="event">
                             <div class="row">
+                            @if ($user->registrant->count() < 1)
+                                <h5>Anda Belum Daftar Event</h5>
+                            @endif
+
+
                             @foreach ($user->registrant as $item)
                             <div class="col-md-4">
                                 <div class="card" style="width: 18rem;">
@@ -68,6 +73,9 @@
                         </div>
                         <div class="tab-pane fade" id="compe">
                             <div class="row">
+                                @if ($user->regsitranttimcompetition->count() < 1)
+                                <h5>Anda Belum Daftar Event</h5>
+                                @endif
                                 @foreach ($user->regsitranttimcompetition as $item)
                                 <div class="col-md-4">
                                     <div class="card" style="width: 18rem;">
@@ -75,7 +83,14 @@
                                         <div class="card-body">
                                         <h5 class="card-title">{{ $item->competition->name_competition }}</h5>
                                         <p class="card-text">{{ ucwords($item->status_verification_tim) }}</p>
-                                        <a href="/competitions/{{ $item->competition->slug_competition }}/regis/{{ $item->code_uniq_tim }}" class="btn btn-primary">Go Event</a>
+                                        @php
+                                            if($item->competition->name_competition == 'Poster'){
+                                                $url = '/poster';
+                                            }else{
+                                                $url = null;
+                                            }
+                                        @endphp
+                                        <a href="/competitions/{{ $item->competition->slug_competition }}/regis/{{ $item->code_uniq_tim }}{{ $url }}" class="btn btn-primary">Go Competition</a>
                                         </div>
                                     </div>
                                 </div>

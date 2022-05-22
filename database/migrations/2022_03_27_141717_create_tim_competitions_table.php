@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             // Infomasi Administrasi Tim
             $table->uuid('code_uniq_tim')->unique()->required();
-            $table->string('name_tim')->unique()->required();
-            $table->enum('level_tim',['sma','kuliah'])->default('kuliah');
+            $table->string('name_tim')->required();
+            $table->enum('level_tim',['sma','kuliah','umum'])->default('kuliah');
             $table->string('institusi_name_tim')->required();
             $table->string('email_tim')->required();
             $table->string('username_telegram_tim')->required();

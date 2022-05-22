@@ -2,6 +2,16 @@
     @push('style')
         <link rel="stylesheet" href="/competition/poster.css">
     @endpush
+    @php
+        if($compe->start_registrasi_competition > Carbon::now()->format('Y-m-d') || $compe->finish_registrasi_competition < Carbon::now()->format('Y-m-d')){
+            $index = "#";
+        }
+        elseif ($compe->start_registrasi_competition == Carbon::now()->format('Y-m-d') || $compe->finish_registrasi_competition == Carbon::now()->format('Y-m-d') || $compe->start_registrasi_competition < Carbon::now()->format('Y-m-d') && $compe->finish_registrasi_competition > Carbon::now()->format('Y-m-d')){
+            $index = "/competitions/detail/".$compe->slug_competition."/regis/poster";
+        }else{
+            $index = "#";
+        }
+    @endphp
         <!-- ======= Hero Section ======= -->
         <section id="hero" class="hero d-flex align-items-center">
             <div class="container blob">
@@ -16,11 +26,11 @@
                   <img src="/img/competition/PosterComp.png" class="img-fluid animated" alt="">
 
                     <div class="text-center pad_bawah">
-                      <a href="formposter.html" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                      <a href="{{ $index }}" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                         <span>Register</span>
                         <i class="bi bi-arrow-right"></i>
                       </a>
-                      <a href="#about" class="btn-rule-book scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                      <a href="{{ $compe->rule_book_competition }}" class="btn-rule-book scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                         <span>Rule Book</span>
                         <i class="bi bi-arrow-right"></i>
                       </a>

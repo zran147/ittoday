@@ -7,7 +7,10 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\RegistrantCompetitionController;
 use App\Http\Controllers\TimCompetitionController;
+<<<<<<< HEAD
+=======
 
+>>>>>>> aeb0e5ab1debb37df3e705b73f64846828a8cb29
 Route::get('/', function () {
     return view('welcome');
 });
@@ -27,7 +30,9 @@ Route::group(['prefix'=>'competitions'], function (){
     // Route::get('/hacktoday',[CompetitionController::class,'hacktoday'])->name('hacktoday');
     Route::controller(TimCompetitionController::class)->middleware('auth:sanctum','verified')->group(function(){
         Route::get('/{slug}/regis/{code}','edit')->name('updatetim');
+        Route::get('/{slug}/regis/{code}/poster','editposter')->name('updatetimporster');
         Route::get('/detail/{slug}/regis','create')->name('registim');
+        Route::get('/detail/{slug}/regis/poster','createposter')->name('registimposter');
     });
 });
 
@@ -62,7 +67,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verifie
     });
     Route::controller(RegistrantCompetitionController::class)->prefix('detailcompetition')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision')->group(function () {
         Route::get('/{slug}/detailtim/{namereg}', 'indexdetailregistrantcompetitionbycompetitiondashboard')->name('indexdetailregistrantcompetitionbycompetitiondashboard');
-        Route::get('/{slug}/detailtim/{namereg}/pdf', 'indexdetailregistrantcompetitionbycompetitiondashboardpdf')->name('indexdetailregistrantcompetitionbycompetitiondashboardpdf');
+        Route::get('/{slug}/detailtim/{namereg}/poster', 'indexdetailregistrantcompetitionbycompetitiondashboardposter')->name('indexdetailregistrantcompetitionbycompetitiondashboardposter');
     });
 
     Route::controller(CommentController::class)->prefix('contact')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|action-comment')->group(function () {

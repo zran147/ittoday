@@ -45,7 +45,14 @@
                                 <td>{{ $item->username_telegram_tim  }}</td>
                                 <td>{{ $item->status_verification_tim }}</td>
                                 <td>
-                                    <a href="/dashboard/detailcompetition/{{ str(strtolower($name_competition))->slug('-')}}/detailtim/{{ $item->code_uniq_tim }}"
+                                    @php
+                                        if($name_competition == 'poster'){
+                                            $url = "/poster";
+                                        }else{
+                                            $url = null;
+                                        }
+                                    @endphp
+                                    <a href="/dashboard/detailcompetition/{{ str(strtolower($name_competition))->slug('-')}}/detailtim/{{ $item->code_uniq_tim }}{{ $url }}"
                                         class="btn btn-primary">Detail</a>
                                     <button class="btn btn-danger"
                                         wire:click="deletetim('{{ Crypt::encrypt($item->id) }}')"
