@@ -7,10 +7,6 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\RegistrantCompetitionController;
 use App\Http\Controllers\TimCompetitionController;
-<<<<<<< HEAD
-=======
-
->>>>>>> aeb0e5ab1debb37df3e705b73f64846828a8cb29
 Route::get('/', function () {
     return view('welcome');
 });
