@@ -7,7 +7,6 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\RegistrantCompetitionController;
 use App\Http\Controllers\TimCompetitionController;
-
 Route::get('/', function () {
     return view('welcome');
 });
