@@ -49,8 +49,8 @@ class FormRegistrantCompetition extends Component
     public function create()
     {
         $this->validate([
-            'name_tim' => 'required|unique:tim_competitions,name_tim|regex:/[a-zA-Z0-9\s]+/|max:100|min:5',
-            'email_tim' => 'required|unique:tim_competitions,email_tim|email',
+            'name_tim' => 'required|regex:/[a-zA-Z0-9\s]+/|max:100|min:5',
+            'email_tim' => 'required|email',
             'tingkat_institusi' => 'required|string',
             'username_telegram_tim' => 'required|string|max:100|min:2,unique:tim_competition,username_telegram_tim',
             'nama_institusi' => 'required|string|max:100|min:5',
@@ -76,8 +76,8 @@ class FormRegistrantCompetition extends Component
     public function update()
     {
         $this->validate([
-            'name_tim' => 'required|regex:/[a-zA-Z0-9\s]+/|max:100|min:5|unique:tim_competitions,name_tim,'.$this->id_tim,
-            'email_tim' => 'required|email||unique:tim_competitions,email_tim,'.$this->id_tim,
+            'name_tim' => 'required|regex:/[a-zA-Z0-9\s]+/|max:100|min:5',
+            'email_tim' => 'required|email',
             'tingkat_institusi' => 'required|string',
             'username_telegram_tim' => 'required|string|max:100|min:2|unique:tim_competition,username_telegram_tim,'.$this->id_tim,
             'nama_institusi' => 'required|string|max:100|min:5',

@@ -40,6 +40,45 @@ class TimCompetitionController extends Controller
             'slug' => $slug
         ]);
     }
+
+    public function createposter($slug)
+    {
+        $com = Competition::where('slug_competition',$slug)->with('timcompetition')->where('active','published')->first();
+        if (!is_null($com->timcompetition->where('registrant_id',Auth::user()->id)->first())) {
+           $code = TimCompetition::where('competition_id',$com->id)->where('registrant_id',Auth::user()->id)->first();
+           return redirect('/competitions/'.$slug.'/regis/'.$code->code_uniq_tim.'/poster');
+        }
+
+        if($com){
+            if($com->start_registrasi_competition > Carbon::now()->format('Y-m-d') || $com->finish_registrasi_competition < Carbon::now()->format('Y-m-d')){
+                return redirect()->back();
+            }
+        }else{
+            return redirect('competitions');
+        }
+
+        return view('competition.regis.formregisposter',[
+            'code' => null,
+            'action' => 'create',
+            'slug' => $slug
+        ]);
+    }
+    public function editposter($slug,$code)
+    {
+        $tim = TimCompetition::where('code_uniq_tim',$code)->with('membertimcompetition')->first();
+        if ($tim->status_verification_tim != 'waiting verification administration') {
+            CheckTimStatus::checktimstatus($tim);
+        }
+        if ($tim->registrant_id != Auth::user()->id) {
+            return redirect('/');
+        }else{
+            return view('competition.regis.formregisposter',[
+                'code' => $code,
+                'action' => 'update',
+                'slug' => null,
+            ]);
+        }
+    }
     public function edit($slug,$code)
     {
         $tim = TimCompetition::where('code_uniq_tim',$code)->with('membertimcompetition')->first();
