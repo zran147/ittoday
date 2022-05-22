@@ -13,28 +13,27 @@
     <link href="/img/favicon.svg" rel="icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- /Vendor CSS Files -->
-  <link href="/vendor/aos.css" rel="stylesheet">
-  <link href="/vendor/bootstrap.min.css" rel="stylesheet">
-  <link href="/vendor/bootstrap-icons.css" rel="stylesheet">
-  <link href="/vendor/boxicons.min.css" rel="stylesheet">
-  <link href="/vendor/glightbox.min.css" rel="stylesheet">
-  <link href="/vendor/remixicon.css" rel="stylesheet">
-  <link href="/vendor/swiper-bundle.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="/vendor/aos.css" rel="stylesheet" type="text/css">
+  <link href="/vendor/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="/vendor/bootstrap-icons.css" rel="stylesheet" type="text/css">
+  <link href="/vendor/boxicons.min.css" rel="stylesheet" type="text/css">
+  <link href="/vendor/glightbox.min.css" rel="stylesheet" type="text/css">
+  <link href="/vendor/remixicon.css" rel="stylesheet" type="text/css">
+  <link href="/vendor/swiper-bundle.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Template Main CSS File -->
 
     @if (!Request::is('competitions/*'))
-        <link href="/style.css" rel="stylesheet">
+        <link href="/assets/style.css" rel="stylesheet" type="text/css" >
     @endif
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" type="text/css">
   <script src="https://kit.fontawesome.com/b6396059b6.js" crossorigin="anonymous"></script>
   @livewireStyles
   @stack('style')
