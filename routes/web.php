@@ -8,8 +8,6 @@ use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\RegistrantCompetitionController;
 use App\Http\Controllers\TimCompetitionController;
 
-
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -39,19 +37,6 @@ Route::group(['prefix'=>'event'], function(){
         Route::get('/detail/{slug}','show')->name('showevent');
     });
 });
-
-// Route::get('/sendmessage', function () {
-
-//     $details = [
-//         'message' => session()->get('message'),
-//     ];
-//     \Mail::to('your_receiver_email@gmail.com')->send(new \App\Mail\VerificationCompetition($details));
-//    return view('verification.competition');
-// });
-// Route::controller(CompetitionController::class)->prefix('competition')->group(function () {
-//     Route::get('/hacktoday','hacktoday')->name('hacktoday');
-//     Route::get('/hacktoday/regis','RegistrantCompetitionController@create')
-// });
 
 Route::get('/sendmessage',[TimCompetitionController::class,'verif'])->name('veriftim');
 
