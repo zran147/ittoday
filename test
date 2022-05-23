@@ -1,8 +1,0 @@
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteRule ^(.*)$ public/$1 [L]
-</IfModule>
-RewriteCond %{HTTP_HOST} ^ittoday\.id$ [OR]
-RewriteCond %{HTTP_HOST} ^www\.ittoday\.id$
-RewriteRule ^/?$ "https\:\/\/test2022\.ittoday\.id\/" [R=302,L]
-

@@ -1,6 +1,5 @@
 <x-guest-layout>
     @if($event->count() > 0)
-
         <div id="list" class="album py-5">
             <div class="container" data-aos="fade-up">
             <div class="row try row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 d-flex justify-content-center">
