@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>IT TODAY 2022</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <title>IT TODAY 2022 Develop IT Skills to Face Post-Pandemic Era by Being Aware of Today’s Issues</title>
+    <meta content="Develop IT Skills to Face Post-Pandemic Era by Being Aware of Today’s Issues - IT Today 2022" name="description">
+    <meta content="ittoday, 2022, Competition, Webinar, Kompetisi, Pendaftaran" name="keywords">
 
     <!-- Favicons -->
     <link href="/img/favicon.svg" rel="icon">

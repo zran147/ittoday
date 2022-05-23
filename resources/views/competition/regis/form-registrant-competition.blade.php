@@ -12,7 +12,7 @@
     <div class="row gy-4">
         <div class="col-md-6 form-group">
             <label for="nama_Tim" class="form-label">Nama Tim</label>
-            <input type="text" name="name_tim" wire:model="name_tim" class="form-control" placeholder="Tim Name" required>
+            <input type="text" name="name_tim" wire:model="name_tim" class="form-control" placeholder="IT Today" required>
             @error('name_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
@@ -38,7 +38,7 @@
 
         <div class="col-md-6 form-group">
             <label for="nama_institusi" class="form-label">Nama Institusi</label>
-            <input type="text" name="institusi" wire:model="nama_institusi" class="form-control" placeholder="Nama Institusi" required>
+            <input type="text" name="institusi" wire:model="nama_institusi" class="form-control" placeholder="Institut Pertanian Bogor" required>
             @error('nama_institusi')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
@@ -48,7 +48,7 @@
 
         <div class="col-md-6 form-group">
             <label for="Email" class="form-label">Email Tim</label>
-            <input type="email" class="form-control" wire:model="email_tim" name="email" placeholder="Email" required>
+            <input type="email" class="form-control" wire:model="email_tim" name="email" placeholder="ittoday@gmail.com" required>
             @error('email_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
@@ -58,7 +58,7 @@
 
         <div class="col-md-6 form-group">
             <label for="username_telegram_Tim" class="form-label">Username Telegram Tim</label>
-            <input type="text" name="tele" wire:model="username_telegram_tim" class="form-control" placeholder="Username Telegram" required>
+            <input type="text" name="tele" wire:model="username_telegram_tim" class="form-control" placeholder="ITtoday" required>
             @error('username_telegram_tim')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
@@ -68,7 +68,7 @@
 
         <div class="col-md-6 form-group">
             <label for="nomor_whatsApp" class="form-label">Nomor WhatsApp</label>
-            <input type="number" class="form-control"  wire:model="nomor_whatsApp" name="nomerhp" placeholder="Nomor WhatsApp" required>
+            <input type="number" class="form-control"  wire:model="nomor_whatsApp" name="nomerhp" placeholder="08*******" required>
             @error('nomor_whatsApp')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
@@ -126,7 +126,7 @@
 
             <div class="col-md-6 form-group">
                 <label for="username_telegram_Tim" class="form-label"> Nama Akun Bank</label>
-                <input type="text" name="nama" wire:model="bank_account_name" class="form-control" placeholder="Nama Tim" >
+                <input type="text" name="nama" wire:model="bank_account_name" class="form-control" placeholder="ITtoday" >
                 @error('bank_account_name')
                     <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                         {{ $message }}
@@ -136,7 +136,7 @@
 
             <div class="col-md-6 form-group">
                 <label for="payment_fee_payment_tim" class="form-label">Jumlah Pembayaran</label>
-                <input type="number" class="form-control" wire:model="payment_fee_payment_tim" name="Provinsi" placeholder="Rekening" >
+                <input type="number" class="form-control" wire:model="payment_fee_payment_tim" name="Provinsi" placeholder="60000" >
                 @error('payment_fee_payment_tim')
                     <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                         {{ $message }}
@@ -148,6 +148,9 @@
                 <label for="proof_of_payment_tim" class="form-label">Bukti Pembayaran</label>
                 <div class="col form-group col-kiri form-control file-upload-wrapper" data-text="Bukti Transfer">
                   <input name="file-upload-field" wire:model="proof_of_payment_tim" type="file" class="form-control padding" >
+                  <div wire:loading wire:target="proof_of_payment_tim">
+                    Processing Upload...
+                </div>
                   @error('payment_fee_payment_tim')
                     <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                         {{ $message }}
@@ -169,7 +172,7 @@
     @if (in_array($status_verification_tim,$statuspayment))
     <div class="mt-5" wire:ignore>
         <div class="row gy-4 ">
-            <h2 class="text-center">submission proposal </h2>
+            <h2 class="text-center">submission proposal</h2>
             <div class="col form-group">
                 <label for="link_competition_results" class="form-label">Link submission proposal</label>
                 <input type="text" class="form-control" wire:model="link_competition_results" name="link_competition_results" placeholder="https://drive.google.com/" >
