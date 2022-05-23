@@ -27,11 +27,11 @@
                     <div class="isi" style="padding: 10px;">
                       <h4>{{ $event->name_event }}</h4>
                       <h6>
-                        @if ($index = 1)
+                        @if ($index == 1)
                         <span class="btn-belum">Event Belum Dimulai</span>
-                        @elseif ($index = 2)
+                        @elseif ($index == 2)
                         <span class="btn-registered">Event Sedang Berlangsung</span>
-                        @elseif ($index = 3)
+                        @elseif ($index == 3)
                         <span class="btn-selesai">Event Sudah Terlaksanakan</span>
                         @endif
                       </h6>

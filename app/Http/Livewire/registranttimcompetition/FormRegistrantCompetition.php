@@ -70,7 +70,10 @@ class FormRegistrantCompetition extends Component
             'participant'=>$this->participants,
             'status_verification_tim' => 'waiting verification administration'
         ]);
-        return redirect('/competitions/'.$this->slug.'/regis/'.$tim->code_uniq_tim);
+        if($tim){
+            return redirect('/competitions/'.$this->slug.'/regis/'.$tim->code_uniq_tim);
+        }
+
     }
 
     public function update()
@@ -96,13 +99,10 @@ class FormRegistrantCompetition extends Component
             'competition_id' => Competition::where('slug_competition',$this->slug)->first()->id,
             'participant'=>$this->participants,
         ]);
-        if(!is_null($tim)){
+        if($tim){
             session()->flash('success','Success Update Data Tim');
-            $this->emitUp('refresh');
-        }else{
-            session()->flash('error','Failed Update Data Tim');
+            return redirect(request()->header('Referer'));
         }
-        // return redirect('/competitions/'.$this->slug.'/regis/'.$this->codeuniqteam);
     }
 
     public function submit()
@@ -128,9 +128,6 @@ class FormRegistrantCompetition extends Component
             session()->flash('success','Success Upload Payment');
             $this->emitUp('refresh');
             return redirect(request()->header('Referer'));
-        }else{
-            session()->flash('error','Failed Upload Payment');
-            return redirect(request()->header('Referer'));
         }
 
     }
@@ -155,9 +152,6 @@ class FormRegistrantCompetition extends Component
             $this->emit('refresh');
             session()->flash('success','Success Update Payment');
             $this->proof_of_payment_tim2 = $this->proof_of_payment_tim;
-            return redirect(request()->header('Referer'));
-        }else{
-            session()->flash('error','Failed Update Payment');
             return redirect(request()->header('Referer'));
         }
     }

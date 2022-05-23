@@ -18,7 +18,7 @@
         <div class="row gy-3 mb-3">
             <div class="col-md-6 form-group">
                 <label for="username_telegram_team" class="form-label">Nama</label>
-                <input type="text" name="nama" wire:model="name_member" class="form-control" placeholder="Full Name" >
+                <input type="text" name="nama_member" wire:model="name_member" class="form-control" placeholder="IT Today">
                 @error('name_member')
                     <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                         {{ $message }}
@@ -28,7 +28,7 @@
 
             <div class="col-md-6 form-group">
                 <label for="username_telegram_team" class="form-label">Domisili</label>
-                <input type="text" class="form-control" name="Provinsi" wire:model="provinsi_member"  placeholder="Provinsi" >
+                <input type="text" class="form-control" name="Provinsi" wire:model="provinsi_member"  placeholder="Jawa Barat" >
                 @error('provinsi_member')
                     <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                         {{ $message }}
@@ -39,7 +39,7 @@
             <div class="col-md-6 form-group">
                 <label for="username_telegram_team" class="form-label">KTM</label>
                 <div class="col-md-6 form-group col-kiri form-control file-upload-wrapper" data-text="KTM / Kartu Pelajar">
-                <input name="file-upload-field" wire:model="id_card_member" type="file" class="form-control padding">
+                <input name="file-upload-field" wire:model="id_card_member" name="id_card" type="file" class="form-control padding">
                 <div id="idcard" class="form-text text text-dark">Image Only PNG, JPEG, JPG and Maximal Size 2 MB</div>
 
                 <div wire:loading wire:target="id_card_member">
@@ -64,7 +64,7 @@
             <div class="col-md-6 form-group ">
                 <label for="username_telegram_team" class="form-label">Bukti pendukung</label>
                 <div class="col-md-6 form-group col-kiri col-bawah form-control file-upload-wrapper" data-text="SKMA">
-                <input name="file-upload-field" wire:model="member_tim_certificate" type="file" class="form-control">
+                <input name="file-upload-field" wire:model="member_tim_certificate" name="bukti_pendukung" type="file" class="form-control">
                 <div id="idcard" class="form-text text text-dark">Misal : Surat Keterangan Mahasiswa Aktif atau lainnya. <br> Image Only PNG, JPEG, JPG and Maximal Size 2 MB</div>
                 <div wire:loading wire:target="member_tim_certificate">
                     Processing Upload...
