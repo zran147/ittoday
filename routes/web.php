@@ -23,7 +23,6 @@ Route::group(['prefix'=>'competitions'], function (){
         Route::get('/','index')->name('competition');
         Route::get('/detail/{slug}', 'show')->name('showcompetition');
     });
-    // Route::get('/hacktoday',[CompetitionController::class,'hacktoday'])->name('hacktoday');
     Route::controller(TimCompetitionController::class)->middleware('auth:sanctum','verified')->group(function(){
         Route::get('/{slug}/regis/{code}','edit')->name('updatetim');
         Route::get('/{slug}/regis/{code}/poster','editposter')->name('updatetimporster');
