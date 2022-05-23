@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>IT TODAY 2022 - Develop IT Skills to Face Post-Pandemic Era by Being Aware of Today’s Issues</title>
     <meta content="Develop IT Skills to Face Post-Pandemic Era by Being Aware of Today’s Issues - IT Today 2022" name="description">
     <meta content="ittoday, 2022, Competition, Webinar, Kompetisi, Pendaftaran" name="keywords">
-
+    <title>IT TODAY 2022 - Develop IT Skills to Face Post-Pandemic Era by Being Aware of Today’s Issues</title>
+    <link rel="manifest" href="logoIT_2022putih.png">
     <!-- Favicons -->
     <link href="/img/favicon.svg" rel="icon">
 
