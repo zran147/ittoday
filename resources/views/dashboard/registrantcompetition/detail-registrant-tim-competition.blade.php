@@ -176,16 +176,20 @@
                                 <textarea id="default" cols="30" rows="20">
                                     <h3>Hallo {{ $tim_competition->name_tim }}</h3>
                                     <p>Kami akan konfirmasi bahwa status tim anda sekarang : </p>
-                                    <h4>{{ $tim_competition->status_verification_tim }}</h4>
                                     @if ($tim_competition->status_verification_tim != 'tim successful verification')
-                                    <p>untuk Proses Selanjutnya harap Klik Link <a href="ittoday.id/competitions/{{ $name_competition }}/regis/{{ $tim_competition->code_uniq_tim }}">Disini</a></p>
+                                    <h4>{{ $tim_competition->status_verification_tim }}</h4>
+                                    <p> Sekarang Anda sudah bisa melanjutkan tahap selanjutnya <a href="ittoday.id/competitions/{{ $name_competition }}/regis/{{ $tim_competition->code_uniq_tim }}"> Disini</a></p>
                                     @endif
-
+                                    @if ($tim_competition->status_verification_tim == 'tim successful verification')
+                                    <p>Verifikasi tim Anda telah berhasil. Selamat mengikuti kompetisi IT Today 2022 sesuai dengan cabang kompetisi pilihan Anda.</p>
+                                    @endif
+                                    <strong>Salam hangat, <br>
+                                        Tim IT Today</strong>
                                 </textarea>
                             </div>
                         </div>
                     </div>
-                    <x-flash-message></x-flash-message>
+                    <x-flash-message/>
                      <div class="d-flex justify-content-end">
                         <button type="button" wire:click="sendmessage" class="btn btn-primary mx-2">Kirim Email</button>
                     </div>
