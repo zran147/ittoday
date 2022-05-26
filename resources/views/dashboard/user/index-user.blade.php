@@ -7,7 +7,7 @@
                 <div class="col-lg-12">
 
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body table-responsive">
                             <h5 class="card-title">User</h5>
                             @can('edit-user')
                                 @if ($form == 'edituser')
@@ -67,54 +67,56 @@
 
 
                             <!-- Table with stripped rows -->
-                            <table class="table datatable">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">No WA</th>
-                                        <th scope="col">Verified Email</th>
-                                        <th scope="col">role</th>
-
-                                        <th scope="col">action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($user as $item)
-                                    
+                            <div class="table-responsive">
+                                <table class="table datatable">
+                                    <thead>
                                         <tr>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->email }}</td>
-                                            <td>{{ $item->wa_user }}</td>
-                                            <td>
-                                                @if ($item->email_verified_at != null)
-                                                    {{ $item->email_verified_at }}
-                                                @else
-                                                    {{ 'Belum Verified' }}
-                                                @endif
-                                            </td>
-                                            <td>
-                                                @foreach ($item->getRoleNames() as $v)
-                                                    {{ $v }}
-                                                @endforeach
-                                            </td>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">No WA</th>
+                                            <th scope="col">Verified Email</th>
+                                            <th scope="col">role</th>
 
-
-                                            <td>
-                                                @can('edit-user')
-                                                    <button type="button" class="btn btn-primary"
-                                                        wire:click="edit('{{ $item->id }}')">Edit</button>
-                                                @endcan
-                                                @can('delete-user')
-                                                    <button type="button" class="btn btn-danger"
-                                                        onclick="confirm('Are you sure you want to remove the user ?') || event.stopImmediatePropagation()"
-                                                        wire:click="delete('{{ $item->id }}')">Delete</button>
-                                                @endcan
-                                            </td>
+                                            <th scope="col">action</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($user as $item)
+
+                                            <tr>
+                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->wa_user }}</td>
+                                                <td>
+                                                    @if ($item->email_verified_at != null)
+                                                        {{ $item->email_verified_at }}
+                                                    @else
+                                                        {{ 'Belum Verified' }}
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @foreach ($item->getRoleNames() as $v)
+                                                        {{ $v }}
+                                                    @endforeach
+                                                </td>
+
+
+                                                <td>
+                                                    @can('edit-user')
+                                                        <button type="button" class="btn btn-primary"
+                                                            wire:click="edit('{{ $item->id }}')">Edit</button>
+                                                    @endcan
+                                                    @can('delete-user')
+                                                        <button type="button" class="btn btn-danger"
+                                                            onclick="confirm('Are you sure you want to remove the user ?') || event.stopImmediatePropagation()"
+                                                            wire:click="delete('{{ $item->id }}')">Delete</button>
+                                                    @endcan
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                             <!-- End Table with stripped rows -->
 
                         </div>

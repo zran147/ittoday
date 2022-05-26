@@ -16,8 +16,12 @@ class EventController extends Controller
     }
     public function show($slug)
     {
+        $event = Event::where('slug_event', $slug)->where('active','published')->with('registrant','category')->first();
+        if ( empty($event) ) {
+            return redirect('/event');
+        }
         return view('event.showcontroller',[
-            'event' => Event::where('slug_event', $slug)->with('registrant','category')->first()
+            'event' => $event
         ]);
     }
     public function indexdashboard()

@@ -23,8 +23,8 @@
             <div class="card-header">
                 <a href="/dashboard/competition/add"><button class="btn btn-success">Add New Competition</button></a>
             </div>
-            <div class="card-body">
-                <table class="table table-striped table-hover" id="table1">
+            <div class="card-body table-responsive">
+                <table class="table table-striped table-hover " id="table1">
                     <thead>
                         <tr>
                             <th>NO</th>

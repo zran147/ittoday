@@ -77,6 +77,7 @@
                                 <h5>Anda Belum Daftar Event</h5>
                                 @endif
                                 @foreach ($user->regsitranttimcompetition as $item)
+                                {{-- @dd($item->competition->where('active','published')) --}}
                                 <div class="col-md-4">
                                     <div class="card" style="width: 18rem;">
                                         <img src="/img/competition/thumbnail/{{ $item->competition->slug_competition }}.png" class="card-img-top" alt="...">

@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Develop IT Skills to Face Post-Pandemic Era by Being Aware of Today’s Issues - IT Today 2022" name="description">
-    <meta content="ittoday, 2022, Competition, Webinar, Kompetisi, Pendaftaran" name="keywords">
+    <meta content="ittoday, 2022, Competition, Webinar, Kompetisi, Pendaftaran, Event" name="keywords">
     <title>IT TODAY 2022 - Develop IT Skills to Face Post-Pandemic Era by Being Aware of Today’s Issues</title>
-    <link rel="manifest" href="logoIT_2022putih.png">
+    <link rel="manifest" href="/img/logo.png">
     <!-- Favicons -->
     <link href="/img/favicon.svg" rel="icon">
 
@@ -40,6 +40,15 @@
   <script src="https://kit.fontawesome.com/b6396059b6.js" crossorigin="anonymous"></script>
   @livewireStyles
   @stack('style')
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XPCM32351H"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XPCM32351H');
+    </script>
 </head>
 
 <body>

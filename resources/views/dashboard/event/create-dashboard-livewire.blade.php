@@ -137,6 +137,9 @@
                                                     <input type="file" id="thumbnail-event-vertical"
                                                         class="form-control" wire:model="thumbnail_event">
                                                 </div>
+                                                <div wire:loading wire:target="thumbnail_event">
+                                                    Processing Upload...
+                                                </div>
                                                 @error('thumbnail_event')
                                                     <div class="alert alert-warning alert-dismissible fade show"
                                                         role="alert">
