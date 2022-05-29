@@ -32,7 +32,7 @@
                                     <td style="text-align: left;">{{ $user->email }}</td></span>
                             </span>
                         </div>
-                        <a class="btn_slide text-center text-white a" style="margin-top: 10%;" href="/profile/editprofile">Edit Profile</a>
+                        <a class="btn_slide text-center text-white a" style="margin-top: 10%;" href="/account/editprofile">Edit Profile</a>
                     </div>
                 </div>
             </div>
@@ -55,8 +55,6 @@
                             @if ($user->registrant->count() < 1)
                                 <h5>Anda Belum Daftar Event</h5>
                             @endif
-
-
                             @foreach ($user->registrant as $item)
                             <div class="col-md-4">
                                 <div class="card" style="width: 18rem;">
@@ -74,10 +72,10 @@
                         <div class="tab-pane fade" id="compe">
                             <div class="row">
                                 @if ($user->regsitranttimcompetition->count() < 1)
-                                <h5>Anda Belum Daftar Event</h5>
+                                <h5>Anda Belum Daftar Kompetisi</h5>
                                 @endif
                                 @foreach ($user->regsitranttimcompetition as $item)
-                                {{-- @dd($item->competition->where('active','published')) --}}
+
                                 <div class="col-md-4">
                                     <div class="card" style="width: 18rem;">
                                         <img src="/img/competition/thumbnail/{{ $item->competition->slug_competition }}.png" class="card-img-top" alt="...">
@@ -102,5 +100,5 @@
                 </div>
             </div>
         </div>
-      </section>
+    </section>
 </x-guest-layout>

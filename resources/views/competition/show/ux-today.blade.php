@@ -16,7 +16,7 @@
         <div class="container blob">
           <div class="row">
             <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
-              <img src="/img/competition/HackToday.png" class="img-fluid animated" alt="">
+              <img src="/img/competition/UXToday.png" class="img-fluid animated" alt="">
             </div>
             <div class="col-lg-6 d-flex flex-column justify-content-center">
               <h1 data-aos="fade-up">IT Today 2022</h1>
@@ -28,15 +28,15 @@
               <div data-aos="fade-up" data-aos-delay="600">
               <div data-aos="fade-up" data-aos-delay="600">
                 <div class="text-center text-lg-start">
-                  <a href="{{ $index }}" class="btn-get-started scrollto d-inline-flex align-compes-center justify-content-center align-self-center">
-                    <span>Register Your Team</span>
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                  <a href="{{ $compe->rule_book_competition }}" class="btn-rule-book scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                    <span>Rule Book</span>
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
+                    <a href="{{ $index }}" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                      <span>Register Your Team</span>
+                      <i class="bi bi-arrow-right"></i>
+                    </a>
+                    <a href="https://ipb.link/rulebook-uxtoday" class="btn-rule-book scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                      <span>Rule Book</span>
+                      <i class="bi bi-arrow-right"></i>
+                    </a>
+                  </div>
               </div>
             </div>
 

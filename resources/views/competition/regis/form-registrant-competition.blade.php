@@ -26,7 +26,7 @@
               <option value="{{ Null }}" selected>Pilih Tingkat Institusi Tim</option>
               <option value="kuliah">Kuliah</option>
               @if ($slug != 'ux-today')
-                <option value="sma">Sekolah Menengah Atas</option>
+                <option value="sma">SLTA/sederajat</option>
               @endif
             </select>
             @error('tingkat_institusi')
@@ -93,7 +93,7 @@
         @endif
         @if ($status_verification_tim == 'waiting verification administration' || is_null($status_verification_tim))
         <div class="col-md-12 gy-4 text-center my-3">
-            <button type="button" wire:click="{{ $action }}" class="btn btn-primary">{{ $action }} Tim</button>
+            <button type="button" wire:click="{{ $action }}" class="btn btn-primary">{{ ucfirst($action) }} Tim</button>
         </div>
         @endif
     </div>

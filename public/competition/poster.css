@@ -714,7 +714,7 @@ section {
   align-items: center;
   transition: 0.3s;
   height: 100%;
-  background-image: url("../img/competition/Dirt_md.png");
+  background-image: url("../img/Dirt_md_poster.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 500px;
@@ -734,7 +734,7 @@ section {
   height: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("../img/competition/Dirt_lg.png") ;
+  background-image: url("../img/Dirt_lg_poster.png") ;
   background-size: 800px;
 }
 .values .box_timeline {
@@ -829,7 +829,7 @@ section {
     padding-top:40px ;
   }
   .values .box_1{
-    background-image: url("../img/competition/Dirt_md.png");
+    background-image: url("../img/Dirt_md_poster.png");
     background-size: 600px;
   }
   .blobvalue{
