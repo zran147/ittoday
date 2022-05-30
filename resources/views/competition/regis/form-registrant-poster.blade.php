@@ -27,7 +27,7 @@
                       <option value="{{ Null }}" selected>Pilih Tingkat Institusi Tim</option>
                       <option value="umum">Umum</option>
                       <option value="kuliah">Kuliah</option>
-                      <option value="sma">Sekolah Menengah Atas</option>
+                      <option value="sma">Sekolah</option>
                     </select>
                     @error('tingkat_institusi')
                         <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
@@ -85,16 +85,16 @@
                     @enderror
                 </div>
                 <div class="col-md-6 form-group">
-                    <label for="username_telegram_team" class="form-label">Bukti Pendukung</label>
+                    <label for="username_telegram_team" class="form-label">Kartu Identitas</label>
                     <div class="col-md-6 form-group col-kiri form-control file-upload-wrapper" data-text="KTM / Kartu Pelajar">
                     <input name="file-upload-field" wire:model="idcard" type="file" class="form-control padding">
-                    <div id="idcard" class="form-text text text-dark">Untuk SMA Dan KULIAH <br> Only PNG, JPEG, JPG and Maximal Size 2 MB</div>
+                    <div id="idcard" class="form-text text text-dark">Seperti foto Kartu Pelajar, KTM, KTP, atau kartu identitas lainnya. <br> Only PNG, JPEG, JPG and Maximal Size 2 MB</div>
                     <div wire:loading wire:target="idcard">
                         Processing Upload...
                     </div>
                     @if (!is_null($idcard2))
                         <a href="/storage/{{ $idcard2 }}" target="_blank">
-                            <div class="form-text mt-3 text-success">Klik Disini Untuk Melihat Bukti Pendukung</div>
+                            <div class="form-text mt-3 text-success">Klik Disini Untuk Melihat Kartu Identitas</div>
                         </a>
                     @endif
                     @error('idcard')
@@ -117,7 +117,7 @@
                     <div class="col form-group">
                         <label for="prof_upload_twibon" class="form-label">Link Instagram</label>
                         <input type="text" name="Link Twibon" wire:model="prof_upload_twibon" class="form-control" placeholder="https://www.instagram.com/p/Cdm9mYbPpxd/?utm_source=ig_web_copy_link" >
-                        <div id="emailHelp" class="form-text">Masukan link Feed Instagram Anda Yang Berisi Twibbon</div>
+                        <div id="emailHelp" class="form-text">Seluruh peserta Poster Competition diwajibkan untuk mengunggah twibbon ke Instagram pribadi. Informasi mengenai twibbon dapat dilihat di <a href="{{ $link_twibbon_competition }}">sini</a></div>
                         @error('prof_upload_twibon')
                             <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                                 {{ $message }}

@@ -6,7 +6,7 @@
         <div class="container" data-aos="fade-up">
 
             <div class="section-title mt-5">
-                <x-flash-message></x-flash-message>
+                <x-flash-message/>
             </div>
 
 
@@ -19,9 +19,7 @@
                     </div>
                     <div class="card-body-custome">
                         <div class="text-center mt-3" style="color: #F2E5DB; margin-left: 0%;">
-
                             <span class="konten">
-                                <!-- <span class="nameProfile text-center">John Doe Nomor HP</span> -->
                                 <span class="kontencustomeprofile" style="text-align: left;"><b>Nomor HP</b></th>
                                     <td>&nbsp;</td>
                                     <td>:&nbsp;</td>
@@ -32,7 +30,7 @@
                                     <td style="text-align: left;">{{ $user->email }}</td></span>
                             </span>
                         </div>
-                        <a class="btn_slide text-center text-white a" style="margin-top: 10%;" href="/profile/editprofile">Edit Profile</a>
+                        <a class="btn_slide text-center text-white a" style="margin-top: 10%;" href="/account/editprofile">Edit Profile</a>
                     </div>
                 </div>
             </div>
@@ -55,8 +53,6 @@
                             @if ($user->registrant->count() < 1)
                                 <h5>Anda Belum Daftar Event</h5>
                             @endif
-
-
                             @foreach ($user->registrant as $item)
                             <div class="col-md-4">
                                 <div class="card" style="width: 18rem;">
@@ -74,9 +70,10 @@
                         <div class="tab-pane fade" id="compe">
                             <div class="row">
                                 @if ($user->regsitranttimcompetition->count() < 1)
-                                <h5>Anda Belum Daftar Event</h5>
+                                <h5>Anda Belum Daftar Kompetisi</h5>
                                 @endif
                                 @foreach ($user->regsitranttimcompetition as $item)
+
                                 <div class="col-md-4">
                                     <div class="card" style="width: 18rem;">
                                         <img src="/img/competition/thumbnail/{{ $item->competition->slug_competition }}.png" class="card-img-top" alt="...">
@@ -101,5 +98,5 @@
                 </div>
             </div>
         </div>
-      </section>
+    </section>
 </x-guest-layout>

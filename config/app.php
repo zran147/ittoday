@@ -179,7 +179,6 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -196,7 +195,6 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Carbon' => 'Carbon\Carbon',
-        'PDF' => Barryvdh\DomPDF\Facade::class,
     ])->toArray(),
 
 ];

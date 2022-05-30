@@ -77,7 +77,7 @@
                             </div>
                         @enderror
                     </div>
-                    <x-flash-message></x-flash-message>
+                    <x-flash-message/>
                     <div class="text-center">
                         <button type="button" class="btn btn-primary" wire:click="submitcontactform">Kirim</button>
                     </div>

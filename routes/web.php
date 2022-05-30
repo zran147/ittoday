@@ -52,15 +52,15 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verifie
     Route::controller(EventController::class)->prefix('detailevent')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-event')->group(function () {
         Route::get('/{slug}', 'registranteventdashboard')->name('registranteventdashboardcontroller');
     });
-    Route::controller(CompetitionController::class)->prefix('competition')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision')->group(function () {
+    Route::controller(CompetitionController::class)->prefix('competition')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competition')->group(function () {
         Route::get('/', 'indexdashboard')->name('indexdashboardcompetitioncontroller');
         Route::get('/add', 'createdashboard')->name('createdashboardcompetitioncontroller');
         Route::get('/{idcompetition}/edit', 'editdashboard')->name('editdashboardcompetitioncontroller');
     });
-    Route::controller(TimCompetitionController::class)->prefix('detailcompetition')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision')->group(function () {
+    Route::controller(TimCompetitionController::class)->prefix('detailcompetition')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competition')->group(function () {
         Route::get('/{slug}', 'indexdetailtimcompetitionbyslugdashboard')->name('indexdetailtimcompetitionbyslugdashboard');
     });
-    Route::controller(RegistrantCompetitionController::class)->prefix('detailcompetition')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competision')->group(function () {
+    Route::controller(RegistrantCompetitionController::class)->prefix('detailcompetition')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-competition')->group(function () {
         Route::get('/{slug}/detailtim/{namereg}', 'indexdetailregistrantcompetitionbycompetitiondashboard')->name('indexdetailregistrantcompetitionbycompetitiondashboard');
         Route::get('/{slug}/detailtim/{namereg}/poster', 'indexdetailregistrantcompetitionbycompetitiondashboardposter')->name('indexdetailregistrantcompetitionbycompetitiondashboardposter');
     });

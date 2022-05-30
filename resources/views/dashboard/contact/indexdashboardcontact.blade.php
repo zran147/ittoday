@@ -26,10 +26,7 @@
         </div>
         <section class="section">
             <div class="card">
-                <div class="card-header">
-                    <a href="/dashboard/event/add"><button class="btn btn-success">Add New Event</button></a>
-                </div>
-                <div class="card-body">
+                <div class="card-body table-responsive">
                     <table class="table table-striped table-hover" id="table1">
                         <thead>
                             <tr>
@@ -76,6 +73,7 @@
         <script>
             let jquery_datatable = $("#table1").DataTable({
                 dom: 'Bfrtip',
+                responsive: true,
                 buttons: [{
                         extend: 'excelHtml5',
                         exportOptions: {

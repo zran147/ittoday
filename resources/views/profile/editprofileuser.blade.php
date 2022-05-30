@@ -1,4 +1,7 @@
 <x-guest-layout>
+    @push('style')
+        <link href="/profile/profile.css" rel="stylesheet">
+    @endpush
     <section id="profile" class="contact">
         <div class="container" data-aos="fade-up">
 

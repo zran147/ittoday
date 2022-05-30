@@ -82,10 +82,9 @@ class FormRegistrantCompetition extends Component
             'name_tim' => 'required|regex:/[a-zA-Z0-9\s]+/|max:100|min:5',
             'email_tim' => 'required|email',
             'tingkat_institusi' => 'required|string',
-            'username_telegram_tim' => 'required|string|max:100|min:2|unique:tim_competition,username_telegram_tim,'.$this->id_tim,
+            'username_telegram_tim' => 'required|string|max:100|min:2|unique:tim_competitions,username_telegram_tim,'.$this->id_tim,
             'nama_institusi' => 'required|string|max:100|min:5',
             'nomor_whatsApp' => 'required|numeric',
-            'participants' => 'required',
         ]);
 
         $tim = TimCompetition::findorfail($this->id_tim)->update([
