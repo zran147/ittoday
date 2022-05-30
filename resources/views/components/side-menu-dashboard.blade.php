@@ -92,6 +92,7 @@
                             </ul>
                         </li>
                     @endcan
+                    @can('action-contact')
                     <li class="sidebar-title">About Contact</li>
                     <li class="sidebar-item @if (Request::is('dashboard/contact*')) {{ 'active' }} @endif">
                         <a href="/dashboard/contact" class='sidebar-link'>
@@ -99,6 +100,7 @@
                             <span>contact</span>
                         </a>
                     </li>
+                    @endcan
                     {{-- ONLY ADMIN OR HAS PERMISSIONS --}}
                     @can('edit-permission')
                         <li class="sidebar-title">About User</li>
