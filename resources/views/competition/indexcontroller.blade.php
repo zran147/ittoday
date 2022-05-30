@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout title="Competition">
     @if($event->count() > 0)
         <div id="list" class="album py-5">
             <div class="container" data-aos="fade-up">
@@ -7,7 +7,7 @@
                 <div class="col" data-aos="zoom-in" data-aos-delay="100">
                     <div class="card">
                         <div class="image-text">
-                            <img src="/img/competition/thumbnail/{{ $item->slug_competition }}.png" alt=""></img>
+                            <img src="/img/competition/thumbnail/{{ $item->slug_competition }}.png" alt="{{ $item->name_competition }}"/>
                         </div>
                         <div class="card-body">
                             <div class="box" style="background-image: url(img/boxx.png);">

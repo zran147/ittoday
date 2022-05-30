@@ -11,6 +11,12 @@ class GuestLayout extends Component
      *
      * @return \Illuminate\View\View
      */
+    public $title;
+
+    public function __construct($title = null)
+    {
+        $this->title = $title ? $title : null;
+    }
     public function render()
     {
         return view('layouts.guest');

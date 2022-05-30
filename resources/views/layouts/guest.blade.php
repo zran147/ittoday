@@ -8,40 +8,11 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Develop IT Skills to Face Post-Pandemic Era by Being Aware of Today’s Issues - IT Today 2022" name="description">
     <meta content="ittoday, 2022, Competition, Webinar, Kompetisi, Pendaftaran, Event" name="keywords">
-    <title>IT TODAY 2022 - Develop IT Skills to Face Post-Pandemic Era by Being Aware of Today’s Issues</title>
+    <title>{{ $title }}  IT TODAY 2022 - Develop IT Skills to Face Post-Pandemic Era by Being Aware of Today’s Issues</title>
     <link rel="manifest" href="/img/logo.png">
-    <!-- Favicons -->
-    <link href="/img/favicon.svg" rel="icon">
-
-    <!-- Google Fonts -->
-    <link href="/vendor/fontgoogle.css" rel="stylesheet">
-
-    <!-- /Vendor CSS Files -->
-    <link href="/vendor/aos.css" rel="stylesheet" type="text/css">
-    <link href="/vendor/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="/vendor/bootstrap-icons.css" rel="stylesheet" type="text/css">
-    <link href="/vendor/boxicons.min.css" rel="stylesheet" type="text/css">
-    <link href="/vendor/glightbox.min.css" rel="stylesheet" type="text/css">
-    <link href="/vendor/remixicon.css" rel="stylesheet" type="text/css">
-    <link href="/vendor/swiper-bundle.min.css" rel="stylesheet" type="text/css">
-    <!-- Template Main CSS File -->
-    @if (!Request::is('competitions/*'))
-        <link href="/assets/style.css" rel="stylesheet" type="text/css" >
-    @endif
-
-    <script src="/vendor/jquery.min.js"></script>
-    <script src="/vendor/bootstrap.min.js"></script>
-    <link  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" type="text/css">
-    <script src="/vendor/b6396059b6.js" crossorigin="anonymous"></script>
+    <x-meta-guest/>
     @livewireStyles
     @stack('style')
-    <script async src="/vendor/gtag.js"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XPCM32351H');
-    </script>
 </head>
 
 <body>
