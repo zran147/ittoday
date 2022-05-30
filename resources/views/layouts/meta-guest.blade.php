@@ -1,5 +1,5 @@
     <!-- Favicons -->
-    {{-- <link href="/img/favicon.svg" rel="icon"> --}}
+    <link href="/img/favicon.svg" rel="icon">
 
     <!-- Google Fonts -->
     <link href="/vendor/fontgoogle.css" rel="stylesheet">
