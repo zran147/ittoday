@@ -19,12 +19,10 @@
     <script src="/vendor/bootstrap.min.js"></script>
     <link  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" type="text/css">
     <script src="/vendor/b6396059b6.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XPCM32351H"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XPCM32351H');
-  </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XPCM32351H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XPCM32351H');
+    </script>
