@@ -3,12 +3,11 @@
     @push('style')
         <link rel="stylesheet" href="/competition/hacktoday.css">
     @endpush
-    <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero d-flex align-items-center">
         <div class="container blobhero">
           <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center">
-              <<h1 data-aos="fade-up">IT Today 2022</h1>
+              <h1 data-aos="fade-up">IT Today 2022</h1>
               <p data-aos="fade-up">HACK TODAY</p>
               <h2 data-aos="fade-up" data-aos-delay="400">Hack Today adalah kompetisi keamanan siber dengan mekanisme Capture The Flag (Jeopardy style) yang setiap tim diminta untuk menyelesaikan beberapa kasus dari berbagai kategori dengan tujuan mendapatkan sebuah flag untuk tiap kasusnya. Hack Today dapat diikuti oleh siswa SLTA/sederajat atau mahasiswa perguruan tinggi di seluruh Indonesia. Setiap tim wajib terdiri dari 1-3 orang yang berasal dari lembaga/institusi yang sama.</h2>
               <h3 data-aos="fade-up" data-aos-delay="500"> Biaya Pendaftaran:</h3>

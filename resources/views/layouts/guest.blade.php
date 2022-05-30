@@ -28,9 +28,10 @@
     @if (!Request::is('competitions/*'))
         <link href="/assets/style.css" rel="stylesheet" type="text/css" >
     @endif
+
     <script src="/vendor/jquery.min.js"></script>
     <script src="/vendor/bootstrap.min.js"></script>
-    <link  href="/vendor/bootstrap-icons.css" rel="stylesheet" type="text/css">
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" type="text/css">
     <script src="/vendor/b6396059b6.js" crossorigin="anonymous"></script>
     @livewireStyles
     @stack('style')
