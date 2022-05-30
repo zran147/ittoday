@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ID">
 
 <head>
     <meta charset="UTF-8">
@@ -14,59 +14,51 @@
     <link href="/img/favicon.svg" rel="icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="/vendor/fontgoogle.css" rel="stylesheet">
 
     <!-- /Vendor CSS Files -->
-  <link href="/vendor/aos.css" rel="stylesheet" type="text/css">
-  <link href="/vendor/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="/vendor/bootstrap-icons.css" rel="stylesheet" type="text/css">
-  <link href="/vendor/boxicons.min.css" rel="stylesheet" type="text/css">
-  <link href="/vendor/glightbox.min.css" rel="stylesheet" type="text/css">
-  <link href="/vendor/remixicon.css" rel="stylesheet" type="text/css">
-  <link href="/vendor/swiper-bundle.min.css" rel="stylesheet" type="text/css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-
+    <link href="/vendor/aos.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/bootstrap-icons.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/boxicons.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/glightbox.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/remixicon.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/swiper-bundle.min.css" rel="stylesheet" type="text/css">
     <!-- Template Main CSS File -->
-
     @if (!Request::is('competitions/*'))
-
-    <link href="/assets/style.css" rel="stylesheet" type="text/css" >
+        <link href="/assets/style.css" rel="stylesheet" type="text/css" >
     @endif
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" type="text/css">
-  <script src="https://kit.fontawesome.com/b6396059b6.js" crossorigin="anonymous"></script>
-  @livewireStyles
-  @stack('style')
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XPCM32351H"></script>
+    <script src="/vendor/jquery.min.js"></script>
+    <script src="/vendor/bootstrap.min.js"></script>
+    <link  href="/vendor/bootstrap-icons.css" rel="stylesheet" type="text/css">
+    <script src="/vendor/b6396059b6.js" crossorigin="anonymous"></script>
+    @livewireStyles
+    @stack('style')
+    <script async src="/vendor/gtag.js"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-XPCM32351H');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XPCM32351H');
     </script>
 </head>
 
 <body>
        <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center">
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center">
 
-      <a href="/" class="logo me-auto"><img src="/img/logoIT_2022putih.png" alt="" class="img-fluid"></a>
+        <a href="/" class="logo me-auto"><img src="/img/logoIT_2022putih.png" alt="" class="img-fluid"></a>
 
-      <!--Navbar-->
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="/">Home</a></li>
-          <li><a href="/event" class=" nav-link scrollto">Events</a></li>
-          <li><a href="/competitions" class=" nav-link scrollto">Competitions</a></li>
-          <li><a class="nav-link scrollto" href="/#mainspo">Sponsor</a></li>
-          <li><a class="nav-link scrollto" href="/#aboutus">About</a></li>
-          <li><a class="nav-link scrollto" href="/#contact">Reach Us</a></li>
+        <!--Navbar-->
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto active" href="/">Home</a></li>
+                <li><a href="/event" class=" nav-link scrollto">Events</a></li>
+                <li><a href="/competitions" class=" nav-link scrollto">Competitions</a></li>
+                <li><a class="nav-link scrollto" href="/#mainspo">Sponsor</a></li>
+                <li><a class="nav-link scrollto" href="/#aboutus">About</a></li>
+                <li><a class="nav-link scrollto" href="/#contact">Reach Us</a></li>
             @guest
                 <li><a class="getstarted scrollto" href="/register">Sign up</a></li>
                 @php
@@ -76,12 +68,12 @@
 
             @auth
                 @php
-                $text = 'login';
-                    if (Auth::user()->hasPermissionTo('dashboard-menu')) {
-                    $text = 'dashboard';
-                    } else {
+                    $text = 'login';
+                        if (Auth::user()->hasPermissionTo('dashboard-menu')) {
+                        $text = 'dashboard';
+                        } else {
                         $text = 'account';
-                    }
+                        }
                 @endphp
             @endauth
 
@@ -96,26 +88,19 @@
                         </form>
                     </li>
                 @endauth
-
-
-        </ul>
-        <i class="fa-solid fa-bars mobile-nav-toggle"></i>
-      </nav>
-    </div>
-  </header>
+            </ul>
+            <i class="fa-solid fa-bars mobile-nav-toggle"></i>
+        </nav>
+        </div>
+    </header>
 
     <!-- ======= Hero Section ======= -->
-
-
     <main id="main">
-
         {{ $slot }}
-
     </main>
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
-
         <div class="footer-top">
           <div class="container">
             <div class="row">
@@ -183,18 +168,10 @@
     @livewireScripts
     @stack('script')
     <script src="/vendor/aos.js"></script>
-    <!--script src="/vendor/bootstrap.bundle.min.js"></script-->
     <script src="/vendor/glightbox.min.js"></script>
-    <!--script src="/vendor/isotope.pkgd.min.js"></script-->
     <script src="/vendor/swiper-bundle.min.js"></script>
-    <!--script src="/vendor/noframework.waypoints.js"></script-->
-    <!--script src="/vendor/validate.js"></script-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-
+    <script src="/vendor/bootstrap.bundle.min.js"></script>
     <script src="/js/main.js"></script>
-
 </body>
 
 </html>

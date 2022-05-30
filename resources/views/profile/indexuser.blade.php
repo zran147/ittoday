@@ -6,7 +6,7 @@
         <div class="container" data-aos="fade-up">
 
             <div class="section-title mt-5">
-                <x-flash-message></x-flash-message>
+                <x-flash-message/>
             </div>
 
 
@@ -19,9 +19,7 @@
                     </div>
                     <div class="card-body-custome">
                         <div class="text-center mt-3" style="color: #F2E5DB; margin-left: 0%;">
-
                             <span class="konten">
-                                <!-- <span class="nameProfile text-center">John Doe Nomor HP</span> -->
                                 <span class="kontencustomeprofile" style="text-align: left;"><b>Nomor HP</b></th>
                                     <td>&nbsp;</td>
                                     <td>:&nbsp;</td>

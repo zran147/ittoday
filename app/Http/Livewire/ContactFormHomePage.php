@@ -28,8 +28,6 @@ class ContactFormHomePage extends Component
         ]);
         if ($Comment) {
             session()->flash('success', 'Message Successfully Sent.');
-        } else {
-            session()->flash('error', 'Message Unsuccessfully Sent.');
         }
         $this->resetall();
     }
