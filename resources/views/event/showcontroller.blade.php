@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout title="{{ $event->name_event }}">
     @php
     $index = 0;
     if($event->start_event > Carbon::now()->format('Y-m-d')){

@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout title="Events">
     @if($event->count() > 0)
         <div id="list" class="album py-5">
             <div class="container" data-aos="fade-up">

@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout title="HACK TODAY">
 
     @push('style')
         <link rel="stylesheet" href="/competition/hacktoday.css">

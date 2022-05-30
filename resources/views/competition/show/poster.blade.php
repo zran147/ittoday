@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-guest-layout title="POSTER TODAY">
     @push('style')
         <link rel="stylesheet" href="/competition/poster.css">
     @endpush
