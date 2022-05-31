@@ -38,6 +38,7 @@
                     </div>
                 </div>
             </footer>
+
         </div>
     </div>
     <script src="/assets/vendors/jquery/jquery.min.js"></script>

@@ -1,14 +1,17 @@
 @font-face{
     font-family: "Retro Gaming";
     src: url('../font/Retro-Gaming.ttf') format('truetype');
+    font-display: fallback;
   }
   @font-face{
     font-family: "Alagard";
     src: url('../font/alagard.ttf') format('truetype');
+    font-display: fallback;
   }
   @font-face{
     font-family: "Quicksand";
     src: url('../font/Quicksand.ttf') format('truetype');
+    font-display: fallback;
   }
   /*--------------------------------------------------------------
   # General
@@ -32,19 +35,23 @@
   h4, h5, h6 {
     font-family: "Retro Gaming", "Alagard";
   }
+
   .kompet p, .event p {
     margin-bottom: 2px;
   }
+
   .blob{
     background: url("../img/Blob/blob.svg") 0% 0% no-repeat, url("../img/Blob/pattern.svg") 0% 5% no-repeat, url("../img/Blob/blob2.svg") 100% 36% no-repeat, url("../img/Blob/pattern2.svg") 100% 38% no-repeat, url("../img/Blob/blob3.svg") 0% 83% no-repeat, url("../img/Blob/pattern3.svg") 0% 85% no-repeat;
     background-size: 40% 30%;
   }
+
   @media (max-width: 769px) {
     .blob{
       background: url("../img/Blob/blob.svg") 0% 0% no-repeat, url("../img/Blob/pattern.svg") 0% 3% no-repeat, url("../img/Blob/blob2.svg") 100% 36% no-repeat, url("../img/Blob/pattern2.svg") 100% 38% no-repeat, url("../img/Blob/blob3.svg") 0% 83% no-repeat, url("../img/Blob/pattern3.svg") 0% 85% no-repeat;
       background-size: 68% 18%;
     }
   }
+
   @media (max-width: 576px) {
     .blob{
       background: url("../img/Blob/blob.svg") 0% 0% no-repeat, url("../img/Blob/pattern.svg") 0% 3% no-repeat, url("../img/Blob/blob2.svg") 100% 36% no-repeat, url("../img/Blob/pattern2.svg") 100% 38% no-repeat, url("../img/Blob/blob3.svg") 0% 86% no-repeat, url("../img/Blob/pattern3.svg") 0% 88% no-repeat;
