@@ -182,9 +182,9 @@
     // if (preloader) {
 
     // }
-    $(window).on("load", function() {
-        $.when($('#preloader').fadeOut(500));
-    });
+    // $(window).on("load", function() {
+    //     $.when($('#preloader').fadeOut(500));
+    // });
 
     // $(window).on("load", function() {
     //     fadeOutTime = 500;
