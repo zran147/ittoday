@@ -151,12 +151,51 @@
     /**
      * Preloader
      */
-    let preloader = select('#preloader');
-    if (preloader) {
-      window.addEventListener('load', () => {
-        preloader.remove()
-      });
-    }
+    // let preloader = select('#preloader');
+    // if (preloader) {
+    //   window.addEventListener('load', () => {
+    //     preloader.remove()
+    //   });
+    // }
+
+
+    // $(window).on("load", function() {
+    //     fadeOutTime = 500;
+    //     sayHelloDuration = 5000;
+
+    //     // function hideSayHello() {
+    //     //     var sayHello = $('.say-hello');
+    //     //     sayHello.fadeOut(fadeOutTime);
+    //     // }
+
+    //     function hidePreloader() {
+    //         var preloader = $('.spinner-wrapper');
+    //         preloader.fadeOut(fadeOutTime);
+    //         setTimeout(function() {
+    //             hideSayHello();
+    //         }, sayHelloDuration);
+    //     }
+    //     hidePreloader();
+    // });
+
+    // let preloader = select('#preloader');
+    // if (preloader) {
+
+    // }
+    $(window).on("load", function() {
+        $.when($('#preloader').fadeOut(500));
+    });
+
+    // $(window).on("load", function() {
+    //     fadeOutTime = 500;
+    //     sayHelloDuration = 5000;
+    //     var preloader = $('#preloader');
+    //     preloader.fadeOut(fadeOutTime);
+    //         setTimeout(function() {
+    //         }, sayHelloDuration);
+    //     // $.when($('#preloader').fadeOut(1000)).then(displaySplashPage);
+    //     // $('#preloader').delay(1000).fadeOut('slow');
+    //   });
 
     /**
      * Animation on scroll
@@ -211,21 +250,3 @@
     });
   });
 
-
-var modal = document.getElementById("myModal");
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg");
-var modalImg = document.getElementById("img01");
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-}
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}

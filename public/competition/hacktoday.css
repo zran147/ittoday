@@ -1,21 +1,18 @@
-/**
-* Template Name: FlexStart - v1.9.0
-* Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 /* font input*/
 @font-face{
     font-family: "Retro Gaming";
     src: url('../font/Retro-Gaming.ttf') format('truetype');
+    font-display: fallback;
   }
   @font-face{
     font-family: "Alagard";
     src: url('../font/alagard.ttf') format('truetype');
+    font-display: fallback;
   }
   @font-face{
     font-family: "Quicksand";
     src: url('../font/Quicksand.ttf') format('truetype');
+    font-display: fallback;
   }
   /*--------------------------------------------------------------
   # General
@@ -722,11 +719,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 500px;
-    /*border-radius: 20px;
-    box-shadow: 0px 0 8px rgba(1, 41, 112, 0.08);
-    border-color: #14A02E;
-    border-style: dashed;
-    border-width: 7px;*/
   }
 
   .values .box_1{
@@ -747,7 +739,7 @@
     height: 100%;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("../img/competition/dirt.png") !important;
+    /* background-image: url("../img/competition/dirt.png") !important; */
     background-size: 600px;
   }
   .values .box_timeline {

@@ -1,14 +1,17 @@
 @font-face{
   font-family: "Retro Gaming";
   src: url('../../font/Retro-Gaming.ttf') format('truetype');
+  font-display: fallback;
 }
 @font-face{
   font-family: "Alagard";
   src: url('../../font/alagard.ttf') format('truetype');
+  font-display: fallback;
 }
 @font-face{
   font-family: "Quicksand";
   src: url('../../font/Quicksand.ttf') format('truetype');
+  font-display: fallback;
 }
 /*--------------------------------------------------------------
 # General

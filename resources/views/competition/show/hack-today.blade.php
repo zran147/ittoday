@@ -126,9 +126,9 @@
             <div class="col-md-10 gap" data-aos="fade-up" data-aos-delay="200">
               <div class="box_2">
                 <h3 style="font-size: 50px;">Dewaweb Special Prize</h3>
-                <p>Juara 1 : Rp3.000.000</p>
-                <p>Juara 2 : Rp2.000.000</p>
-                <p>Juara 3 : Rp1.000.000</p>
+                <p>Juara 1 : Rp3.000.000 Dewacloud credits / anggota tim</p>
+                <p>Juara 2 : Rp2.000.000 Dewacloud credits / anggota tim</p>
+                <p>Juara 3 : Rp1.000.000 Dewacloud credits / anggota tim</p>
               </div>
             </div>
 
