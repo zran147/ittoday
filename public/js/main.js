@@ -158,9 +158,44 @@
     //   });
     // }
 
+
+    // $(window).on("load", function() {
+    //     fadeOutTime = 500;
+    //     sayHelloDuration = 5000;
+
+    //     // function hideSayHello() {
+    //     //     var sayHello = $('.say-hello');
+    //     //     sayHello.fadeOut(fadeOutTime);
+    //     // }
+
+    //     function hidePreloader() {
+    //         var preloader = $('.spinner-wrapper');
+    //         preloader.fadeOut(fadeOutTime);
+    //         setTimeout(function() {
+    //             hideSayHello();
+    //         }, sayHelloDuration);
+    //     }
+    //     hidePreloader();
+    // });
+
+    // let preloader = select('#preloader');
+    // if (preloader) {
+
+    // }
     $(window).on("load", function() {
-        $.when($('#preloader').fadeOut(1000)).then(displaySplashPage);
-      });
+        $.when($('#preloader').fadeOut(500));
+    });
+
+    // $(window).on("load", function() {
+    //     fadeOutTime = 500;
+    //     sayHelloDuration = 5000;
+    //     var preloader = $('#preloader');
+    //     preloader.fadeOut(fadeOutTime);
+    //         setTimeout(function() {
+    //         }, sayHelloDuration);
+    //     // $.when($('#preloader').fadeOut(1000)).then(displaySplashPage);
+    //     // $('#preloader').delay(1000).fadeOut('slow');
+    //   });
 
     /**
      * Animation on scroll
