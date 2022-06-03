@@ -49,7 +49,7 @@
 
                 @if (!is_null($id_card_member2))
                     <a href="/storage/{{ $id_card_member2 }}" target="_blank">
-                        <div class="form-text mt-3 text-success">Klik Disini Untuk Melihat KTM</div>
+                        <div class="form-text mt-3 text-success">Klik Disini Untuk Melihat KTM / Kartu Pelajar</div>
                     </a>
                 @endif
                 @error('id_card_member')
@@ -61,7 +61,7 @@
             </div>
 
             <div class="col-md-6 form-group ">
-                <label for="username_telegram_team" class="form-label">Bukti pendukung</label>
+                <label for="username_telegram_team" class="form-label">Bukti Pendukung</label>
                 <div class="col-md-6 form-group col-kiri col-bawah form-control file-upload-wrapper" data-text="SKMA">
                 <input name="file-upload-field" wire:model="member_tim_certificate" name="bukti_pendukung" type="file" class="form-control">
                 <div id="idcard" class="form-text text text-dark">Misal : Surat Keterangan Mahasiswa Aktif atau lainnya. <br> Image Only PNG, JPEG, JPG and Maximal Size 2 MB</div>
@@ -70,7 +70,7 @@
                 </div>
                 @if (!is_null($member_tim_certificate2))
                     <a href="/storage/{{ $member_tim_certificate2 }}" target="_blank">
-                        <div class="form-text mt-3 text-success">Click In Here For Review Member Team Certificate</div>
+                        <div class="form-text mt-3 text-success">Klik Disini Untuk Melihat Bukti Pendukung</div>
                     </a>
                 @endif
                 @error('member_tim_certificate')
@@ -80,7 +80,7 @@
                 @enderror
                 </div>
             </div>
-            
+
             @if ($status != 'acc')
             <div class="col-md-12 text-center">
                 <button type="button" wire:click="{{ $action }}membertim" wire:loading.attr="disabled" class="btn btn-primary">{{ ucfirst($action) }} Member</button>
