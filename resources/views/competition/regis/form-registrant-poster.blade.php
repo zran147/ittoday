@@ -148,7 +148,7 @@
                     </div>
                     @if ($submission_poster2 == null)
                     <div class="col-md-12 gy-4 text-center my-3">
-                        <button type="button" wire:click="uploadposter" wire:loading.attr="disabled" class="btn btn-primary">Submit Link Poster</button>
+                        <button type="button" wire:click="uploadposter" wire:offline.attr="disabled" wire:loading.attr="disabled" class="btn btn-primary">Submit Link Poster</button>
                     </div>
                     @endif
                 </div>

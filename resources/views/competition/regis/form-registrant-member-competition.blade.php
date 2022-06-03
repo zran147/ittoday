@@ -83,7 +83,7 @@
 
             @if ($status != 'acc')
             <div class="col-md-12 text-center">
-                <button type="button" wire:click="{{ $action }}membertim" wire:loading.attr="disabled" class="btn btn-primary">{{ ucfirst($action) }} Member</button>
+                <button type="button" wire:click="{{ $action }}membertim" wire:offline.attr="disabled" wire:loading.attr="disabled" class="btn btn-primary">{{ ucfirst($action) }} Member</button>
             </div>
             @endif
         </div>

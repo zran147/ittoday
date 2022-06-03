@@ -93,7 +93,7 @@
         @endif
         @if ($status_verification_tim == 'waiting verification administration' || is_null($status_verification_tim))
         <div class="col-md-12 gy-4 text-center my-3">
-            <button type="button" wire:click="{{ $action }}" wire:loading.attr="disabled" class="btn btn-primary">{{ ucfirst($action) }} Tim</button>
+            <button type="button" wire:click="{{ $action }}" wire:offline.attr="disabled" wire:loading.attr="disabled" class="btn btn-primary">{{ ucfirst($action) }} Tim</button>
         </div>
         @endif
     </div>
@@ -163,7 +163,7 @@
             </div>
         @if (!in_array($status_verification_tim,$statuspayment))
         <div class="col-md-12 gy-4 text-center my-3">
-            <button type="button" wire:click="{{ $actionpayment }}" wire:loading.attr="disabled" class="btn btn-primary">{{ ucfirst($actionpayment) }} Payment Tim</button>
+            <button type="button" wire:click="{{ $actionpayment }}" wire:offline.attr="disabled" wire:loading.attr="disabled" class="btn btn-primary">{{ ucfirst($actionpayment) }} Payment Tim</button>
         </div>
         @endif
     </div>
@@ -185,7 +185,7 @@
 
             @if (is_null($link_competition_results))
             <div class="col-md-12 gy-4 text-center my-3">
-                <button type="button" wire:click="createresult" wire:loading.attr="disabled" class="btn btn-primary">Create Result Tim</button>
+                <button type="button" wire:click="createresult" wire:offline.attr="disabled" wire:loading.attr="disabled" class="btn btn-primary">Create Result Tim</button>
             </div>
             @else
             <div class="col-md-12 gy-4 text-center my-3">
