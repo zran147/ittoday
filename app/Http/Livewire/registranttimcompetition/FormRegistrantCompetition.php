@@ -52,11 +52,20 @@ class FormRegistrantCompetition extends Component
             'name_tim' => 'required|regex:/[a-zA-Z0-9\s]+/|max:100|min:5',
             'email_tim' => 'required|email',
             'tingkat_institusi' => 'required|string',
-            'username_telegram_tim' => 'required|string|max:100|min:2,unique:tim_competition,username_telegram_tim',
+            'username_telegram_tim' => 'required|string|max:100|min:2',
             'nama_institusi' => 'required|string|max:100|min:5',
             'nomor_whatsApp' => 'required|numeric',
             'participants' => 'required',
         ]);
+
+        $competiton_id = Competition::where('slug_competition',$this->slug)->first()->id;
+
+        $brow = TimCompetition::where('registrant_id',Auth::user()->id)->where('competition_id',$competiton_id)->first();
+
+        if ( $brow ) {
+            return redirect('/competitions/'.$this->slug.'/regis/'.$brow->code_uniq_tim);
+        }
+
         $tim = TimCompetition::create([
             'code_uniq_tim' => Str::uuid(),
             'name_tim' => $this->name_tim,
@@ -66,7 +75,7 @@ class FormRegistrantCompetition extends Component
             'username_telegram_tim' => $this->username_telegram_tim,
             'no_hp_tim' => $this->nomor_whatsApp,
             'registrant_id' => Auth::user()->id,
-            'competition_id' => Competition::where('slug_competition',$this->slug)->first()->id,
+            'competition_id' => $competiton_id,
             'participant'=>$this->participants,
             'status_verification_tim' => 'waiting verification administration'
         ]);
@@ -82,7 +91,7 @@ class FormRegistrantCompetition extends Component
             'name_tim' => 'required|regex:/[a-zA-Z0-9\s]+/|max:100|min:5',
             'email_tim' => 'required|email',
             'tingkat_institusi' => 'required|string',
-            'username_telegram_tim' => 'required|string|max:100|min:2|unique:tim_competitions,username_telegram_tim,'.$this->id_tim,
+            'username_telegram_tim' => 'required|string|max:100|min:2',
             'nama_institusi' => 'required|string|max:100|min:5',
             'nomor_whatsApp' => 'required|numeric',
         ]);

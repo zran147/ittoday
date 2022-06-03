@@ -37,7 +37,7 @@
             </div>
 
             <div class="col-md-6 form-group">
-                <label for="username_telegram_team" class="form-label">KTM</label>
+                <label for="username_telegram_team" class="form-label">KTM / Kartu Pelajar</label>
                 <div class="col-md-6 form-group col-kiri form-control file-upload-wrapper" data-text="KTM / Kartu Pelajar">
                 <input name="file-upload-field" wire:model="id_card_member" name="id_card" type="file" class="form-control padding">
                 <div id="idcard" class="form-text text text-dark">Image Only PNG, JPEG, JPG and Maximal Size 2 MB</div>
@@ -60,7 +60,6 @@
                 </div>
             </div>
 
-            @if ($level_tim != 'sma')
             <div class="col-md-6 form-group ">
                 <label for="username_telegram_team" class="form-label">Bukti pendukung</label>
                 <div class="col-md-6 form-group col-kiri col-bawah form-control file-upload-wrapper" data-text="SKMA">
@@ -81,10 +80,10 @@
                 @enderror
                 </div>
             </div>
-            @endif
+            
             @if ($status != 'acc')
             <div class="col-md-12 text-center">
-                <button type="button" wire:click="{{ $action }}membertim" class="btn btn-primary">{{ ucfirst($action) }} Member</button>
+                <button type="button" wire:click="{{ $action }}membertim" wire:loading.attr="disabled" class="btn btn-primary">{{ ucfirst($action) }} Member</button>
             </div>
             @endif
         </div>

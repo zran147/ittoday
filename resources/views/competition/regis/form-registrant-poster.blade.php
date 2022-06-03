@@ -106,7 +106,7 @@
                 </div>
                 @if ($status_verification_tim == 'waiting verification administration' || is_null($status_verification_tim))
                 <div class="col-md-12 gy-4 text-center my-3">
-                    <button type="button" wire:click="{{ $action }}" class="btn btn-primary">{{ ucwords($action) }} Registrasi</button>
+                    <button type="button" wire:click="{{ $action }}" wire:loading.attr="disabled" class="btn btn-primary">{{ ucwords($action) }} Registrasi</button>
                 </div>
                 @endif
             </div>
@@ -126,7 +126,7 @@
                     </div>
                     @if ($prof_upload_twibon2 == null)
                         <div class="col-md-12 gy-4 text-center my-3">
-                            <button type="button" wire:click="uploadtwibbon" wire:ignore class="btn btn-primary">Submit Link Twibbon</button>
+                            <button type="button" wire:click="uploadtwibbon" wire:loading.attr="disabled" wire:ignore class="btn btn-primary">Submit Link Twibbon</button>
                         </div>
                     @endif
                 </div>
@@ -148,7 +148,7 @@
                     </div>
                     @if ($submission_poster2 == null)
                     <div class="col-md-12 gy-4 text-center my-3">
-                        <button type="button" wire:click="uploadposter" class="btn btn-primary">Submit Link Poster</button>
+                        <button type="button" wire:click="uploadposter" wire:loading.attr="disabled" class="btn btn-primary">Submit Link Poster</button>
                     </div>
                     @endif
                 </div>
