@@ -105,7 +105,7 @@
                                 </div>
                             </div>
                             @if ($tim_competition->status_verification_tim != 'tim successful verification')
-                                <x-flash-message></x-flash-message>
+                                <x-flash-message/>
                                 <div class="d-flex justify-content-end">
                                     <button type="button" wire:click="accregis" class="btn btn-primary mx-2">ACC Regis</button>
                                     <button type="button" wire:click="refuseregis" class="btn btn-danger">REFUSE Regis</button>
@@ -143,7 +143,7 @@
                                 </div>
                             </div>
                         </div>
-                        <x-flash-message></x-flash-message>
+                        <x-flash-message/>
                          <div class="d-flex justify-content-end">
                             <button type="button" wire:click="sendmessage" class="btn btn-primary mx-2">Kirim Email</button>
                         </div>

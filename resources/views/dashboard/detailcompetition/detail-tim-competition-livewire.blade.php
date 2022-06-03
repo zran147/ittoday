@@ -54,9 +54,12 @@
                                     @endphp
                                     <a href="/dashboard/detailcompetition/{{ str(strtolower($name_competition))->slug('-')}}/detailtim/{{ $item->code_uniq_tim }}{{ $url }}"
                                         class="btn btn-primary">Detail</a>
+
+                                    @can('delete-tim-competition')
                                     <button class="btn btn-danger"
                                         wire:click="deletetim('{{ Crypt::encrypt($item->id) }}')"
                                         onclick="confirm('Are you sure you want to delete the tim competition ?') || event.stopImmediatePropagation()">Hapus</button>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach

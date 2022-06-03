@@ -15,6 +15,12 @@
                         <td>{{ $comment->email_seeder }}</td>
                     </tr>
                 </table>
+                <div>
+                    <h4>Pesan</h4>
+                    <div class="border p-3">
+                        {!! $comment->body_seeder !!}
+                    </div>
+                </div>
             </div>
         </div>
 

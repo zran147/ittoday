@@ -183,7 +183,7 @@
 
     // }
     $(window).on("load", function() {
-        $.when($('#preloader').fadeOut(500));
+        $.when($('#preloader').fadeOut(250));
     });
 
     // $(window).on("load", function() {
