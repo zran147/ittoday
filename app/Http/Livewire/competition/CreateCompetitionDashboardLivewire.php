@@ -39,7 +39,7 @@ class CreateCompetitionDashboardLivewire extends Component
     public function Store()
     {
         $this->validate([
-            'name_competition' => 'required|unique:competitions,name_competition|max:255|string',
+            'name_competition' => 'required|unique:competitions,name_competition|max:100|string',
             'finish_registrasi_competition' => 'required|date',
             'start_registrasi_competition' => 'required|date',
             'link_rule_book_competition' => 'required|url|unique:competitions,rule_book_competition',
@@ -59,7 +59,7 @@ class CreateCompetitionDashboardLivewire extends Component
     public function Update()
     {
         $this->validate([
-            'name_competition' => 'required|max:255|string|unique:competitions,name_competition,' . $this->id_competition,
+            'name_competition' => 'required|max:100|string|unique:competitions,name_competition,' . $this->id_competition,
             'finish_registrasi_competition' => 'required|date',
             'start_registrasi_competition' => 'required|date',
             'link_rule_book_competition' => 'required|url|unique:competitions,rule_book_competition,' . $this->id_competition,

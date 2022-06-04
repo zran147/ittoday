@@ -42,7 +42,7 @@ class MemberTimCompetition extends Component
     {
         $idmember = Crypt::decrypt($idmember);
         $this->validate([
-            'messageformember' => 'required|string|max:255'
+            'messageformember' => 'required|string|max:100'
         ]);
         $accmember = RegistrantCompetition::findorfail($idmember)->update([
             'verivication_registrant_competitions' => 'improve',
