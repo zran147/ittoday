@@ -38,7 +38,7 @@ class CreateDashboardLivewire extends Component
     public function Store()
     {
         $this->validate([
-            'name_event' => 'required|unique:events,name_event|max:255|string',
+            'name_event' => 'required|unique:events,name_event|max:100|string',
             'start_event' => 'required|date',
             'finish_event' => 'required|date',
             'desc_event' => 'required|string',
@@ -76,7 +76,7 @@ class CreateDashboardLivewire extends Component
     public function Update()
     {
         $this->validate([
-            'name_event' => 'required|max:255|string|unique:events,name_event,' . $this->id_event,
+            'name_event' => 'required|max:100|string|unique:events,name_event,' . $this->id_event,
             'start_event' => 'required|date',
             'finish_event' => 'required|date',
             'desc_event' => 'required|string',
