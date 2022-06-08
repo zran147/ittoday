@@ -106,6 +106,7 @@
         <script>
             let jquery_datatable = $("#table1").DataTable({
                 dom: 'Bfrtip',
+                responsive: true,
                 buttons: [{
                         extend: 'excelHtml5',
                         exportOptions: {

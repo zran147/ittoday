@@ -1,6 +1,4 @@
 <div>
-    {{-- Success is as dangerous as failure. --}}
-
     <section class="section">
         <div class="card">
             <div class="card-header text-center">
@@ -11,13 +9,13 @@
             </div>
             <x-flash-message/>
             <div class="card-body">
-                @if ($tim_competition->status_verification_tim == 'acc verification payment')
-                <button type="button" class="btn btn-success" wire:click="timsuccess">Tim Success Administrasi</button>
-                @endif
-                {{-- @if ($tim_competition->status_verification_tim == 'tim successful verification')
-                <a href="/dashboard/detailcompetition/{{ $name_competition }}/detailtim/{{ $tim_competition->code_uniq_tim }}/pdf" class="btn btn-success" >Export PDf Kompetisi</a>
-                @endif --}}
-                {{-- @dd($tim_competition->admin_id) --}}
+                @isset($tim_competition->adminveriftimcompetition->id)
+                    @if (Auth::id() == $tim_competition->adminveriftimcompetition->id || Auth::user()->hasAnyRole(['kestary', 'admin']))
+                        @if ($tim_competition->status_verification_tim == 'acc verification payment')
+                            <button type="button" class="btn btn-success" wire:click="timsuccess">Tim Success Administrasi</button>
+                        @endif
+                    @endif
+                @endisset
                 @if ($tim_competition->adminveriftimcompetition)
                 <div class="p-2" style="width:100%;">
                     <h2>Infomasi Penanggung Jawab Tim</h2>
@@ -36,8 +34,6 @@
                     </div>
                 </div>
                 @endif
-
-                {{-- information tim --}}
                 <div class="p-2" style="width:100%;">
                     <h2>Infomasi Administrasi Tim</h2>
                     <div class="row p-3">
@@ -65,7 +61,6 @@
                         </div>
                     </div>
                 </div>
-                {{-- end information tim --}}
                 @if ($name_competition != 'hack-today')
 
                 @if ($tim_competition->status_verification_tim == 'acc verification payment')
@@ -90,7 +85,6 @@
                     $status = ['waiting verification administration', 'rejected verification administration'];
                 @endphp
                 @if (!in_array($tim_competition->status_verification_tim, $status))
-                    {{-- invoice tim --}}
                     <div class="my-2 border p-2 border border-2 rounded border-secondary">
                         <div class="p-2" style="width:100%;">
                             <h2>Infomasi Pembayaran Tim</h2>
@@ -128,10 +122,9 @@
                             </div>
                         @endif
                     </div>
-                    {{-- end invoice tim --}}
+
                 @endif
 
-                {{-- registrant tim --}}
                 <div class="p-2 my-3" style="width:100%;">
                     <h2>Infomasi Angota Tim</h2>
                         @php
@@ -150,10 +143,6 @@
                         @endif
                         @endfor
                 </div>
-
-                {{-- end registrant tim --}}
-
-                {{-- email tim for status --}}
 
                 <div class="my-2 border p-2 border border-2 rounded border-secondary">
                     <div class="p-2" style="width:100%;">
@@ -194,7 +183,6 @@
                         <button type="button" wire:click="sendmessage" class="btn btn-primary mx-2">Kirim Email</button>
                     </div>
                 </div>
-                {{-- end emil tim for status --}}
             </div>
         </div>
 

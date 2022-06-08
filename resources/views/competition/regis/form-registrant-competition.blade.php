@@ -84,6 +84,7 @@
               <option value="2">2</option>
               <option value="3">3</option>
             </select>
+            <div id="Jumlah_anggota_timHelp" class="form-text">Jumlah Anggota Tim Tidak Dapat Di Ubah Setelah Membuat Tim</div>
             @error('participants')
                 <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
                     {{ $message }}
@@ -93,7 +94,7 @@
         @endif
         @if ($status_verification_tim == 'waiting verification administration' || is_null($status_verification_tim))
         <div class="col-md-12 gy-4 text-center my-3">
-            <button type="button" wire:click="{{ $action }}" wire:offline.attr="disabled" wire:loading.attr="disabled" class="btn btn-primary">{{ ucfirst($action) }} Tim</button>
+            <button type="button" wire:click="{{ $action }}" wire:offline.attr="disabled" onclick="confirm('Sudah Yakin Semua Data Benar ?') || event.stopImmediatePropagation()" wire:loading.attr="disabled" class="btn btn-primary">{{ ucfirst($action) }} Tim</button>
         </div>
         @endif
     </div>

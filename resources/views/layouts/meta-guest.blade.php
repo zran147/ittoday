@@ -26,3 +26,5 @@
         gtag('js', new Date());
         gtag('config', 'G-XPCM32351H');
     </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6601414328644471"
+    crossorigin="anonymous"></script>
