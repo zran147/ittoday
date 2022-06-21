@@ -16,13 +16,17 @@ class CommentController extends Controller
     }
     public function detaildashboardcomment($idcomment)
     {
-        $idcomment = Crypt::decrypt($idcomment);
-        $comemnt = Comment::findorfail($idcomment)->first();
+        $comemnt = Comment::where('id',$idcomment)->first();
         $comemnt->update([
             'reply' => 'sudah dilihat'
         ]);
         return view('dashboard.contact.detaildashboardcomment',[
             'comment' => $comemnt
         ]);
+    }
+    public function deletedashboardcomment($idcomment)
+    {
+        Comment::find($idcomment)->delete();
+        return back();
     }
 }

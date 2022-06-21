@@ -16,7 +16,6 @@ class DetailRegistrantTimCompetitionPoster extends Component
     public function mount()
     {
         $this->tim_competition = TimCompetition::where('code_uniq_tim', $this->name_tim)->with('membertimcompetition','adminveriftimcompetition')->first();
-        CheckTimStatus::checkadmin($this->tim_competition);
     }
     public function render()
     {
