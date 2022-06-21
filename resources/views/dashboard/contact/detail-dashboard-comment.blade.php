@@ -16,6 +16,7 @@
                     </tr>
                 </table>
                 <div>
+                    <h1>{{ $comment->subject_seeder }}</h1>
                     <h4>Pesan</h4>
                     <div class="border p-3">
                         {!! $comment->body_seeder !!}

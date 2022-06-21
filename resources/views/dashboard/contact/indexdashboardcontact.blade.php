@@ -47,9 +47,14 @@
                                     <td>{{ $item->subject_seeder }}</td>
                                     <td>{{ $item->reply }}</td>
                                     <td>
-                                        <a href="/dashboard/contact/{{ Crypt::encrypt($item->id) }}/detail">
+                                        <a href="/dashboard/contact/{{ $item->id }}/detail">
                                             <button class="btn btn-primary">
                                                 Detail
+                                            </button>
+                                        </a>
+                                        <a href="/dashboard/contact/{{ $item->id }}/delete">
+                                            <button class="btn btn-danger">
+                                                Delete
                                             </button>
                                         </a>
                                     </td>

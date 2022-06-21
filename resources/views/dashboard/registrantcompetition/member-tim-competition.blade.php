@@ -70,7 +70,7 @@
             @endif
 
         </div>
-        @if ($status != 'tim successful verification')
+        @if (!in_array($status,array('tim successful verification','acc verification payment','rejected verification payment','acc verification administration')))
         <x-flash-message />
         <div class="d-flex justify-content-end my-2">
             <button type="button" wire:click="accmemberrergistrant('{{ Crypt::encrypt($member->id) }}')"

@@ -8,28 +8,28 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckTimStatus extends Component
 {
-    static function checktimstatus($tim)
-    {
-        $memberacc = $tim->membertimcompetition->where('verivication_registrant_competitions', 'acc')->count();
-        $regismember = $tim->membertimcompetition->count();
-        $allmember = $tim->participant;
-        if ($allmember > $regismember) {
-            $tim->update([
-                'status_verification_tim' => 'waiting verification administration'
-            ]);
-        }elseif ($memberacc == $allmember) {
-            $statusacc = array('waiting verification administration','rejected verification administration');
-            if(in_array($tim->status_verification_tim,$statusacc)){
-                $tim->update([
-                    'status_verification_tim' => 'acc verification administration'
-                ]);
-            }
-        } else {
+    static function checktimstatus($tim) {
+        $partipants = $tim->participant;
+        $member = $tim->membertimcompetition->whereIn('verivication_registrant_competitions',['acc','improve','wait']);
+        if ($member->where("verivication_registrant_competitions",'=','improve')->count() > 0){
             $tim->update([
                 'status_verification_tim' => 'rejected verification administration'
             ]);
         }
+        elseif($member->where("verivication_registrant_competitions",'=','acc')->count() == $partipants){
+            $tim->update([
+                'status_verification_tim' => 'acc verification administration'
+            ]);
+        }elseif($member->where('verivication_registrant_competitions','=','wait')->count() > 0){
+            $tim->update([
+                'status_verification_tim' => 'waiting verification administration'
+            ]);
+        }
+
+
     }
+
+
     static function checkadmin($tim)
     {
         if(is_null($tim->admin_id)) {

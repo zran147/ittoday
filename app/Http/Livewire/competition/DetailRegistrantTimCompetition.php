@@ -16,8 +16,11 @@ class DetailRegistrantTimCompetition extends Component
     public function mount()
     {
         $this->tim_competition = TimCompetition::where('code_uniq_tim', $this->name_tim)->with('membertimcompetition','adminveriftimcompetition')->first();
-        CheckTimStatus::checktimstatus($this->tim_competition);
-        CheckTimStatus::checkadmin($this->tim_competition);
+        if (in_array($this->tim_competition->status_verification_tim ,array('waiting verification administration','rejected verification administration'))) {
+            CheckTimStatus::checktimstatus($this->tim_competition);
+            CheckTimStatus::checkadmin($this->tim_competition);
+        }
+
     }
     public function render()
     {
