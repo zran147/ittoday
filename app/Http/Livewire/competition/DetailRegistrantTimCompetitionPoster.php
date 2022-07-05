@@ -36,4 +36,13 @@ class DetailRegistrantTimCompetitionPoster extends Component
         ]);
         return redirect(request()->header('Referer'));
     }
+    public function sendmessage()
+    {
+       if (!is_null($this->message)) {
+           $this->tim_competition->update([
+            'email_verification_tim' => Carbon::now()
+           ]);
+           return redirect('/sendmessage/')->with(['message' => $this->message, 'email'=>$this->tim_competition->email_tim]);
+       }
+    }
 }

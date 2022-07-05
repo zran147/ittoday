@@ -5,8 +5,16 @@
             @if ($status_verification_tim)
                 <div class="alert alert-info">
                     <h5>Status Tim : {{ ucwords($status_verification_tim) }}</h5>
-                    <p>Ramaikan kompetisi IT Today dengan ikutan mengunggah twibbon
-                        <a href="{{ $link_twibbon_competition }}">ini.</a> (wajib)</p>
+                    <ul>
+                        <li>
+                            <p>Ramaikan kompetisi IT Today dengan ikutan mengunggah twibbon
+                                <a href="{{ $link_twibbon_competition }}">ini.</a> (wajib)</p>
+                        </li>
+                        <li>
+                            <p>Setiap perubahan status tim akan di infomasikan melalui email <i>{{ $email }}</i> </p>
+                        </li>
+                    </ul>
+
                 </div>
             @endif
 
@@ -137,8 +145,8 @@
                 <h5>Submission Poster</h5>
                 <div class="row gy-3 mb-3">
                     <div class="col form-group">
-                        <label for="submission_poster" class="form-label">Link Instagram</label>
-                        <input type="text" name="Link Twibon" wire:model="submission_poster" class="form-control" placeholder="https://www.instagram.com/p/Cdm9mYbPpxd/?utm_source=ig_web_copy_link" >
+                        <label for="submission_poster" class="form-label">Link Drive</label>
+                        <input type="text" name="Link Twibon" wire:model="submission_poster" class="form-control" placeholder="https://drive.google.com/drive/my-drive" >
                         <div id="emailHelp" class="form-text">Masukan link yang berisi poster anda</div>
                         @error('submission_poster')
                             <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
