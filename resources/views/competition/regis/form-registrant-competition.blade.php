@@ -4,8 +4,27 @@
     @if ($status_verification_tim)
         <div class="alert alert-info">
             <h5>Status Tim : {{ ucwords($status_verification_tim) }}</h5>
-            <p>Ramaikan kompetisi IT Today dengan ikutan mengunggah twibbon
-                <a href="{{ $link_twibbon_competition }}">ini.</a> @if ($slug == 'poster')(wajib)@endif </p>
+            <ul>
+                <li>
+                    <p>
+                        Ramaikan kompetisi IT Today dengan ikutan mengunggah twibbon
+                        <a href="{{ $link_twibbon_competition }}">ini.</a>
+                    </p>
+                </li>
+                <li>
+                    <p>Setiap perubahan status tim akan di infomasikan melalui email <i>{{ $email_tim }}</i> </p>
+                </li>
+                @if (in_array($status_verification_tim,array("acc verification administration","rejected verification payment")))
+                    <li>
+                        <p>
+                            Informasi untuk pembayaran : <br>
+                            Bank BNI <br>
+                            Isti Adilia Habibah <br>
+                            Account number: 0966756048
+                        </p>
+                    </li>
+                @endif
+            </ul>
         </div>
     @endif
 
@@ -113,18 +132,17 @@
     @endif
         @php
             if (is_null($bank_account_name)) {
-               $actionpayment = 'submit';
+               $actionpayment = "submit";
             }else{
-                $actionpayment = 'edit';
+                $actionpayment = "edit";
             }
-            $statuspayment = array('acc verification payment', 'tim successful verification',);
-            $status = array('waiting verification administration','rejected verification administration', null)
+            $statuspayment = array("acc verification payment", "tim successful verification");
+            $status = array("waiting verification administration","rejected verification administration", null)
         @endphp
     @if (!in_array($status_verification_tim,$status))
     <div class="mt-5" wire:ignore>
         <div class="row gy-4 ">
             <h2 class="text-center">Information Payment Tim</h2>
-
             <div class="col-md-6 form-group">
                 <label for="username_telegram_Tim" class="form-label"> Nama Akun Bank</label>
                 <input type="text" name="nama" wire:model="bank_account_name" class="form-control" placeholder="ITtoday" >
@@ -169,32 +187,33 @@
         @endif
     </div>
     @endif
-    @if ($slug != 'hack-today')
-    @if (in_array($status_verification_tim,$statuspayment))
-    <div class="mt-5" wire:ignore>
-        <div class="row gy-4 ">
-            <h2 class="text-center">submission proposal</h2>
-            <div class="col form-group">
-                <label for="link_competition_results" class="form-label">Link submission proposal</label>
-                <input type="text" class="form-control" wire:model="link_competition_results" name="link_competition_results" placeholder="https://drive.google.com/" >
-                @error('link_competition_results')
-                    <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
-                        {{ $message }}
+    @if ($slug == 'ux-today')
+        @if (in_array($status_verification_tim,$statuspayment))
+            <div class="mt-5" wire:ignore>
+                <div class="row gy-4 ">
+                    <h2 class="text-center">submission proposal </h2>
+                    <div class="col form-group">
+                        <label for="link_competition_results" class="form-label">Link submission proposal</label>
+                        <input type="text" class="form-control" wire:model="link_competition_results" name="link_competition_results" placeholder="https://drive.google.com/" >
+                        @error('link_competition_results')
+                            <div class="alert alert-warning alert-dismissible fade show my-2" role="alert">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                @enderror
-            </div>
 
-            @if (is_null($link_competition_results))
-            <div class="col-md-12 gy-4 text-center my-3">
-                <button type="button" wire:click="createresult" wire:offline.attr="disabled" wire:loading.attr="disabled" class="btn btn-primary">Create Result Tim</button>
+                    @if (is_null($link_competition_results))
+                    <div class="col-md-12 gy-4 text-center my-3">
+                        <button type="button" wire:click="createresult" wire:offline.attr="disabled" wire:loading.attr="disabled" class="btn btn-primary">Create Result Tim</button>
+                    </div>
+                    @else
+                    <div class="col-md-12 gy-4 text-center my-3">
+                        <span class="btn btn-info">Thank You For Participating In The Competition</span>
+                    </div>
+                    @endif
+                </div>
             </div>
-            @else
-            <div class="col-md-12 gy-4 text-center my-3">
-                <span class="btn btn-info">Link Sudah Terkirim</span>
-            </div>
-            @endif
-    </div>
-    @endif
+        @endif
     @endif
 </form>
 </div>

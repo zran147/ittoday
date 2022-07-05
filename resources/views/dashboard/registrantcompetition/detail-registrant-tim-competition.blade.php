@@ -61,24 +61,21 @@
                         </div>
                     </div>
                 </div>
-                @if ($name_competition != 'hack-today')
-
-                @if ($tim_competition->status_verification_tim == 'acc verification payment')
-                <div class="my-2 border p-2 border border-2 rounded border-secondary">
-                    <div class="p-2" style="width:100%;">
-                        <div></div>
-                        <h2>Link Result Tim</h2>
-                        <div class="row p-3">
-                            <div class="col border mx-2">
-                                <div class="my-2">
-                                    <a href="{{ $tim_competition->link_competition_results }}" target="_blank">{{ $tim_competition->link_competition_results }}</a>
+                @if ($name_competition == 'ux-today')
+                    @if (in_array($tim_competition->status_verification_tim,array("tim successful verification","acc verification payment")))
+                        <div class="my-2 border p-2 border border-2 rounded border-secondary">
+                            <div class="p-2" style="width:100%;">
+                                <h2>Link Result Tim</h2>
+                                <div class="row p-3">
+                                    <div class="col border mx-2">
+                                        <div class="my-2">
+                                            <a href="{{ $tim_competition->link_competition_results }}" target="_blank">{{ $tim_competition->link_competition_results }}</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                @endif
-
+                    @endif
                 @endif
 
                 @php

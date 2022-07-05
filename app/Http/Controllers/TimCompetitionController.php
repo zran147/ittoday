@@ -79,9 +79,6 @@ class TimCompetitionController extends Controller
     public function edit($slug,$code)
     {
         $tim = TimCompetition::where('code_uniq_tim',$code)->with('membertimcompetition')->first();
-        if ($tim->status_verification_tim != 'waiting verification administration') {
-            CheckTimStatus::checktimstatus($tim);
-        }
         if ($tim->registrant_id != Auth::user()->id) {
             return redirect('/');
         }else{
