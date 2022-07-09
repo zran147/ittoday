@@ -2,12 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\Competition;
+use App\Models\Event;
+use App\Models\TimCompetition;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    public function dashboard()
+    {
+        return view('dashboard',[
+            'user' => User::all(),
+            'competition' => Competition::with('timcompetition')->get(),
+            'timcompetition'=> TimCompetition::distinct()->get(),
+            'event' => Event::with('category','registrant')->get(),
+            'comment' => Comment::limit(5)->get(),
+        ]);
+    }
     public function indexdashboard()
     {
         return view('dashboard.user.indexusercontroller');

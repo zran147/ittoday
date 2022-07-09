@@ -2,7 +2,6 @@
     @push('style')
         <link rel="stylesheet" href="/assets/vendors/jquery-datatables/jquery.dataTables.min.css">
         <link rel="stylesheet" href="/assets/vendors/jquery-datatables/jquery.dataTables.bootstrap5.min.css">
-        <link rel="stylesheet" href="/assets/vendors/fontawesome/all.min.css">
         <style>
             table.dataTable td {
                 padding: 15px 8px;
@@ -31,6 +30,7 @@
                                 <th>Name</th>
                                 <th>Date</th>
                                 <th>Status </th>
+                                <th>Link Feedback</th>
                                 <th>Registrant</th>
                                 <th>action</th>
                             </tr>
@@ -60,6 +60,12 @@
                                             @endif
                                             {{ $item->active }}
                                         </button>
+                                    </td>
+                                    <td>
+                                        <a href="https://ittoday.id/event/feedback/{{ $item->slug_event }}">
+                                            <p id="linkFeedback">https://ittoday.id/event/feedback/{{ $item->slug_event }}</p>
+                                        </a>
+                                        <button onclick="copyToClipboard('#linkFeedback')"><i class="bi bi-clipboard"></i></button>
                                     </td>
                                     <td>
                                         @if ($item->registrant != null)
@@ -126,6 +132,18 @@
                     'colvis'
                 ]
             })
+        </script>
+
+        <script>
+            function copyToClipboard(element) {
+                var $temp = $("<input>");
+                $("body").append($temp);
+                $temp.val($(element).text()).select();
+                document.execCommand("copy");
+                alert("link successfully copied");
+                $temp.remove();
+
+            }
         </script>
     @endpush
 </div>

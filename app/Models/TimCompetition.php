@@ -10,6 +10,7 @@ class TimCompetition extends Model
     use HasFactory;
     protected $guarded = ['id'];
     protected $with = ['competition'];
+    
     public function competition()
     {
         return $this->belongsTo(Competition::class,'competition_id');

@@ -3,7 +3,6 @@
     @push('style')
         <link rel="stylesheet" href="/assets/vendors/jquery-datatables/jquery.dataTables.min.css">
         <link rel="stylesheet" href="/assets/vendors/jquery-datatables/jquery.dataTables.bootstrap5.min.css">
-        <link rel="stylesheet" href="/assets/vendors/fontawesome/all.min.css">
         <style>
             table.dataTable td {
                 padding: 15px 8px;
@@ -101,7 +100,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script>
-        <script src="/assets/vendors/fontawesome/all.min.js"></script>
 
         <script>
             let jquery_datatable = $("#table1").DataTable({

@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="page-heading">
-        <h3>Profile</h3>
+        <h3>Dashboard</h3>
     </div>
     <div class="page-content">
         <section class="row">
@@ -12,13 +12,14 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="stats-icon purple">
-                                            <i class="iconly-boldShow"></i>
+                                            <i class="iconly-boldProfile"></i>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Profile Views</h6>
-                                        <h6 class="font-extrabold mb-0">112.000</h6>
+                                        <h6 class="text-muted font-semibold">Total User</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $user->count() }}</h6>
                                     </div>
+                                    <a href="/dashboard/manageuser" class="stretched-link"></a>
                                 </div>
                             </div>
                         </div>
@@ -29,13 +30,14 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="stats-icon blue">
-                                            <i class="iconly-boldProfile"></i>
+                                            <i class="iconly-boldChart"></i>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Followers</h6>
-                                        <h6 class="font-extrabold mb-0">183.000</h6>
+                                        <h6 class="text-muted font-semibold">Total Competition</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $competition->count() }}</h6>
                                     </div>
+                                    <a href="/dashboard/competition" class="stretched-link"></a>
                                 </div>
                             </div>
                         </div>
@@ -46,13 +48,14 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="stats-icon green">
-                                            <i class="iconly-boldAdd-User"></i>
+                                            <i class="iconly-boldDiscovery"></i>
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Following</h6>
-                                        <h6 class="font-extrabold mb-0">80.000</h6>
+                                        <h6 class="text-muted font-semibold">Total Event</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $event->count() }}</h6>
                                     </div>
+                                    <a href="/dashboard/event" class="stretched-link"></a>
                                 </div>
                             </div>
                         </div>
@@ -67,8 +70,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Saved Post</h6>
-                                        <h6 class="font-extrabold mb-0">112</h6>
+                                        <h6 class="text-muted font-semibold">Active User</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $user->where('email_verified_at', '!=', null)->count() }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -79,119 +82,34 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Profile Visit</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-xl-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Profile Visit</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-center">
-                                            <svg class="bi text-primary" width="32" height="32" fill="blue"
-                                                style="width:10px">
-                                                <use
-                                                    xlink:href="/assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                            </svg>
-                                            <h5 class="mb-0 ms-3">Europe</h5>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <h5 class="mb-0">862</h5>
-                                    </div>
-                                    <div class="col-12">
-                                        <div id="chart-europe"></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-center">
-                                            <svg class="bi text-success" width="32" height="32" fill="blue"
-                                                style="width:10px">
-                                                <use
-                                                    xlink:href="/assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                            </svg>
-                                            <h5 class="mb-0 ms-3">America</h5>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <h5 class="mb-0">375</h5>
-                                    </div>
-                                    <div class="col-12">
-                                        <div id="chart-america"></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="d-flex align-items-center">
-                                            <svg class="bi text-danger" width="32" height="32" fill="blue"
-                                                style="width:10px">
-                                                <use
-                                                    xlink:href="/assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
-                                            </svg>
-                                            <h5 class="mb-0 ms-3">Indonesia</h5>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <h5 class="mb-0">1025</h5>
-                                    </div>
-                                    <div class="col-12">
-                                        <div id="chart-indonesia"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-xl-8">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Latest Comments</h4>
-                            </div>
-                            <div class="card-body">
+                                <h4>Competition</h4>
                                 <div class="table-responsive">
                                     <table class="table table-hover table-lg">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Comment</th>
+                                                <th>Category Competition</th>
+                                                @foreach ($timcompetition->unique('status_verification_tim') as $item)
+                                                    <th>{{ $item->status_verification_tim }}</th>
+                                                @endforeach
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="col-3">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar avatar-md">
-                                                            <img src="/assets/images/faces/5.jpg">
-                                                        </div>
-                                                        <p class="font-bold ms-3 mb-0">Si Cantik</p>
-                                                    </div>
-                                                </td>
-                                                <td class="col-auto">
-                                                    <p class=" mb-0">Congratulations on your
-                                                        graduation!</p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-3">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar avatar-md">
-                                                            <img src="/assets/images/faces/2.jpg">
-                                                        </div>
-                                                        <p class="font-bold ms-3 mb-0">Si Ganteng</p>
-                                                    </div>
-                                                </td>
-                                                <td class="col-auto">
-                                                    <p class=" mb-0">Wow amazing design! Can you make
-                                                        another tutorial for
-                                                        this design?</p>
-                                                </td>
-                                            </tr>
+                                            @foreach ($competition as $item)
+                                                <tr>
+                                                   <td class="col-3">
+                                                    <a href="dashboard/detailcompetition/{{ $item->slug_competition }}">
+                                                        {{ $item->name_competition }}
+                                                    </a>
+                                                    </td>
+
+                                                     @foreach ($timcompetition->unique('status_verification_tim') as $itemstatus)
+                                                        <td>
+                                                            {{ $item->timcompetition->where('status_verification_tim',$itemstatus->status_verification_tim)->count() }}
+                                                        </td>
+                                                     @endforeach
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -199,6 +117,45 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Event</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-lg">
+                                        <thead>
+                                            <tr>
+                                                <th>Name Event</th>
+                                                <th>Category</th>
+                                                <th>Registrant</th>
+                                                <th>Feedback</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($event as $item)
+                                                <tr>
+                                                    <td>
+                                                        {{ $item->name_event}}
+                                                    </td>
+                                                    <td>
+                                                        {{ $item->category->name_category }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $item->registrant->count() }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $item->registrant->whereNotNull('feedback')->count() }}
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
             <div class="col-12 col-lg-3">
                 <div class="card">
@@ -219,52 +176,48 @@
                         <h4>Recent Messages</h4>
                     </div>
                     <div class="card-content pb-4">
-                        <div class="recent-message d-flex px-4 py-3">
-                            <div class="avatar avatar-lg">
-                                <img src="/assets/images/faces/4.jpg">
-                            </div>
-                            <div class="name ms-4">
-                                <h5 class="mb-1">Hank Schrader</h5>
-                                <h6 class="text-muted mb-0">@johnducky</h6>
-                            </div>
-                        </div>
-                        <div class="recent-message d-flex px-4 py-3">
-                            <div class="avatar avatar-lg">
-                                <img src="/assets/images/faces/5.jpg">
-                            </div>
-                            <div class="name ms-4">
-                                <h5 class="mb-1">Dean Winchester</h5>
-                                <h6 class="text-muted mb-0">@imdean</h6>
-                            </div>
-                        </div>
-                        <div class="recent-message d-flex px-4 py-3">
-                            <div class="avatar avatar-lg">
-                                <img src="/assets/images/faces/1.jpg">
-                            </div>
-                            <div class="name ms-4">
-                                <h5 class="mb-1">John Dodol</h5>
-                                <h6 class="text-muted mb-0">@dodoljohn</h6>
-                            </div>
-                        </div>
+                        @foreach ($comment as $item)
+                            <a href="/dashboard/contact/{{ $item->id }}/detail">
+                                <div class="recent-message d-flex px-4 py-3">
+                                    <div class="avatar avatar-lg">
+                                        <img src="https://ui-avatars.com/api/?background=random&name={{ $item->name_seeder }}" alt="{{ $item->name_seeder }}" />
+                                    </div>
+                                    <div class="name ms-4">
+                                        <h5 class="mb-1">{{ $item->name_seeder }}</h5>
+                                        <h6 class="text-muted mb-0">{{ $item->subject_seeder }}</h6>
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach
+
                         <div class="px-4">
-                            <button class='btn btn-block btn-xl btn-light-primary font-bold mt-3'>Start
-                                Conversation</button>
+                            <a href="/dashboard/contact">
+                                <button class='btn btn-block btn-xl btn-light-primary font-bold mt-3'>Start
+                                    Conversation</button>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <h4>Visitors Profile</h4>
+                        <h4>Total Competition</h4>
                     </div>
                     <div class="card-body">
-                        <div id="chart-visitors-profile"></div>
+                        @foreach ($competition as $item)
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center">
+                                        <h5 class="mb-0 ms-3">{{ $item->name_competition }}</h5>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <h5 class="mb-0">{{ $item->timcompetition->count() }}</h5>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </section>
     </div>
-    @push('modals')
-        <script src="/assets/vendors/apexcharts/apexcharts.js"></script>
-        <script src="/assets/js/pages/dashboard.js"></script>
-    @endpush
 </x-app-layout>

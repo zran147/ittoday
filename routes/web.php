@@ -35,15 +35,18 @@ Route::group(['prefix'=>'event'], function(){
     Route::controller(EventController::class)->group(function (){
         Route::get('/','index')->name('event');
         Route::get('/detail/{slug}','show')->name('showevent');
+        Route::get('/feedback/{slug}','feedback')->name('feedback');
+        Route::post('/feedback/{slug}','storeFeedback')->name('storeFeedback');
     });
 });
 
 Route::get('/sendmessage',[TimCompetitionController::class,'verif'])->name('veriftim');
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verified', 'role_or_permission:admin|dashboard-menu']], function () {
-    Route::get('/', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/', [UserController::class,'dashboard'])->name('dashboard');
+    // Route::get('/', function () {
+    //     return view('dashboard');
+    // })->name('dashboard');
     Route::controller(EventController::class)->prefix('event')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-event')->group(function () {
         Route::get('/', 'indexdashboard')->name('indexdashboardcontroller');
         Route::get('/add', 'createdashboard')->name('createdashboardcontroller');
