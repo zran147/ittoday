@@ -84,7 +84,10 @@
                                         @foreach ($user as $item)
 
                                             <tr>
-                                                <td>{{ $item->name }}</td>
+                                                <td>
+                                                    <img height="100" src="https://avatars.dicebear.com/api/avataaars/{{ $item->name }}.svg?background=random&mood[]=happy" alt="" srcset="">
+                                                    {{ $item->name }}
+                                                </td>
                                                 <td>{{ $item->email }}</td>
                                                 <td>{{ $item->wa_user }}</td>
                                                 <td>

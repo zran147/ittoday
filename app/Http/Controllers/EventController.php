@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -23,6 +25,35 @@ class EventController extends Controller
         return view('event.showcontroller',[
             'event' => $event
         ]);
+    }
+
+    public function feedback($slug)
+    {
+        $event = Event::where('slug_event', $slug)->where('active','published')->with('registrant','category')->first();
+        if ( empty($event) ) {
+            return redirect('/event');
+        }
+
+        if( empty($event->registrant->where('user_id',Auth::user()->id)->first()) ){
+            return redirect('/event');
+        }
+
+        if ($event->active != 'published') {
+            return redirect('/event');
+        }
+
+        return view('event.feedback',[
+            'event' => $slug
+        ]);
+    }
+    public function storeFeedback($slug,Request $request)
+    {
+        $event = Event::where('slug_event', $slug)->where('active','published')->with('registrant')->first();
+        $regis = $event->registrant->where('user_id',Auth::user()->id)->first();
+        $regis->update([
+            'feedback' => $request->feedback
+        ]);
+        return redirect('/event');
     }
     public function indexdashboard()
     {

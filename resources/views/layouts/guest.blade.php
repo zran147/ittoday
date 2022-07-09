@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Develop IT Skills to Face Post-Pandemic Era by Being Aware of Today’s Issues - IT Today 2022" name="description">
     <meta content="ittoday, 2022, Competition, Webinar, Kompetisi, Pendaftaran, Event" name="keywords">
