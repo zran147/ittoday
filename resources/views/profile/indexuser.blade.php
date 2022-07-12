@@ -12,7 +12,7 @@
 
             <div class="col-md-4">
                 <div class="card card-custome profilecard" style="background: #202749;">
-                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Profile" class="profile" height="300">
+                    <img src="https://avatars.dicebear.com/api/avataaars/{{ $user->name }}.svg?background=random&mood[]=happy" class="profile" alt="{{ $user->name }}" height="300">
 
                     <div class="nameProfile text-center">
                         <span>{{ $user->name }}</span>
