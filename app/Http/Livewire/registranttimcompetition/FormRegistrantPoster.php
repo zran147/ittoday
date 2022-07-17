@@ -107,7 +107,7 @@ class FormRegistrantPoster extends Component
             'proof_of_payment_tim' => $idcard,
         ]);
     }
-    public function uploadtwibbon()
+    public function submittwibbon()
     {
         $this->validate([
             'prof_upload_twibon' => 'required|url|max:100'
@@ -120,6 +120,22 @@ class FormRegistrantPoster extends Component
             return redirect(request()->header('Referer'));
         }
     }
+
+    // public function updatetwibbon()
+    // {
+    //     $this->validate([
+    //         'prof_upload_twibon' => 'required|url|max:100'
+    //     ]);
+
+    //     $tim = TimCompetition::findorfail($this->id_regis)->update([
+    //         'payment_fee_payment_tim' => $this->prof_upload_twibon
+    //     ]);
+    //     if ($tim) {
+    //         session()->flash('success','Link Berhasil Dikirim');
+    //         return redirect(request()->header('Referer'));
+    //     }
+
+    // }
 
     public function uploadposter()
     {

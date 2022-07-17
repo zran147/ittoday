@@ -112,7 +112,7 @@
                     @enderror
                     </div>
                 </div>
-                @if ($status_verification_tim == 'waiting verification administration' || is_null($status_verification_tim))
+                @if ($status_verification_tim != 'tim successful verification')
                 <div class="col-md-12 gy-4 text-center my-3">
                     <button type="button" wire:click="{{ $action }}" wire:loading.attr="disabled" class="btn btn-primary">{{ ucwords($action) }} Registrasi</button>
                 </div>
@@ -132,10 +132,19 @@
                             </div>
                         @enderror
                     </div>
-                    @if ($prof_upload_twibon2 == null)
-                        <div class="col-md-12 gy-4 text-center my-3">
-                            <button type="button" wire:click="uploadtwibbon" wire:loading.attr="disabled" wire:ignore class="btn btn-primary">Submit Link Twibbon</button>
-                        </div>
+                    @if ($status_verification_tim != 'tim successful verification')
+
+                        @php
+                            $status_action = null;
+                            if ($prof_upload_twibon2 == null) {
+                                $status_action = 'submit';
+                            }else{
+                                $status_action = 'update';
+                            }
+                        @endphp
+                            <div class="col-md-12 gy-4 text-center my-3">
+                                <button type="button" wire:click="submittwibbon" wire:loading.attr="disabled" wire:ignore class="btn btn-primary">{{ ucwords($status_action) }} Twibbon</button>
+                            </div>
                     @endif
                 </div>
             </div>
