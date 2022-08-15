@@ -52,19 +52,20 @@
                             <div class="row">
                             @if ($user->registrant->count() < 1)
                                 <h5>Anda Belum Daftar Event</h5>
-                            @endif
-                            @foreach ($user->registrant as $item)
-                            <div class="col-md-4">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="{{ asset('storage/'.$item->event->thumbnail_event) }}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                      <h5 class="card-title">{{ $item->event->name_event }}</h5>
-                                      <p class="card-text">{!!  Str::limit(strip_tags($item->event->description_event), 200) !!}</p>
-                                      <a href="/event/detail/{{ $item->event->slug_event }}" class="btn btn-primary">Go Event</a>
+                            @else
+                                @foreach ($user->registrant as $item)
+                                <div class="col-md-4">
+                                    <div class="card" style="width: 18rem;">
+                                        <img src="/storage/{{ $item->event->thumbnail_event }}" class="card-img-top" alt="{{ $item->event->name_event }}">
+                                        <div class="card-body">
+                                        <h5 class="card-title">{{ $item->event->name_event }}</h5>
+                                        <p class="card-text">{!!  Str::limit(strip_tags($item->event->description_event), 200) !!}</p>
+                                        <a href="/event/detail/{{ $item->event->slug_event }}" class="btn btn-primary">Go Event</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            @endforeach
+                                @endforeach
+                            @endif
                             </div>
                         </div>
                         <div class="tab-pane fade" id="compe">
@@ -73,7 +74,6 @@
                                 <h5>Anda Belum Daftar Kompetisi</h5>
                                 @endif
                                 @foreach ($user->regsitranttimcompetition as $item)
-
                                 <div class="col-md-4">
                                     <div class="card" style="width: 18rem;">
                                         <img src="/img/competition/thumbnail/{{ $item->competition->slug_competition }}.png" class="card-img-top" alt="...">

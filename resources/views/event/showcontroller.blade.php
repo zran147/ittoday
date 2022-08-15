@@ -43,7 +43,10 @@
             </div>
             <div class="col-lg-3">
               <div class="card">
-                @livewire('event.regis-event',['status' => $index, 'event' => $event->id, 'slug' => $event->slug_event])
+                @php
+                    $maxim = $event->registrant_event - $event->registrant->count();
+                @endphp
+                @livewire('event.regis-event',['status' => $index, 'event' => $event->id, 'slug' => $event->slug_event, 'maxim' => $maxim])
               </div>
               <div class="card mt-2">
                 <div class="card-body text-center anak2">

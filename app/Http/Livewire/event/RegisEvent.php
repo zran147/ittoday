@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RegisEvent extends Component
 {
-    public $status,$event,$regis, $slug;
+    public $status,$event,$regis, $slug, $maxim;
     protected $listeners = ['some-event' => '$refresh'];
     public function mount()
     {

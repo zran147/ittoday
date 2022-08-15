@@ -11,7 +11,11 @@
                     <button class="btn-selesai">Sudah Terdaftar</button>
                 @else
                     @if ($status != 3)
-                        <button class="btn-selesai" wire:click="regisevent">Silakan Daftar</button>
+                        @if ($maxim > 0)
+                            <button class="btn-selesai" wire:click="regisevent">Silakan Daftar</button>
+                        @else
+                            <button class="btn-selesai">Kuota Sudah Terpenuhi</button>
+                        @endif
                     @else
                         <span class="btn-selesai">Sudah Terlaksana</span>
                     @endif
