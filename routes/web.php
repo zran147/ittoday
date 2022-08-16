@@ -44,9 +44,6 @@ Route::get('/sendmessage',[TimCompetitionController::class,'verif'])->name('veri
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth:sanctum', 'verified', 'role_or_permission:admin|dashboard-menu']], function () {
     Route::get('/', [UserController::class,'dashboard'])->name('dashboard');
-    // Route::get('/', function () {
-    //     return view('dashboard');
-    // })->name('dashboard');
     Route::controller(EventController::class)->prefix('event')->middleware('auth:sanctum', 'verified', 'role_or_permission:admin|kestary|lo|action-event')->group(function () {
         Route::get('/', 'indexdashboard')->name('indexdashboardcontroller');
         Route::get('/add', 'createdashboard')->name('createdashboardcontroller');
