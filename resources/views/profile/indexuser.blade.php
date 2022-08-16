@@ -54,8 +54,7 @@
                                 <h5>Anda Belum Daftar Event</h5>
                             @else
                             @foreach ($user->registrant as $item)
-                            @dd($item)
-
+                                @dd($item)
                             @endforeach
                                 {{-- @foreach ($user->registrant as $item)
                                     <div class="col-md-4">
