@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-        Model::preventLazyLoading(! $this->app->isProduction());
+        Model::preventLazyLoading(! app()->isProduction());
         Schema::defaultStringLength(125);
         config(['app.locale' => 'id']);
         Carbon::setLocale('id');

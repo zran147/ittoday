@@ -33,11 +33,9 @@ class EventController extends Controller
         if ( empty($event) ) {
             return redirect('/event');
         }
-
         if( empty($event->registrant->where('user_id',Auth::user()->id)->first()) ){
             return redirect('/event');
         }
-
         if ($event->active != 'published') {
             return redirect('/event');
         }

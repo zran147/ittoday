@@ -53,6 +53,10 @@
                             @if ($user->registrant->count() < 1)
                                 <h5>Anda Belum Daftar Event</h5>
                             @else
+                            @foreach ($user->registrant as $item)
+                            @dd($item)
+
+                            @endforeach
                                 {{-- @foreach ($user->registrant as $item)
                                     <div class="col-md-4">
                                         <div class="card" style="width: 18rem;">

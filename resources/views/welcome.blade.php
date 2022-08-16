@@ -146,21 +146,56 @@
 
         </div>
       </section>
+    <!--Sponsor Section-->
+    <!-- ======= Main Sponsor Section ======= -->
     <section id="mainspo">
         <div  class="clients">
-            <div class="container">
+          <div class="section-title">
+            <h2>Sponsor</h2>
+          </div>
 
-                <div class="section-title">
-                    <h2>Sponsor</h2>
-                </div>
-
-                <div class="group" data-aos="flip-left">
-                  <h2>Calling all sponsors and media partners</h2>
-                </div>
-
+          <div class="group" data-aos="flip-left">
+            <h2>Calling All Sponsors and Media Partners</h2>
+          </div>
+        </div>
+      <!-- End Main Sponsor Section -->
+        <!-- ======= Spons Section ======= -->
+        <div class="spons Exlarge"> <!-- 2 per-row -->
+        </div>
+        <div class="spons Large"> <!-- 3 per-row -->
+          <div class="container justify-content-center">
+            <div class="wrap justify-content-center" data-aos="zoom-in">
+              <div class="col align-items-center justify-content-center" data-aos="zoom-in">
+                <img src="img/Sponsor/[LARGE]-dewaweb.png" class="img-fluid" alt="Dewaweb" style="max-width: 100%;">
+              </div>
+              <div class="col align-items-center justify-content-center" data-aos="zoom-in">
+                <img src="img/Sponsor/[LARGE]-TOYOTA.png" class="img-fluid" alt="Toyota" style="max-width: 100%;">
               </div>
             </div>
+
+          </div>
         </div>
+        <div class="spons Standard my-3"> <!-- 4 per-row -->
+          <div class="container justify-content-center">
+
+            <div class="wrap justify-content-center" data-aos="zoom-in">
+
+              <div class="col align-items-center justify-content-center" data-aos="zoom-in">
+                <img src="img/Sponsor/[STANDARD]-Tokocrypto.png" class="img-fluid" alt="Tokocrypto" style="max-width: 100%;">
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="spons small">  <!-- 6 per-row -->
+          <div class="container justify-content-center">
+            <div class="wrap justify-content-center">
+
+            </div>
+          </div>
+        </div>
+        <!--End Sponsor Section-->
       </section>
 
     <!-- ======= About us Section ======= -->
