@@ -34,7 +34,6 @@ class UserController extends Controller
     public function indexUser()
     {
         $user = User::where('id',Auth::user()->id)->with('registrant','regsitranttimcompetition')->first();
-        dd($user->registrant);
         return view('profile.indexuser',[
             'user' => $user
         ]);
