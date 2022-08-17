@@ -12,7 +12,7 @@ class RegistrantEvent extends Model
     protected $with = ['event','user'];
     public function event()
     {
-        return $this->belongsTo(Event::class);
+        return $this->belongsTo(Event::class,'event_id');
     }
     public function user()
     {
