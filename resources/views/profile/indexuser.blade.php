@@ -52,23 +52,19 @@
                             <div class="row">
                             @if ($user->registrant->count() < 1)
                                 <h5>Anda Belum Daftar Event</h5>
-                            @else
+                            @endif
                             @foreach ($user->registrant as $item)
-                                @dd($item)
-                            @endforeach
-                                {{-- @foreach ($user->registrant as $item)
-                                    <div class="col-md-4">
-                                        <div class="card" style="width: 18rem;">
-                                            <img src="/storage/{{ $item->event->thumbnail_event }}" class="card-img-top" alt="{{ $item->event->name_event }}"/>
-                                            <div class="card-body">
-                                            <h5 class="card-title">{{ $item->event->name_event }}</h5>
-                                            <p class="card-text">{!!  Str::limit(strip_tags($item->event->description_event), 200) !!}</p>
-                                            <a href="/event/detail/{{ $item->event->slug_event }}" class="btn btn-primary">Go Event</a>
-                                            </div>
+                                <div class="col-md-4">
+                                    <div class="card" style="width: 18rem;">
+                                        <img src="/storage/{{ $item->event->thumbnail_event }}" class="card-img-top" alt="{{ $item->event->name_event }}"/>
+                                        <div class="card-body">
+                                        <h5 class="card-title">{{ $item->event->name_event }}</h5>
+                                        <p class="card-text">{!!  Str::limit(strip_tags($item->event->description_event), 200) !!}</p>
+                                        <a href="/event/detail/{{ $item->event->slug_event }}" class="btn btn-primary">Go Event</a>
                                         </div>
                                     </div>
-                                @endforeach --}}
-                            @endif
+                                </div>
+                            @endforeach
                             </div>
                         </div>
                         <div class="tab-pane fade" id="compe">
