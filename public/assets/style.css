@@ -721,54 +721,54 @@
 --------------------------------------------------------------*/
 
 .Exlarge .container .wrap {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    place-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  place-items: center;
+}
+.Large .container .wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  place-items: center;
+}
+.Standard .container .wrap {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 30px;
+  place-items: center;
+}
+.small .container .wrap {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  place-items: center;
+}
+.Exlarge img, .Large img, .Standard img, .small img {
+  transition: all 0.4s ease-in-out;
+}
+.Exlarge img:hover, .Large img:hover, .Standard img:hover, .small img:hover {
+  filter: none;
+  transform: scale(1.1);
+}
+.spons .container .justify-content-center{
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+@media (min-width: 713px) {
+  .Exlarge img {
+    width: 350px;
   }
-  .Large .container .wrap {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    place-items: center;
+  .Large img {
+    width: 300px;
   }
-  .Standard .container .wrap {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 30px;
-    place-items: center;
+  .Standard img {
+    width: 220px;
   }
-  .small .container .wrap {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 30px;
-    place-items: center;
+  .small img {
+    width: 100px;
   }
-  .Exlarge img, .Large img, .Standard img, .small img {
-    transition: all 0.4s ease-in-out;
-  }
-  .Exlarge img:hover, .Large img:hover, .Standard img:hover, .small img:hover {
-    filter: none;
-    transform: scale(1.1);
-  }
-  .spons .container .justify-content-center{
-    padding-top: 8px;
-    padding-bottom: 8px;
-  }
-  @media (min-width: 713px) {
-    .Exlarge img {
-      width: 350px;
-    }
-    .Large img {
-      width: 300px;
-    }
-    .Standard img {
-      width: 220px;
-    }
-    .small img {
-      width: 100px;
-    }
-  }
+}
   /*--------------------------------------------------------------
   # About Us
   --------------------------------------------------------------*/
@@ -777,7 +777,6 @@
   }
   .aboutus {
     background: linear-gradient(rgba(22, 20, 37, 0.9), rgba(32, 39, 73, 0.9)), url("../img/Latar_AboutUs.png") fixed center center;
-    /* background: linear-gradient(rgba(22, 20, 37, 0.9), rgba(32, 39, 73, 0.9)), url("../img/Header.png") fixed center center; */
     background-repeat: no-repeat;
     background-size: auto;
     padding: 120px 0;

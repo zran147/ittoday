@@ -175,7 +175,7 @@
 
           </div>
         </div>
-        <div class="spons Standard my-3"> <!-- 4 per-row -->
+        <div class="spons Standard my-5"> <!-- 4 per-row -->
           <div class="container justify-content-center">
 
             <div class="wrap justify-content-center" data-aos="zoom-in">
