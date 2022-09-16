@@ -166,10 +166,13 @@
           <div class="container justify-content-center">
             <div class="wrap justify-content-center" data-aos="zoom-in">
               <div class="col align-items-center justify-content-center" data-aos="zoom-in">
-                <img src="img/Sponsor/[LARGE]-dewaweb.png" class="img-fluid" alt="Dewaweb" style="max-width: 100%;">
+                <img src="/img/Sponsor/[LARGE]-dewaweb.png" class="img-fluid" alt="Dewaweb" style="max-width: 100%;">
               </div>
               <div class="col align-items-center justify-content-center" data-aos="zoom-in">
-                <img src="img/Sponsor/[LARGE]-TOYOTA.png" class="img-fluid" alt="Toyota" style="max-width: 100%;">
+                <img src="/img/Sponsor/[LARGE]-TOYOTA.jpg" class="img-fluid" alt="Toyota" style="max-width: 100%;">
+              </div>
+              <div class="col align-items-center justify-content-center" data-aos="zoom-in">
+                <img src="/img/Sponsor/[LARGE]-dicoding.png" class="img-fluid" alt="dicoding" style="max-width: 100%;">
               </div>
             </div>
 
@@ -181,7 +184,7 @@
             <div class="wrap justify-content-center" data-aos="zoom-in">
 
               <div class="col align-items-center justify-content-center" data-aos="zoom-in">
-                <img src="img/Sponsor/[STANDARD]-Tokocrypto.png" class="img-fluid" alt="Tokocrypto" style="max-width: 100%;">
+                <img src="/img/Sponsor/[STANDARD]-Tokocrypto.png" class="img-fluid" alt="Tokocrypto" style="max-width: 100%;">
               </div>
 
             </div>
